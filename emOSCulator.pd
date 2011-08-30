@@ -1,5 +1,5 @@
-#N canvas 729 25 535 480 10;
-#N canvas 617 71 570 525 OSCin 0;
+#N canvas 743 37 535 480 10;
+#N canvas 617 71 570 325 OSCin 0;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
 #X floatatom 52 84 10 0 0 1 millisecond_delay - -;
@@ -292,6 +292,7 @@
 #X connect 19 0 4 0;
 #X connect 20 0 4 0;
 #X restore 225 140 pd do_before_disconnect;
+#X obj 169 10 r slOSCout;
 #X connect 0 0 1 0;
 #X connect 1 0 8 0;
 #X connect 1 1 2 0;
@@ -305,6 +306,7 @@
 #X connect 13 0 8 0;
 #X connect 14 0 8 0;
 #X connect 14 1 1 0;
+#X connect 15 0 1 0;
 #X coords 0 -1 1 1 125 90 2 40 100;
 #X restore -83 345 pd OSCout;
 #N canvas 744 562 451 154 add_del_loop-\$0 0;
@@ -332,29 +334,117 @@
 #X connect 8 0 1 0;
 #X coords 0 -1 1 1 200 70 2 20 20;
 #X restore 87 258 pd add_del_loop-\$0;
-#N canvas 684 271 450 355 global_monitors-\$0 0;
+#N canvas 21 56 498 376 global_monitors-\$0 0;
 #X obj 116 123 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 110 256;
-#X obj 116 153 nbx 5 14 0 1e+37 0 0 empty SLsync_source sync_source
-0 -8 0 8 -262144 -1 -1 0 256;
+8 -262144 -1 -1 0 256;
 #X obj 116 183 nbx 5 14 0 1e+37 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 116 213 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak_meter
+#X obj 116 273 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak_meter
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 116 243 nbx 5 14 0 1e+37 0 0 empty SLwet wet 0 -8 0 8 -262144
+#X obj 346 123 nbx 5 14 0 1e+37 0 0 empty SLwet wet 0 -8 0 8 -262144
 -1 -1 1 256;
-#X obj 116 273 nbx 5 14 0 1e+37 0 0 empty SLdry dry 0 -8 0 8 -262144
+#X obj 346 153 nbx 5 14 0 1e+37 0 0 empty SLdry dry 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj 226 123 nbx 5 14 0 1e+37 0 0 empty SLinput_gain input_gain 0
+#X obj 116 213 nbx 5 14 0 1e+37 0 0 empty SLinput_gain input_gain 0
 -8 0 8 -262144 -1 -1 1 256;
-#X obj 226 153 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak_meter
-0 -8 0 8 -262144 -1 -1 0.000886917 256;
-#X obj 226 183 nbx 5 14 0 1e+37 0 0 empty SLeighths_per_cycle eighths_per_cycle
+#X obj 116 243 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak_meter
+0 -8 0 8 -262144 -1 -1 0.000873566 256;
+#X obj 296 243 nbx 5 14 0 1e+37 0 0 empty SLeighths_per_cycle eighths_per_cycle
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 226 213 nbx 5 14 0 1e+37 0 0 empty SLsmart_eighths smart_eighths
+#X obj 296 273 nbx 5 14 0 1e+37 0 0 empty SLsmart_eighths smart_eighths
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 226 243 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 0 256;
-#X coords 0 -1 1 1 240 200 2 100 100;
+#X obj 116 153 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
+-1 -1 1 256;
+#X obj 166 243 hsl 100 15 0 1 0 0 empty SLin_peak_meter empty -2 -8
+0 10 -262144 -1 -1 9 1;
+#X obj 166 273 hsl 100 15 0 1 0 0 empty SLout_peak_meter empty -2 -8
+0 10 -262144 -1 -1 0 1;
+#N canvas 448 37 574 562 sync_source_interface 0;
+#X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
+-8 0 8 -262144 -1 -1 0 256;
+#X obj 203 63 bng 15 250 50 0 empty empty empty -46 7 0 8 -262144 -1
+-1;
+#X symbolatom 138 62 10 0 0 0 - SLsync_source_message -;
+#X obj 241 85 + 1;
+#X obj 203 85 f;
+#X obj 241 107 moses 1;
+#X obj 280 85 + 1;
+#X obj 280 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 280 148 -4;
+#X msg 241 171 send /set sync_source \$1;
+#X obj -112 101 select -3 -2 -1 0 1 2 3 4 5 6 7 8 9 10 11 12;
+#X msg -112 465 set Internal;
+#X msg -96 445 set Midi;
+#X msg -80 425 set Jack;
+#X msg -64 405 set None;
+#X msg -31 365 set Loop2;
+#X msg -47 385 set Loop1;
+#X msg -15 345 set Loop3;
+#X msg 2 325 set Loop4;
+#X msg 18 305 set Loop5;
+#X msg 34 285 set Loop6;
+#X msg 51 265 set Loop7;
+#X msg 67 245 set Loop8;
+#X msg 83 225 set Loop9;
+#X msg 100 205 set Loop10;
+#X msg 116 185 set Loop11;
+#X msg 132 165 set Loop12;
+#X msg 149 145 set MOARLOOPS;
+#X obj 200 509 s SLsync_source_message;
+#X obj 241 194 s slOSCout;
+#X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
+-1 -1 1 256;
+#X obj 218 254 print t;
+#X connect 0 0 10 0;
+#X connect 1 0 4 0;
+#X connect 3 0 4 1;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 9 0;
+#X connect 5 1 7 0;
+#X connect 6 0 5 1;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 29 0;
+#X connect 9 0 31 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;
+#X connect 10 2 13 0;
+#X connect 10 3 14 0;
+#X connect 10 4 16 0;
+#X connect 10 5 15 0;
+#X connect 10 6 17 0;
+#X connect 10 7 18 0;
+#X connect 10 8 19 0;
+#X connect 10 9 20 0;
+#X connect 10 10 21 0;
+#X connect 10 11 22 0;
+#X connect 10 12 23 0;
+#X connect 10 13 24 0;
+#X connect 10 14 25 0;
+#X connect 10 15 26 0;
+#X connect 10 16 27 0;
+#X connect 11 0 28 0;
+#X connect 12 0 28 0;
+#X connect 13 0 28 0;
+#X connect 14 0 28 0;
+#X connect 15 0 28 0;
+#X connect 16 0 28 0;
+#X connect 17 0 28 0;
+#X connect 18 0 28 0;
+#X connect 19 0 28 0;
+#X connect 20 0 28 0;
+#X connect 21 0 28 0;
+#X connect 22 0 28 0;
+#X connect 23 0 28 0;
+#X connect 24 0 28 0;
+#X connect 25 0 28 0;
+#X connect 26 0 28 0;
+#X connect 27 0 28 0;
+#X connect 30 0 6 0;
+#X coords 0 -1 1 1 125 30 2 100 50;
+#X restore 194 110 pd sync_source_interface;
+#X coords 0 -1 1 1 320 200 2 100 100;
 #X restore -78 10 pd global_monitors-\$0;
 #X connect 2 0 1 0;
