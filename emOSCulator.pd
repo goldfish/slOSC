@@ -150,7 +150,7 @@
 #X obj 48 151 bng 15 250 50 0 empty empty connect 20 7 0 8 -258113
 -1 -1;
 #X obj 47 120 tgl 15 0 empty empty connected 20 7 0 8 -4034 -45076
--1 0 1;
+-1 1 1;
 #X obj 48 169 bng 15 250 50 0 empty empty disconnect 20 7 0 8 -258113
 -1 -1;
 #X text 44 100 OSC OUT;
@@ -406,7 +406,7 @@
 #X msg 239 42 send /loop_add 1 \$1;
 #X obj 277 103 s slOSCout;
 #X obj 156 81 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 2 256;
 #X obj 91 -11 f;
 #X obj 91 114 f;
 #X connect 0 0 8 0;
@@ -435,7 +435,7 @@
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
 22 0 8 -262144 -1 -1 0 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 2 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
 #X obj 423 161 * 111;
 #X obj 424 185 - 99;
@@ -494,7 +494,7 @@
 #X obj 200 509 s SLsync_source_message;
 #X obj 241 194 s slOSCout;
 #X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 2 256;
 #X connect 0 0 10 0;
 #X connect 1 0 4 0;
 #X connect 3 0 4 1;
@@ -590,7 +590,7 @@
 #X text -9 462 emOSCulator - puredata sooperlooper interface;
 #X text -10 482 controls are in red - changing other items can have
 unexpected results;
-#N canvas 393 25 486 475 current_loop_interface 0;
+#N canvas 315 25 486 475 current_loop_interface 1;
 #X obj 158 104 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 109 400 slOSCsender2;
@@ -771,22 +771,138 @@ unexpected results;
 0 8 -262144 -1 -1 0 256;
 #X obj 29 237 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
 0 8 -262144 -1 -1 0 256;
-#X obj 99 147 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
+#X obj 109 147 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
 0 8 -262144 -1 -1 0 256;
-#X obj 99 177 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state 0
--8 0 8 -262144 -1 -1 0 256;
-#X obj 99 207 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
+#X obj 299 239 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 99 237 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
+#X obj 109 207 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
+0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 299 187 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj 179 147 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
+#X obj 199 147 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 179 177 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
+#X obj 109 177 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 179 207 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
+#X obj 199 177 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
 0 -8 0 8 -262144 -1 -1 95.1089 256;
-#X obj 179 237 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
+#X obj 109 237 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
 8 -262144 -1 -1 0 256;
+#X symbolatom 199 237 12 0 0 2 next_state - -;
+#N canvas 0 0 488 522 parse_state 0;
+#X obj 72 26 inlet;
+#X obj 72 56 select -1 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14;
+#X msg 72 420 set Unknown;
+#X msg 88 400 set Off;
+#X msg 104 380 set WaitStart;
+#X msg 120 360 set Recording;
+#X msg 137 340 set WaitStop;
+#X msg 153 320 set Playing;
+#X msg 169 300 set Overdubbing;
+#X msg 186 280 set Multiplying;
+#X msg 202 260 set Inserting;
+#X msg 218 240 set Replacing;
+#X msg 235 220 set Delay;
+#X msg 251 200 set Muted;
+#X msg 267 180 set Scratching;
+#X msg 284 160 set OneShot;
+#X msg 300 140 set Substitute;
+#X msg 316 120 set Paused;
+#X msg 333 100 set Unknown2;
+#X obj 384 464 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;
+#X connect 1 3 5 0;
+#X connect 1 4 6 0;
+#X connect 1 5 7 0;
+#X connect 1 6 8 0;
+#X connect 1 7 9 0;
+#X connect 1 8 10 0;
+#X connect 1 9 11 0;
+#X connect 1 10 12 0;
+#X connect 1 11 13 0;
+#X connect 1 12 14 0;
+#X connect 1 13 15 0;
+#X connect 1 14 16 0;
+#X connect 1 15 17 0;
+#X connect 1 16 18 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 19 0;
+#X connect 15 0 19 0;
+#X connect 16 0 19 0;
+#X connect 17 0 19 0;
+#X connect 18 0 19 0;
+#X restore 299 206 pd parse_state;
+#N canvas 0 0 488 522 parse_next_state 0;
+#X obj 72 36 inlet;
+#X obj 72 66 select -1 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14;
+#X msg 72 430 set Unknown;
+#X msg 88 410 set Off;
+#X msg 104 390 set WaitStart;
+#X msg 120 370 set Recording;
+#X msg 137 350 set WaitStop;
+#X msg 153 330 set Playing;
+#X msg 169 310 set Overdubbing;
+#X msg 186 290 set Multiplying;
+#X msg 202 270 set Inserting;
+#X msg 218 250 set Replacing;
+#X msg 235 230 set Delay;
+#X msg 251 210 set Muted;
+#X msg 267 190 set Scratching;
+#X msg 284 170 set OneShot;
+#X msg 300 150 set Substitute;
+#X msg 316 130 set Paused;
+#X msg 333 110 set Unknown2;
+#X obj 384 474 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;
+#X connect 1 3 5 0;
+#X connect 1 4 6 0;
+#X connect 1 5 7 0;
+#X connect 1 6 8 0;
+#X connect 1 7 9 0;
+#X connect 1 8 10 0;
+#X connect 1 9 11 0;
+#X connect 1 10 12 0;
+#X connect 1 11 13 0;
+#X connect 1 12 14 0;
+#X connect 1 13 15 0;
+#X connect 1 14 16 0;
+#X connect 1 15 17 0;
+#X connect 1 16 18 0;
+#X connect 2 0 19 0;
+#X connect 3 0 19 0;
+#X connect 4 0 19 0;
+#X connect 5 0 19 0;
+#X connect 6 0 19 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 0;
+#X connect 10 0 19 0;
+#X connect 11 0 19 0;
+#X connect 12 0 19 0;
+#X connect 13 0 19 0;
+#X connect 14 0 19 0;
+#X connect 15 0 19 0;
+#X connect 16 0 19 0;
+#X connect 17 0 19 0;
+#X connect 18 0 19 0;
+#X restore 299 258 pd parse_next_state;
+#X symbolatom 199 207 12 0 0 2 state - -;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
@@ -795,4 +911,8 @@ unexpected results;
 #X connect 5 0 1 0;
 #X connect 6 0 7 0;
 #X connect 7 0 3 0;
+#X connect 14 0 23 0;
+#X connect 16 0 22 0;
+#X connect 22 0 24 0;
+#X connect 23 0 21 0;
 #X restore 64 527 pd current_loop_interface;
