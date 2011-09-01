@@ -1,4 +1,4 @@
-#N canvas 881 25 397 560 10;
+#N canvas 813 25 333 560 10;
 #N canvas 617 71 570 325 OSCin 0;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
@@ -10,7 +10,7 @@
 #X text 205 22 OSC IN;
 #X obj 94 136 print incomingOSC;
 #X obj -5 109 routeOSC /updates;
-#N canvas 0 287 838 395 processUpdates 0;
+#N canvas 353 270 838 395 processUpdates 0;
 #X obj 5 14 inlet;
 #X obj 5 131 routeOSC /eighth_per_cycle /smart_eighths;
 #X obj 339 44 routeOSC /auto_disable_latency /output_midi_clock /use_midi_start
@@ -37,15 +37,75 @@
 #X obj 135 158 unpack f s f;
 #X obj 5 182 s SLeighth_per_cycle;
 #X obj 135 182 s SLsmart_eighths;
-#X obj 663 106 print UNKNOWN_UPDATE;
+#X obj 339 146 print UNKNOWN_UPDATE;
 #X obj 5 291 routeOSC /out_peak_meter /wet /dry /loops;
 #X obj 280 347 s SLloops;
 #X obj 280 323 unpack s s f;
+#N canvas 585 25 450 300 current_channel_interface_messages 0;
+#X obj 16 22 inlet;
+#X obj 13 274 outlet;
+#X obj 39 46 routeOSC /cycle_len /free_time /is_soloed /loop_len;
+#X obj 41 124 routeOSC /loop_pos /next_state /pitch_shift /state;
+#X obj 41 198 routeOSC /rate_output /stretch_ratio /total_time /waiting
+;
+#X obj 39 70 unpack f s f;
+#X obj 39 94 s CCIcycle_len;
+#X obj 129 70 unpack f s f;
+#X obj 129 94 s CCIfree_time;
+#X obj 219 70 unpack f s f;
+#X obj 219 94 s CCIis_soloed;
+#X obj 309 70 unpack f s f;
+#X obj 309 94 s CCIloop_len;
+#X obj 39 150 unpack f s f;
+#X obj 129 150 unpack f s f;
+#X obj 219 150 unpack f s f;
+#X obj 309 150 unpack f s f;
+#X obj 39 174 s CCIloop_pos;
+#X obj 123 174 s CCInext_state;
+#X obj 219 174 s CCIpitch_shift;
+#X obj 322 174 s CCIstate;
+#X obj 39 220 unpack f s f;
+#X obj 129 220 unpack f s f;
+#X obj 219 220 unpack f s f;
+#X obj 309 220 unpack f s f;
+#X obj 39 244 s CCIrate_output;
+#X obj 140 244 s CCIstretch_ratio;
+#X obj 253 244 s CCItotal_time;
+#X obj 348 244 s CCIwaiting;
+#X connect 0 0 2 0;
+#X connect 2 0 5 0;
+#X connect 2 1 7 0;
+#X connect 2 2 9 0;
+#X connect 2 3 11 0;
+#X connect 2 4 3 0;
+#X connect 3 0 13 0;
+#X connect 3 1 14 0;
+#X connect 3 2 15 0;
+#X connect 3 3 16 0;
+#X connect 3 4 4 0;
+#X connect 4 0 21 0;
+#X connect 4 1 22 0;
+#X connect 4 2 23 0;
+#X connect 4 3 24 0;
+#X connect 4 4 1 0;
+#X connect 5 2 6 0;
+#X connect 7 2 8 0;
+#X connect 9 2 10 0;
+#X connect 11 2 12 0;
+#X connect 13 2 17 0;
+#X connect 14 2 18 0;
+#X connect 15 2 19 0;
+#X connect 16 2 20 0;
+#X connect 21 2 25 0;
+#X connect 22 2 26 0;
+#X connect 23 2 27 0;
+#X connect 24 2 28 0;
+#X restore 339 120 pd current_channel_interface_messages;
 #X connect 0 0 3 0;
 #X connect 1 0 21 0;
 #X connect 1 1 22 0;
 #X connect 1 2 4 0;
-#X connect 2 5 25 0;
+#X connect 2 5 29 0;
 #X connect 3 0 6 0;
 #X connect 3 1 7 0;
 #X connect 3 2 9 0;
@@ -69,6 +129,7 @@
 #X connect 26 3 28 0;
 #X connect 26 4 2 0;
 #X connect 28 2 27 0;
+#X connect 29 0 25 0;
 #X restore -5 166 pd processUpdates;
 #X connect 1 0 3 0;
 #X connect 1 1 2 0;
@@ -81,7 +142,7 @@
 #X connect 9 1 8 0;
 #X coords 0 -1 1 1 125 25 2 200 20;
 #X restore 166 338 pd OSCin;
-#N canvas 465 51 381 270 OSCout 0;
+#N canvas 20 286 381 270 OSCout 0;
 #X obj 131 10 inlet;
 #X obj 131 35 packOSC;
 #X floatatom 170 58 5 0 0 0 - - -;
@@ -89,7 +150,7 @@
 #X obj 48 151 bng 15 250 50 0 empty empty connect 20 7 0 8 -258113
 -1 -1;
 #X obj 47 120 tgl 15 0 empty empty connected 20 7 0 8 -4034 -45076
--1 1 1;
+-1 0 1;
 #X obj 48 169 bng 15 250 50 0 empty empty disconnect 20 7 0 8 -258113
 -1 -1;
 #X text 44 100 OSC OUT;
@@ -234,12 +295,12 @@
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
 #X restore 225 100 pd do_before_connect;
-#N canvas 336 25 415 347 do_before_disconnect 0;
+#N canvas 383 311 528 387 do_before_disconnect 0;
 #X obj 57 244 outlet;
-#X msg 57 157 disconnect;
+#X msg 57 194 disconnect;
 #X obj 158 244 outlet;
 #X obj 158 21 inlet;
-#X obj 158 121 slOSCsender2;
+#X obj 158 219 slOSCsender2;
 #N canvas 0 0 730 575 global_unregister_update 0;
 #X obj 18 16 inlet;
 #X msg 234 68 3 /unregister_update tempo /updates/tempo;
@@ -303,10 +364,12 @@
 #X connect 14 0 17 0;
 #X connect 15 0 17 0;
 #X connect 16 0 17 0;
-#X restore 158 56 pd global_unregister_update;
+#X restore 158 194 pd global_unregister_update;
+#X obj 170 45 s disable_monitors_current;
 #X connect 1 0 0 0;
 #X connect 3 0 1 0;
 #X connect 3 0 5 0;
+#X connect 3 0 6 0;
 #X connect 4 0 2 0;
 #X connect 5 0 4 0;
 #X restore 225 140 pd do_before_disconnect;
@@ -343,7 +406,7 @@
 #X msg 239 42 send /loop_add 1 \$1;
 #X obj 277 103 s slOSCout;
 #X obj 156 81 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 10 256;
+-1 -1 1 256;
 #X obj 91 -11 f;
 #X obj 91 114 f;
 #X connect 0 0 8 0;
@@ -360,7 +423,7 @@
 #X restore 51 371 pd add_del_loop-\$0;
 #N canvas 21 56 498 514 global_monitors-\$0 0;
 #X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 0 256;
+8 -262144 -1 -1 110 256;
 #X obj 228 118 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 289 260 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak
@@ -372,7 +435,7 @@
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
 22 0 8 -262144 -1 -1 0 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 10 256;
+-1 -1 1 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
 #X obj 423 161 * 111;
 #X obj 424 185 - 99;
@@ -398,7 +461,7 @@
 #N canvas 221 240 415 321 sync_interface 0;
 #N canvas 448 37 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
--8 0 8 -262144 -1 -1 1 256;
+-8 0 8 -262144 -1 -1 0 256;
 #X obj 203 63 bng 15 250 50 0 empty empty empty -46 7 0 8 -258113 -1
 -1;
 #X symbolatom 138 62 10 0 0 0 - SLsync_source_message -;
@@ -431,7 +494,7 @@
 #X obj 200 509 s SLsync_source_message;
 #X obj 241 194 s slOSCout;
 #X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 10 256;
+-1 -1 1 256;
 #X connect 0 0 10 0;
 #X connect 1 0 4 0;
 #X connect 3 0 4 1;
@@ -527,81 +590,84 @@
 #X text -9 462 emOSCulator - puredata sooperlooper interface;
 #X text -10 482 controls are in red - changing other items can have
 unexpected results;
-#N canvas 0 0 921 475 current_loop_interface 0;
-#X obj 29 49 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
+#N canvas 393 25 486 475 current_loop_interface 0;
+#X obj 158 104 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
-#X floatatom 29 71 3 0 0 0 - - -;
-#X floatatom 478 104 5 0 0 1 last_loop - -;
-#X obj 29 118 delay 5;
-#X obj 433 104 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 433 149 unpack f f;
-#X obj 433 126 pack 0 0;
-#X obj 29 369 outlet;
-#X floatatom 74 148 5 0 0 1 next_loop - -;
-#X obj 29 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 29 203 unpack f f;
-#X obj 29 170 pack 0 0;
-#X obj 29 300 slOSCsender2;
-#X obj 504 384 spigot;
-#X obj 504 411 print loopStatusTS;
-#X obj 537 363 tgl 15 0 empty empty turn_on_for_debug 17 7 0 8 -262144
--1 -1 0 1;
-#N canvas 533 40 685 542 register_auto_update_current 0;
-#X obj 8 49 inlet;
-#X obj 8 208 outlet;
-#X msg 313 -5 4 /sl/-3/register_auto_update state 100 /updates/-3/state
+#X obj 109 400 slOSCsender2;
+#N canvas 31 40 1108 473 register_auto_update_current 0;
+#X obj 8 69 inlet;
+#X obj 8 228 outlet;
+#X msg 273 48 4 /sl/-3/register_auto_update next_state 100 /updates/next_state
 ;
-#X msg 303 15 4 /sl/-3/register_auto_update next_state 100 /updates/next_state
+#X msg 263 81 4 /sl/-3/register_auto_update loop_pos 100 /updates/loop_pos
 ;
-#X msg 293 48 4 /sl/-3/register_auto_update loop_pos 100 /updates/loop_pos
+#X msg 244 122 4 /sl/-3/register_auto_update cycle_len 100 /updates/cycle_len
 ;
-#X msg 283 68 4 /sl/-3/register_auto_update state 100 /updates/-3/state
+#X msg 234 155 4 /sl/-3/register_auto_update free_time 100 /updates/free_time
 ;
-#X msg 273 88 4 /sl/-3/register_auto_update next_state 100 /updates/next_state
+#X msg 214 221 4 /sl/-3/register_auto_update waiting 100 /updates/waiting
 ;
-#X msg 263 121 4 /sl/-3/register_auto_update loop_pos 100 /updates/loop_pos
+#X msg 204 241 4 /sl/-3/register_auto_update rate_output 100 /updates/rate_output
 ;
-#X msg 254 142 4 /sl/-3/register_auto_update loop_len 100 /updates/-3/loop_len
+#X msg 194 275 4 /sl/-3/register_auto_update in_peak_meter 100 /updates/in_peak_meter
 ;
-#X msg 244 175 4 /sl/-3/register_auto_update cycle_len 100 /updates/cycle_len
+#X msg 184 308 4 /sl/-3/register_auto_update out_peak_meter 100 /updates/out_peak_meter
 ;
-#X msg 234 208 4 /sl/-3/register_auto_update free_time 100 /updates/free_time
+#X msg 164 374 4 /sl/-3/register_auto_update stretch_ratio 100 /updates/stretch_ratio
 ;
-#X msg 224 241 4 /sl/-3/register_auto_update total_time 100 /updates/-3/total_time
+#X msg 154 407 4 /sl/-3/register_auto_update pitch_shift 100 /updates/pitch_shift
 ;
-#X msg 214 274 4 /sl/-3/register_auto_update waiting 100 /updates/waiting
+#X msg 174 341 4 /sl/-3/register_auto_update is_soloed 100 /updates/is_soloed
 ;
-#X msg 204 294 4 /sl/-3/register_auto_update rate_output 100 /updates/rate_output
+#X msg 224 188 4 /sl/-3/register_auto_update total_time 100 /updates/total_time
 ;
-#X msg 194 328 4 /sl/-3/register_auto_update in_peak_meter 100 /updates/in_peak_meter
+#X msg 254 102 4 /sl/-3/register_auto_update loop_len 100 /updates/loop_len
 ;
-#X msg 184 361 4 /sl/-3/register_auto_update out_peak_meter 100 /updates/out_peak_meter
+#X msg 283 28 4 /sl/-3/register_auto_update state 100 /updates/state
 ;
-#X msg 174 394 4 /sl/-3/register_auto_update is_soloed 100 /updates/-3/is_soloed
+#X msg 813 158 3 /sl/-3/get state /updates/state;
+#X msg 803 178 3 /sl/-3/get next_state /updates/next_state;
+#X msg 793 197 3 /sl/-3/get loop_pos /updates/loop_pos;
+#X msg 784 218 3 /sl/-3/get loop_len /updates/loop_len;
+#X msg 774 238 3 /sl/-3/get cycle_len /updates/cycle_len;
+#X msg 764 257 3 /sl/-3/get free_time /updates/free_time;
+#X msg 754 276 3 /sl/-3/get total_time /updates/total_time;
+#X msg 744 295 3 /sl/-3/get waiting /updates/waiting;
+#X msg 734 315 3 /sl/-3/get rate_output /updates/rate_output;
+#X msg 724 335 3 /sl/-3/get in_peak_meter /updates/in_peak_meter;
+#X msg 714 355 3 /sl/-3/get out_peak_meter /updates/out_peak_meter
 ;
-#X msg 164 427 4 /sl/-3/register_auto_update stretch_ratio 100 /updates/stretch_ratio
-;
-#X msg 154 460 4 /sl/-3/register_auto_update pitch_shift 100 /updates/pitch_shift
-;
+#X msg 704 375 3 /sl/-3/get is_soloed /updates/is_soloed;
+#X msg 694 395 3 /sl/-3/get stretch_ratio /updates/stretch_ratio;
+#X msg 684 415 3 /sl/-3/get pitch_shift /updates/pitch_shift;
+#X connect 0 0 15 0;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
+#X connect 0 0 14 0;
 #X connect 0 0 4 0;
 #X connect 0 0 5 0;
+#X connect 0 0 13 0;
 #X connect 0 0 6 0;
 #X connect 0 0 7 0;
 #X connect 0 0 8 0;
 #X connect 0 0 9 0;
+#X connect 0 0 12 0;
 #X connect 0 0 10 0;
 #X connect 0 0 11 0;
-#X connect 0 0 12 0;
-#X connect 0 0 13 0;
-#X connect 0 0 14 0;
-#X connect 0 0 15 0;
 #X connect 0 0 16 0;
 #X connect 0 0 17 0;
 #X connect 0 0 18 0;
+#X connect 0 0 19 0;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
+#X connect 0 0 22 0;
+#X connect 0 0 23 0;
+#X connect 0 0 24 0;
+#X connect 0 0 25 0;
+#X connect 0 0 26 0;
+#X connect 0 0 27 0;
+#X connect 0 0 28 0;
+#X connect 0 0 29 0;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
 #X connect 4 0 1 0;
@@ -619,33 +685,114 @@ unexpected results;
 #X connect 16 0 1 0;
 #X connect 17 0 1 0;
 #X connect 18 0 1 0;
-#X restore 203 193 pd register_auto_update_current;
-#X msg 49 237 4 /sl/-3/register_auto_update loop_pos 100 /updates/loop_pos
+#X connect 19 0 1 0;
+#X connect 20 0 1 0;
+#X connect 21 0 1 0;
+#X connect 22 0 1 0;
+#X connect 23 0 1 0;
+#X connect 24 0 1 0;
+#X connect 25 0 1 0;
+#X connect 26 0 1 0;
+#X connect 27 0 1 0;
+#X connect 28 0 1 0;
+#X connect 29 0 1 0;
+#X restore 29 366 pd register_auto_update_current;
+#X obj 29 98 tgl 15 0 empty empty enable_monitors 17 7 0 8 -258113
+-1 -1 0 1;
+#X obj 109 332 select 1;
+#N canvas 533 40 685 503 unregister_auto_update_current 0;
+#X obj 8 69 inlet;
+#X obj 8 228 outlet;
+#X msg 273 108 3 /sl/-3/unregister_auto_update next_state /updates/next_state
 ;
-#X msg 39 257 4 /sl/-3/register_auto_update loop_len 100 /updates/loop_len
+#X msg 263 141 3 /sl/-3/unregister_auto_update loop_pos /updates/loop_pos
 ;
-#X msg 29 277 4 /sl/-3/register_auto_update state 100 /updates/state
+#X msg 244 182 3 /sl/-3/unregister_auto_update cycle_len /updates/cycle_len
 ;
-#X connect 0 0 1 0;
-#X connect 1 0 4 0;
-#X connect 1 0 3 0;
+#X msg 234 202 3 /sl/-3/unregister_auto_update free_time /updates/free_time
+;
+#X msg 214 255 3 /sl/-3/unregister_auto_update waiting /updates/waiting
+;
+#X msg 204 275 3 /sl/-3/unregister_auto_update rate_output /updates/rate_output
+;
+#X msg 194 309 3 /sl/-3/unregister_auto_update in_peak_meter /updates/in_peak_meter
+;
+#X msg 184 342 3 /sl/-3/unregister_auto_update out_peak_meter /updates/out_peak_meter
+;
+#X msg 164 395 3 /sl/-3/unregister_auto_update stretch_ratio /updates/stretch_ratio
+;
+#X msg 154 428 3 /sl/-3/unregister_auto_update pitch_shift /updates/pitch_shift
+;
+#X msg 283 88 3 /sl/-3/unregister_auto_update state /updates/state
+;
+#X msg 254 162 3 /sl/-3/unregister_auto_update loop_len /updates/loop_len
+;
+#X msg 224 222 3 /sl/-3/unregister_auto_update total_time /updates/total_time
+;
+#X msg 174 375 3 /sl/-3/unregister_auto_update is_soloed /updates/is_soloed
+;
+#X connect 0 0 12 0;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 13 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 0 0 14 0;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 9 0;
+#X connect 0 0 15 0;
+#X connect 0 0 10 0;
+#X connect 0 0 11 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 1 0;
+#X restore 229 366 pd unregister_auto_update_current;
+#X obj 29 36 r disable_monitors_current;
+#X msg 29 56 set 0;
+#X obj 29 439 s slOSCout;
+#X obj 29 147 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 29 177 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
+0 8 -262144 -1 -1 95.1089 256;
+#X obj 29 207 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 29 237 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 99 147 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 99 177 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state 0
+-8 0 8 -262144 -1 -1 0 256;
+#X obj 99 207 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
+0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 99 237 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
+-1 -1 0 256;
+#X obj 179 147 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
+0 -8 0 8 -262144 -1 -1 1 256;
+#X obj 179 177 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
+0 -8 0 8 -262144 -1 -1 1 256;
+#X obj 179 207 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
+0 -8 0 8 -262144 -1 -1 95.1089 256;
+#X obj 179 237 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
+8 -262144 -1 -1 0 256;
 #X connect 1 0 8 0;
-#X connect 1 0 2 0;
-#X connect 2 0 6 1;
-#X connect 3 0 9 0;
-#X connect 4 0 6 0;
-#X connect 6 0 5 0;
-#X connect 8 0 11 1;
-#X connect 9 0 11 0;
-#X connect 10 1 19 0;
-#X connect 10 1 18 0;
-#X connect 10 1 17 0;
-#X connect 11 0 10 0;
-#X connect 12 0 7 0;
-#X connect 12 0 13 0;
-#X connect 13 0 14 0;
-#X connect 15 0 13 1;
-#X connect 17 0 12 0;
-#X connect 18 0 12 0;
-#X connect 19 0 12 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 4 1 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
 #X restore 64 527 pd current_loop_interface;
