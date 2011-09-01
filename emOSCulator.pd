@@ -433,7 +433,7 @@
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00102806 256;
+22 0 8 -262144 -1 -1 0.00104153 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 2 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
@@ -590,10 +590,10 @@
 #X text -9 462 emOSCulator - puredata sooperlooper interface;
 #X text -10 482 controls are in red - changing other items can have
 unexpected results;
-#N canvas 315 25 486 615 current_loop_interface 1;
+#N canvas 457 25 486 615 current_loop_interface 1;
 #X obj 148 64 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 33 7 0 8 -262144 -1 -1 0 256;
-#X obj 99 540 slOSCsender2;
+#X obj 99 550 slOSCsender2;
 #N canvas 31 40 1108 473 register_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -696,10 +696,10 @@ unexpected results;
 #X connect 27 0 1 0;
 #X connect 28 0 1 0;
 #X connect 29 0 1 0;
-#X restore 19 506 pd register_auto_update_current;
+#X restore 19 516 pd register_auto_update_current;
 #X obj 19 63 tgl 15 0 empty empty enable_monitors 17 7 0 8 -258113
 -1 -1 0 1;
-#X obj 99 472 select 1;
+#X obj 99 482 select 1;
 #N canvas 533 40 685 503 unregister_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -759,10 +759,10 @@ unexpected results;
 #X connect 13 0 1 0;
 #X connect 14 0 1 0;
 #X connect 15 0 1 0;
-#X restore 219 506 pd unregister_auto_update_current;
+#X restore 219 516 pd unregister_auto_update_current;
 #X obj 19 16 r disable_monitors_current;
 #X msg 19 36 set 0;
-#X obj 19 579 s slOSCout;
+#X obj 19 589 s slOSCout;
 #X obj 19 102 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 19 132 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
@@ -903,6 +903,56 @@ unexpected results;
 #X connect 18 0 19 0;
 #X restore 289 213 pd parse_next_state;
 #X symbolatom 189 162 12 0 0 2 state - -;
+#X obj 27 249 bng 20 250 50 0 empty empty RECORD 22 10 0 10 -258113
+-1 -1;
+#X obj 27 279 bng 20 250 50 0 empty empty OVERDUB 22 10 0 10 -258113
+-1 -1;
+#X obj 27 309 bng 20 250 50 0 empty empty MULTIPLY 22 10 0 10 -258113
+-1 -1;
+#X obj 27 339 bng 20 250 50 0 empty empty INSERT 22 10 0 10 -258113
+-1 -1;
+#X obj 137 249 bng 20 250 50 0 empty empty REPLACE 22 10 0 10 -258113
+-1 -1;
+#X obj 137 279 bng 20 250 50 0 empty empty REVERSE 22 10 0 10 -258113
+-1 -1;
+#X obj 137 309 bng 20 250 50 0 empty empty MUTE 22 10 0 10 -258113
+-1 -1;
+#X obj 137 339 bng 20 250 50 0 empty empty UNDO 22 10 0 10 -258113
+-1 -1;
+#X obj 357 249 bng 20 250 50 0 empty empty REDO 22 10 0 10 -258113
+-1 -1;
+#X obj 357 279 bng 20 250 50 0 empty empty ONESHOT 22 10 0 10 -258113
+-1 -1;
+#X obj 357 309 bng 20 250 50 0 empty empty TRIGGER 22 10 0 10 -258113
+-1 -1;
+#X obj 357 339 bng 20 250 50 0 empty empty SUBSTITUTE 22 10 0 10 -258113
+-1 -1;
+#X obj 237 249 bng 20 250 50 0 empty empty UNDO_ALL 22 10 0 10 -258113
+-1 -1;
+#X obj 237 279 bng 20 250 50 0 empty empty REDO_ALL 22 10 0 10 -258113
+-1 -1;
+#X obj 237 309 bng 20 250 50 0 empty empty MUTE_ON 22 10 0 10 -258113
+-1 -1;
+#X obj 237 339 bng 20 250 50 0 empty empty MUTE_OFF 22 10 0 10 -258113
+-1 -1;
+#X obj 27 369 bng 20 250 50 0 empty empty SOLO 22 10 0 10 -258113 -1
+-1;
+#X obj 317 369 bng 20 250 50 0 empty empty PAUSE 22 10 0 10 -258113
+-1 -1;
+#X obj 27 399 bng 20 250 50 0 empty empty SOLO_NEXT 22 10 0 10 -258113
+-1 -1;
+#X obj 137 429 bng 20 250 50 0 empty empty RECORD_SOLO_PREV 22 10 0
+10 -258113 -1 -1;
+#X obj 27 429 bng 20 250 50 0 empty empty SOLO_PREV 22 10 0 10 -258113
+-1 -1;
+#X obj 137 369 bng 20 250 50 0 empty empty RECORD_SOLO 22 10 0 10 -258113
+-1 -1;
+#X obj 137 399 bng 20 250 50 0 empty empty RECORD_SOLO_NEXT 22 10 0
+10 -258113 -1 -1;
+#X obj 317 399 bng 20 250 50 0 empty empty SET_SYNC_POS 22 10 0 10
+-258113 -1 -1;
+#X obj 317 429 bng 20 250 50 0 empty empty RESET_SYNC_POS 22 10 0 10
+-258113 -1 -1;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
