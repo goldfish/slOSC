@@ -1,4 +1,4 @@
-#N canvas 813 25 333 560 10;
+#N canvas 945 25 333 560 10;
 #N canvas 617 71 570 325 OSCin 0;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
@@ -433,7 +433,7 @@
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00104153 256;
+22 0 8 -262144 -1 -1 0.00134468 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 2 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
@@ -459,7 +459,7 @@
 #X coords 0 -1 1 1 300 200 2 100 100;
 #X restore -9 31 pd global_monitors-\$0;
 #N canvas 221 240 415 321 sync_interface 0;
-#N canvas 448 37 574 562 sync_source_interface 0;
+#N canvas 704 25 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
 -8 0 8 -262144 -1 -1 0 256;
 #X obj 203 63 bng 15 250 50 0 empty empty empty -46 7 0 8 -258113 -1
@@ -590,7 +590,7 @@
 #X text -9 462 emOSCulator - puredata sooperlooper interface;
 #X text -10 482 controls are in red - changing other items can have
 unexpected results;
-#N canvas 457 25 486 615 current_loop_interface 1;
+#N canvas 524 25 486 615 current_loop_interface 0;
 #X obj 148 64 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 33 7 0 8 -262144 -1 -1 0 256;
 #X obj 99 550 slOSCsender2;
@@ -903,56 +903,134 @@ unexpected results;
 #X connect 18 0 19 0;
 #X restore 289 213 pd parse_next_state;
 #X symbolatom 189 162 12 0 0 2 state - -;
-#X obj 27 249 bng 20 250 50 0 empty empty RECORD 22 10 0 10 -258113
+#N canvas 473 25 470 636 SLcommand_buttons 1;
+#X obj 27 29 bng 20 250 50 0 empty empty RECORD 22 10 0 10 -258113
 -1 -1;
-#X obj 27 279 bng 20 250 50 0 empty empty OVERDUB 22 10 0 10 -258113
+#X obj 27 59 bng 20 250 50 0 empty empty OVERDUB 22 10 0 10 -258113
 -1 -1;
-#X obj 27 309 bng 20 250 50 0 empty empty MULTIPLY 22 10 0 10 -258113
+#X obj 27 89 bng 20 250 50 0 empty empty MULTIPLY 22 10 0 10 -258113
 -1 -1;
-#X obj 27 339 bng 20 250 50 0 empty empty INSERT 22 10 0 10 -258113
+#X obj 27 119 bng 20 250 50 0 empty empty INSERT 22 10 0 10 -258113
 -1 -1;
-#X obj 137 249 bng 20 250 50 0 empty empty REPLACE 22 10 0 10 -258113
+#X obj 137 29 bng 20 250 50 0 empty empty REPLACE 22 10 0 10 -258113
 -1 -1;
-#X obj 137 279 bng 20 250 50 0 empty empty REVERSE 22 10 0 10 -258113
+#X obj 137 59 bng 20 250 50 0 empty empty REVERSE 22 10 0 10 -258113
 -1 -1;
-#X obj 137 309 bng 20 250 50 0 empty empty MUTE 22 10 0 10 -258113
--1 -1;
-#X obj 137 339 bng 20 250 50 0 empty empty UNDO 22 10 0 10 -258113
--1 -1;
-#X obj 357 249 bng 20 250 50 0 empty empty REDO 22 10 0 10 -258113
--1 -1;
-#X obj 357 279 bng 20 250 50 0 empty empty ONESHOT 22 10 0 10 -258113
--1 -1;
-#X obj 357 309 bng 20 250 50 0 empty empty TRIGGER 22 10 0 10 -258113
--1 -1;
-#X obj 357 339 bng 20 250 50 0 empty empty SUBSTITUTE 22 10 0 10 -258113
--1 -1;
-#X obj 237 249 bng 20 250 50 0 empty empty UNDO_ALL 22 10 0 10 -258113
--1 -1;
-#X obj 237 279 bng 20 250 50 0 empty empty REDO_ALL 22 10 0 10 -258113
--1 -1;
-#X obj 237 309 bng 20 250 50 0 empty empty MUTE_ON 22 10 0 10 -258113
--1 -1;
-#X obj 237 339 bng 20 250 50 0 empty empty MUTE_OFF 22 10 0 10 -258113
--1 -1;
-#X obj 27 369 bng 20 250 50 0 empty empty SOLO 22 10 0 10 -258113 -1
+#X obj 137 89 bng 20 250 50 0 empty empty MUTE 22 10 0 10 -258113 -1
 -1;
-#X obj 317 369 bng 20 250 50 0 empty empty PAUSE 22 10 0 10 -258113
+#X obj 137 119 bng 20 250 50 0 empty empty UNDO 22 10 0 10 -258113
 -1 -1;
-#X obj 27 399 bng 20 250 50 0 empty empty SOLO_NEXT 22 10 0 10 -258113
+#X obj 357 29 bng 20 250 50 0 empty empty REDO 22 10 0 10 -258113 -1
+-1;
+#X obj 357 59 bng 20 250 50 0 empty empty ONESHOT 22 10 0 10 -258113
 -1 -1;
-#X obj 137 429 bng 20 250 50 0 empty empty RECORD_SOLO_PREV 22 10 0
+#X obj 357 89 bng 20 250 50 0 empty empty TRIGGER 22 10 0 10 -258113
+-1 -1;
+#X obj 357 119 bng 20 250 50 0 empty empty SUBSTITUTE 22 10 0 10 -258113
+-1 -1;
+#X obj 237 29 bng 20 250 50 0 empty empty UNDO_ALL 22 10 0 10 -258113
+-1 -1;
+#X obj 237 59 bng 20 250 50 0 empty empty REDO_ALL 22 10 0 10 -258113
+-1 -1;
+#X obj 237 89 bng 20 250 50 0 empty empty MUTE_ON 22 10 0 10 -258113
+-1 -1;
+#X obj 237 119 bng 20 250 50 0 empty empty MUTE_OFF 22 10 0 10 -258113
+-1 -1;
+#X obj 27 149 bng 20 250 50 0 empty empty SOLO 22 10 0 10 -258113 -1
+-1;
+#X obj 317 149 bng 20 250 50 0 empty empty PAUSE 22 10 0 10 -258113
+-1 -1;
+#X obj 27 179 bng 20 250 50 0 empty empty SOLO_NEXT 22 10 0 10 -258113
+-1 -1;
+#X obj 137 209 bng 20 250 50 0 empty empty RECORD_SOLO_PREV 22 10 0
 10 -258113 -1 -1;
-#X obj 27 429 bng 20 250 50 0 empty empty SOLO_PREV 22 10 0 10 -258113
+#X obj 27 209 bng 20 250 50 0 empty empty SOLO_PREV 22 10 0 10 -258113
 -1 -1;
-#X obj 137 369 bng 20 250 50 0 empty empty RECORD_SOLO 22 10 0 10 -258113
+#X obj 137 149 bng 20 250 50 0 empty empty RECORD_SOLO 22 10 0 10 -258113
 -1 -1;
-#X obj 137 399 bng 20 250 50 0 empty empty RECORD_SOLO_NEXT 22 10 0
+#X obj 137 179 bng 20 250 50 0 empty empty RECORD_SOLO_NEXT 22 10 0
 10 -258113 -1 -1;
-#X obj 317 399 bng 20 250 50 0 empty empty SET_SYNC_POS 22 10 0 10
+#X obj 317 179 bng 20 250 50 0 empty empty SET_SYNC_POS 22 10 0 10
 -258113 -1 -1;
-#X obj 317 429 bng 20 250 50 0 empty empty RESET_SYNC_POS 22 10 0 10
+#X obj 317 209 bng 20 250 50 0 empty empty RESET_SYNC_POS 22 10 0 10
 -258113 -1 -1;
+#X msg 57 269 send /sl/-3/hit record;
+#X msg 57 289 send /sl/-3/hit overdub;
+#X msg 57 309 send /sl/-3/hit multiply;
+#X msg 57 329 send /sl/-3/hit insert;
+#X msg 57 349 send /sl/-3/hit solo;
+#X msg 57 369 send /sl/-3/hit solo_next;
+#X msg 57 389 send /sl/-3/hit solo_prev;
+#X msg 257 269 send /sl/-3/hit replace;
+#X msg 257 289 send /sl/-3/hit reverse;
+#X msg 257 309 send /sl/-3/hit mute;
+#X msg 257 329 send /sl/-3/hit undo;
+#X msg 257 349 send /sl/-3/hit record_solo;
+#X msg 257 369 send /sl/-3/hit record_solo_next;
+#X msg 257 389 send /sl/-3/hit record_solo_prev;
+#X msg 57 409 send /sl/-3/hit undo_all;
+#X msg 57 429 send /sl/-3/hit redo_all;
+#X msg 57 449 send /sl/-3/hit mute_on;
+#X msg 57 469 send /sl/-3/hit mute_off;
+#X msg 257 409 send /sl/-3/hit redo;
+#X msg 257 429 send /sl/-3/hit oneshot;
+#X msg 257 449 send /sl/-3/hit trigger;
+#X msg 257 469 send /sl/-3/hit substitute;
+#X msg 257 489 send /sl/-3/hit pause;
+#X msg 257 509 send /sl/-3/hit set_sync_pos;
+#X msg 257 529 send /sl/-3/hit reset_sync_pos;
+#X obj 158 602 print SLoscout;
+#X connect 0 0 25 0;
+#X connect 1 0 26 0;
+#X connect 2 0 27 0;
+#X connect 3 0 28 0;
+#X connect 4 0 32 0;
+#X connect 5 0 33 0;
+#X connect 6 0 34 0;
+#X connect 7 0 35 0;
+#X connect 8 0 43 0;
+#X connect 9 0 44 0;
+#X connect 10 0 45 0;
+#X connect 11 0 46 0;
+#X connect 12 0 39 0;
+#X connect 13 0 40 0;
+#X connect 14 0 41 0;
+#X connect 15 0 42 0;
+#X connect 16 0 29 0;
+#X connect 17 0 47 0;
+#X connect 18 0 30 0;
+#X connect 19 0 38 0;
+#X connect 20 0 31 0;
+#X connect 21 0 36 0;
+#X connect 22 0 37 0;
+#X connect 23 0 48 0;
+#X connect 24 0 49 0;
+#X connect 25 0 50 0;
+#X connect 26 0 50 0;
+#X connect 27 0 50 0;
+#X connect 28 0 50 0;
+#X connect 29 0 50 0;
+#X connect 30 0 50 0;
+#X connect 31 0 50 0;
+#X connect 32 0 50 0;
+#X connect 33 0 50 0;
+#X connect 34 0 50 0;
+#X connect 35 0 50 0;
+#X connect 36 0 50 0;
+#X connect 37 0 50 0;
+#X connect 38 0 50 0;
+#X connect 39 0 50 0;
+#X connect 40 0 50 0;
+#X connect 41 0 50 0;
+#X connect 42 0 50 0;
+#X connect 43 0 50 0;
+#X connect 44 0 50 0;
+#X connect 45 0 50 0;
+#X connect 46 0 50 0;
+#X connect 47 0 50 0;
+#X connect 48 0 50 0;
+#X connect 49 0 50 0;
+#X restore 19 257 pd SLcommand_buttons;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
