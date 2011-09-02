@@ -150,7 +150,7 @@
 #X obj 48 151 bng 15 250 50 0 empty empty connect 20 7 0 8 -258113
 -1 -1;
 #X obj 47 120 tgl 15 0 empty empty connected 20 7 0 8 -4034 -45076
--1 0 1;
+-1 1 1;
 #X obj 48 169 bng 15 250 50 0 empty empty disconnect 20 7 0 8 -258113
 -1 -1;
 #X text 44 100 OSC OUT;
@@ -406,7 +406,7 @@
 #X msg 239 42 send /loop_add 1 \$1;
 #X obj 277 103 s slOSCout;
 #X obj 156 81 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 2 256;
 #X obj 91 -11 f;
 #X obj 91 114 f;
 #X connect 0 0 8 0;
@@ -423,19 +423,19 @@
 #X restore 51 371 pd add_del_loop-\$0;
 #N canvas 21 56 498 514 global_monitors-\$0 0;
 #X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 0 256;
+8 -262144 -1 -1 110 256;
 #X obj 228 118 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 289 260 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak
 0 22 0 8 -262144 -1 -1 0 256;
 #X obj 108 259 nbx 3 14 0 1 0 0 empty SLwet wet 0 22 0 8 -262144 -1
--1 0 256;
+-1 1 256;
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00075531 256;
+22 0 8 -262144 -1 -1 0.00100327 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 2 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
 #X obj 423 161 * 111;
 #X obj 424 185 - 99;
@@ -443,7 +443,7 @@
 #X obj 428 221 * 111;
 #X obj 429 245 - 99;
 #X obj 188 259 nbx 3 14 0 1e+37 0 0 empty SLinput_gain input_gain 0
-22 0 8 -262144 -1 -1 0 256;
+22 0 8 -262144 -1 -1 1 256;
 #X obj 188 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 148 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
@@ -494,7 +494,7 @@
 #X obj 200 509 s SLsync_source_message;
 #X obj 241 194 s slOSCout;
 #X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 2 256;
 #X connect 0 0 10 0;
 #X connect 1 0 4 0;
 #X connect 3 0 4 1;
@@ -546,7 +546,7 @@
 #X obj 55 51 nbx 3 14 0 1e+37 0 0 empty SLeighths_per_cycle 8th/cycle
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 45 76 tgl 15 0 empty SLsmart_eighths auto_8th 17 7 0 8 -262144
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 331 285 s slOSCout;
 #X msg 151 197 send /set smart_eighths \$1;
 #X obj 115 76 bng 15 250 50 0 empty empty empty -46 7 0 8 -258113 -1
@@ -590,7 +590,7 @@
 #X text -9 462 emOSCulator - puredata sooperlooper interface;
 #X text -10 482 controls are in red - changing other items can have
 unexpected results;
-#N canvas 314 25 610 615 current_loop_interface 0;
+#N canvas 332 25 610 615 current_loop_interface 1;
 #X obj 158 124 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 33 7 0 8 -262144 -1 -1 0 256;
 #X obj 99 550 slOSCsender2;
@@ -698,8 +698,8 @@ unexpected results;
 #X connect 29 0 1 0;
 #X restore 19 516 pd register_auto_update_current;
 #X obj 29 123 tgl 15 0 empty empty enable_monitors 17 7 0 8 -258113
--1 -1 0 1;
-#X obj 99 482 select 1;
+-1 -1 1 1;
+#X obj 99 442 select 1;
 #N canvas 533 40 685 503 unregister_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -766,7 +766,7 @@ unexpected results;
 #X obj 29 162 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 29 192 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
-0 8 -262144 -1 -1 0 256;
+0 8 -262144 -1 -1 95.1089 256;
 #X obj 279 222 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0
 -8 0 8 -262144 -1 -1 0 256;
 #X obj 279 162 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
@@ -780,11 +780,11 @@ unexpected results;
 #X obj 479 172 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 199 162 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
-0 -8 0 8 -262144 -1 -1 0 256;
+0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 109 162 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
-0 -8 0 8 -262144 -1 -1 0 256;
+0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 199 192 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
-0 -8 0 8 -262144 -1 -1 0 256;
+0 -8 0 8 -262144 -1 -1 95.1089 256;
 #X obj 379 162 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
 8 -262144 -1 -1 0 256;
 #X symbolatom 379 222 12 0 0 2 next_state - -;
@@ -1032,11 +1032,367 @@ unexpected results;
 #X connect 49 0 50 0;
 #X coords 0 -1 1 1 450 170 2 10 10;
 #X restore 19 247 pd SLcommand_buttons;
+#N canvas 91 25 765 700 register_update_current 0;
+#X obj 8 69 inlet;
+#X obj 8 228 outlet;
+#X msg 283 8 3 /sl/-3/register_update rec_thresh /updates/rec_thresh
+;
+#X msg 273 28 3 /sl/-3/register_update feedback /updates/feedback;
+#X msg 263 48 3 /sl/-3/register_update use_feedback_play /updates/use_feedback_play
+;
+#X msg 254 81 3 /sl/-3/register_update dry /updates/dry-3;
+#X msg 244 101 3 /sl/-3/register_update wet /updates/wet-3;
+#X msg 234 121 3 /sl/-3/register_update input_gain /updates/input_gain
+;
+#X msg 224 141 3 /sl/-3/register_update rate /updates/rate;
+#X msg 214 161 3 /sl/-3/register_update scratch_pos /updates/scratch_pos
+;
+#X msg 204 181 3 /sl/-3/register_update delay_trigger /updates/delay_trigger
+;
+#X msg 194 214 3 /sl/-3/register_update quantize /updates/quantize
+;
+#X msg 184 234 3 /sl/-3/register_update fade_samples /updates/fade_samples
+;
+#X msg 174 254 3 /sl/-3/register_update round /updates/round;
+#X msg 164 274 3 /sl/-3/register_update sync /updates/sync;
+#X msg 154 294 3 /sl/-3/register_update playback_sync /updates/playback_sync
+;
+#X msg 144 327 3 /sl/-3/register_update redo_is_tap /updates/redo_is_tap
+;
+#X msg 134 347 3 /sl/-3/register_update use_rate /updates/use_rate
+;
+#X msg 124 367 3 /sl/-3/register_update use_common_ins /updates/use_common_ins
+;
+#X msg 114 400 3 /sl/-3/register_update use_common_outs /updates/use_common_outs
+;
+#X msg 104 433 3 /sl/-3/register_update relative_sync /updates/relative_sync
+;
+#X msg 94 466 3 /sl/-3/register_update input_latency /updates/input_latency
+;
+#X msg 84 499 3 /sl/-3/register_update output_latency /updates/output_latency
+;
+#X msg 74 532 3 /sl/-3/register_update trigger_latency /updates/trigger_latency
+;
+#X msg 64 565 3 /sl/-3/register_update autoset_latency /updates/autoset_latency
+;
+#X msg 54 598 3 /sl/-3/register_update mute_quantized /updates/mute_quantized
+;
+#X msg 434 458 3 /sl/-3/register_update pan_1 /updates/pan_1;
+#X msg 424 478 3 /sl/-3/register_update pan_2 /updates/pan_2;
+#X msg 414 498 3 /sl/-3/register_update pan_3 /updates/pan_3;
+#X msg 404 518 3 /sl/-3/register_update pan_4 /updates/pan_4;
+#X msg 394 538 3 /sl/-3/register_update tempo_stretch /updates/tempo_stretch
+;
+#X msg 384 571 3 /sl/-3/register_update round_integer_tempo /updates/round_integer_tempo
+;
+#X msg 374 604 3 /sl/-3/register_update replace_quantized /updates/replace_quantized
+;
+#X msg 364 637 3 /sl/-3/register_update overdub_quantized /updates/overdub_quantized
+;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 9 0;
+#X connect 0 0 10 0;
+#X connect 0 0 11 0;
+#X connect 0 0 12 0;
+#X connect 0 0 13 0;
+#X connect 0 0 14 0;
+#X connect 0 0 15 0;
+#X connect 0 0 16 0;
+#X connect 0 0 17 0;
+#X connect 0 0 18 0;
+#X connect 0 0 19 0;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
+#X connect 0 0 22 0;
+#X connect 0 0 23 0;
+#X connect 0 0 24 0;
+#X connect 0 0 25 0;
+#X connect 0 0 32 0;
+#X connect 0 0 33 0;
+#X connect 0 0 30 0;
+#X connect 0 0 31 0;
+#X connect 0 0 26 0;
+#X connect 0 0 27 0;
+#X connect 0 0 28 0;
+#X connect 0 0 29 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 1 0;
+#X connect 16 0 1 0;
+#X connect 17 0 1 0;
+#X connect 18 0 1 0;
+#X connect 19 0 1 0;
+#X connect 20 0 1 0;
+#X connect 21 0 1 0;
+#X connect 22 0 1 0;
+#X connect 23 0 1 0;
+#X connect 24 0 1 0;
+#X connect 25 0 1 0;
+#X connect 26 0 1 0;
+#X connect 27 0 1 0;
+#X connect 28 0 1 0;
+#X connect 29 0 1 0;
+#X connect 30 0 1 0;
+#X connect 31 0 1 0;
+#X connect 32 0 1 0;
+#X connect 33 0 1 0;
+#X restore 29 496 pd register_update_current;
+#N canvas 345 25 684 678 get_update_current 0;
+#X obj 5 69 inlet;
+#X obj -55 288 outlet;
+#X msg 280 8 3 /sl/-3/get rec_thresh /updates/rec_thresh;
+#X msg 270 28 3 /sl/-3/get feedback /updates/feedback;
+#X msg 260 48 3 /sl/-3/get use_feedback_play /updates/use_feedback_play
+;
+#X msg 251 68 3 /sl/-3/get dry /updates/dry-3;
+#X msg 241 88 3 /sl/-3/get wet /updates/wet-3;
+#X msg 231 108 3 /sl/-3/get input_gain /updates/input_gain;
+#X msg 221 128 3 /sl/-3/get rate /updates/rate;
+#X msg 211 148 3 /sl/-3/get scratch_pos /updates/scratch_pos;
+#X msg 201 168 3 /sl/-3/get delay_trigger /updates/delay_trigger;
+#X msg 191 188 3 /sl/-3/get quantize /updates/quantize;
+#X msg 181 208 3 /sl/-3/get fade_samples /updates/fade_samples;
+#X msg 171 228 3 /sl/-3/get round /updates/round;
+#X msg 161 248 3 /sl/-3/get sync /updates/sync;
+#X msg 151 268 3 /sl/-3/get playback_sync /updates/playback_sync;
+#X msg 141 288 3 /sl/-3/get redo_is_tap /updates/redo_is_tap;
+#X msg 131 309 3 /sl/-3/get use_rate /updates/use_rate;
+#X msg 121 329 3 /sl/-3/get use_common_ins /updates/use_common_ins
+;
+#X msg 111 349 3 /sl/-3/get use_common_outs /updates/use_common_outs
+;
+#X msg 101 369 3 /sl/-3/get relative_sync /updates/relative_sync;
+#X msg 91 389 3 /sl/-3/get input_latency /updates/input_latency;
+#X msg 81 409 3 /sl/-3/get output_latency /updates/output_latency;
+#X msg 71 429 3 /sl/-3/get trigger_latency /updates/trigger_latency
+;
+#X msg 61 449 3 /sl/-3/get autoset_latency /updates/autoset_latency
+;
+#X msg 51 469 3 /sl/-3/get mute_quantized /updates/mute_quantized;
+#X msg 41 488 3 /sl/-3/get pan_1 /updates/pan_1;
+#X msg 31 508 3 /sl/-3/get pan_2 /updates/pan_2;
+#X msg 21 528 3 /sl/-3/get pan_3 /updates/pan_3;
+#X msg 11 548 3 /sl/-3/get pan_4 /updates/pan_4;
+#X msg 1 568 3 /sl/-3/get tempo_stretch /updates/tempo_stretch;
+#X msg -9 588 3 /sl/-3/get round_integer_tempo /updates/round_integer_tempo
+;
+#X msg -19 621 3 /sl/-3/get replace_quantized /updates/replace_quantized
+;
+#X msg -29 641 3 /sl/-3/get overdub_quantized /updates/overdub_quantized
+;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 9 0;
+#X connect 0 0 10 0;
+#X connect 0 0 11 0;
+#X connect 0 0 12 0;
+#X connect 0 0 13 0;
+#X connect 0 0 14 0;
+#X connect 0 0 15 0;
+#X connect 0 0 16 0;
+#X connect 0 0 17 0;
+#X connect 0 0 18 0;
+#X connect 0 0 19 0;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
+#X connect 0 0 22 0;
+#X connect 0 0 23 0;
+#X connect 0 0 24 0;
+#X connect 0 0 25 0;
+#X connect 0 0 32 0;
+#X connect 0 0 33 0;
+#X connect 0 0 30 0;
+#X connect 0 0 31 0;
+#X connect 0 0 26 0;
+#X connect 0 0 27 0;
+#X connect 0 0 28 0;
+#X connect 0 0 29 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 1 0;
+#X connect 16 0 1 0;
+#X connect 17 0 1 0;
+#X connect 18 0 1 0;
+#X connect 19 0 1 0;
+#X connect 20 0 1 0;
+#X connect 21 0 1 0;
+#X connect 22 0 1 0;
+#X connect 23 0 1 0;
+#X connect 24 0 1 0;
+#X connect 25 0 1 0;
+#X connect 26 0 1 0;
+#X connect 27 0 1 0;
+#X connect 28 0 1 0;
+#X connect 29 0 1 0;
+#X connect 30 0 1 0;
+#X connect 31 0 1 0;
+#X connect 32 0 1 0;
+#X connect 33 0 1 0;
+#X restore 39 476 pd get_update_current;
+#N canvas 91 25 765 700 unregister_update_current 0;
+#X obj 8 69 inlet;
+#X obj 8 228 outlet;
+#X msg 283 8 3 /sl/-3/unregister_update rec_thresh /updates/rec_thresh
+;
+#X msg 273 28 3 /sl/-3/unregister_update feedback /updates/feedback
+;
+#X msg 263 48 3 /sl/-3/unregister_update use_feedback_play /updates/use_feedback_play
+;
+#X msg 254 81 3 /sl/-3/unregister_update dry /updates/dry-3;
+#X msg 244 101 3 /sl/-3/unregister_update wet /updates/wet-3;
+#X msg 234 121 3 /sl/-3/unregister_update input_gain /updates/input_gain
+;
+#X msg 224 141 3 /sl/-3/unregister_update rate /updates/rate;
+#X msg 214 161 3 /sl/-3/unregister_update scratch_pos /updates/scratch_pos
+;
+#X msg 204 181 3 /sl/-3/unregister_update delay_trigger /updates/delay_trigger
+;
+#X msg 194 214 3 /sl/-3/unregister_update quantize /updates/quantize
+;
+#X msg 184 234 3 /sl/-3/unregister_update fade_samples /updates/fade_samples
+;
+#X msg 174 267 3 /sl/-3/unregister_update round /updates/round;
+#X msg 164 287 3 /sl/-3/unregister_update sync /updates/sync;
+#X msg 154 307 3 /sl/-3/unregister_update playback_sync /updates/playback_sync
+;
+#X msg 144 340 3 /sl/-3/unregister_update redo_is_tap /updates/redo_is_tap
+;
+#X msg 134 360 3 /sl/-3/unregister_update use_rate /updates/use_rate
+;
+#X msg 124 380 3 /sl/-3/unregister_update use_common_ins /updates/use_common_ins
+;
+#X msg 114 413 3 /sl/-3/unregister_update use_common_outs /updates/use_common_outs
+;
+#X msg 104 446 3 /sl/-3/unregister_update relative_sync /updates/relative_sync
+;
+#X msg 94 479 3 /sl/-3/unregister_update input_latency /updates/input_latency
+;
+#X msg 84 512 3 /sl/-3/unregister_update output_latency /updates/output_latency
+;
+#X msg 74 545 3 /sl/-3/unregister_update trigger_latency /updates/trigger_latency
+;
+#X msg 64 578 3 /sl/-3/unregister_update autoset_latency /updates/autoset_latency
+;
+#X msg 54 611 3 /sl/-3/unregister_update mute_quantized /updates/mute_quantized
+;
+#X msg 434 458 3 /sl/-3/unregister_update pan_1 /updates/pan_1;
+#X msg 424 478 3 /sl/-3/unregister_update pan_2 /updates/pan_2;
+#X msg 414 498 3 /sl/-3/unregister_update pan_3 /updates/pan_3;
+#X msg 404 518 3 /sl/-3/unregister_update pan_4 /updates/pan_4;
+#X msg 394 538 3 /sl/-3/unregister_update tempo_stretch /updates/tempo_stretch
+;
+#X msg 384 571 3 /sl/-3/unregister_update round_integer_tempo /updates/round_integer_tempo
+;
+#X msg 374 604 3 /sl/-3/unregister_update replace_quantized /updates/replace_quantized
+;
+#X msg 364 637 3 /sl/-3/unregister_update overdub_quantized /updates/overdub_quantized
+;
+#X connect 0 0 2 0;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 0 8 0;
+#X connect 0 0 9 0;
+#X connect 0 0 10 0;
+#X connect 0 0 11 0;
+#X connect 0 0 12 0;
+#X connect 0 0 13 0;
+#X connect 0 0 14 0;
+#X connect 0 0 15 0;
+#X connect 0 0 16 0;
+#X connect 0 0 17 0;
+#X connect 0 0 18 0;
+#X connect 0 0 19 0;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
+#X connect 0 0 22 0;
+#X connect 0 0 23 0;
+#X connect 0 0 24 0;
+#X connect 0 0 25 0;
+#X connect 0 0 32 0;
+#X connect 0 0 33 0;
+#X connect 0 0 30 0;
+#X connect 0 0 31 0;
+#X connect 0 0 26 0;
+#X connect 0 0 27 0;
+#X connect 0 0 28 0;
+#X connect 0 0 29 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 1 0;
+#X connect 16 0 1 0;
+#X connect 17 0 1 0;
+#X connect 18 0 1 0;
+#X connect 19 0 1 0;
+#X connect 20 0 1 0;
+#X connect 21 0 1 0;
+#X connect 22 0 1 0;
+#X connect 23 0 1 0;
+#X connect 24 0 1 0;
+#X connect 25 0 1 0;
+#X connect 26 0 1 0;
+#X connect 27 0 1 0;
+#X connect 28 0 1 0;
+#X connect 29 0 1 0;
+#X connect 30 0 1 0;
+#X connect 31 0 1 0;
+#X connect 32 0 1 0;
+#X connect 33 0 1 0;
+#X restore 219 496 pd unregister_update_current;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
 #X connect 4 0 2 0;
+#X connect 4 0 27 0;
+#X connect 4 0 26 0;
 #X connect 4 1 5 0;
+#X connect 4 1 28 0;
 #X connect 5 0 1 0;
 #X connect 6 0 7 0;
 #X connect 7 0 3 0;
@@ -1044,4 +1400,7 @@ unexpected results;
 #X connect 16 0 22 0;
 #X connect 22 0 24 0;
 #X connect 23 0 21 0;
+#X connect 26 0 1 0;
+#X connect 27 0 1 0;
+#X connect 28 0 1 0;
 #X restore 64 527 pd current_loop_interface;
