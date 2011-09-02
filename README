@@ -1,4 +1,4 @@
 # emOSCulator
-pure data interface for controlling sooperlooper
+pure data interface for controlling sooperlooper via OSC messages
 written by goldfish
 see LICENSE file for copyright and license information
