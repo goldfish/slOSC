@@ -1,4 +1,4 @@
-#N canvas 627 123 450 574 10;
+#N canvas 467 25 450 574 10;
 #X obj 39 13 inlet;
 #X obj 39 520 outlet;
 #X obj 73 205 list append;
@@ -18,6 +18,13 @@
 #X obj 91 178 list append;
 #X obj 91 134 list split 4;
 #X obj 39 38 route 1 2 3 4 5;
+#X text 150 7 inserts the sooperlooper server address;
+#X text 150 21 in the second last position for 2 \, 3 and 4;
+#X text 150 35 argument OSC messages.;
+#X msg 134 479 4 /sl/-3/register_auto_update pitch_shift 100 /updates/pitch_shift
+;
+#X text 150 55 message format : ARGS ARG1 ARG2 (ARG3 (ARG4));
+#X text 256 69 f s s/f s/f s/f;
 #X connect 0 0 18 0;
 #X connect 2 0 3 0;
 #X connect 3 0 6 0;

@@ -159,7 +159,6 @@
 #X obj 35 35 print OSCOUT;
 #N canvas 66 60 332 451 do_after_connect 0;
 #X obj 7 8 inlet;
-#X obj 7 338 slOSCsender2;
 #X obj 7 361 outlet;
 #N canvas 452 34 702 583 global_register_update 0;
 #X obj 17 18 inlet;
@@ -279,10 +278,11 @@
 #X connect 14 0 16 0;
 #X connect 15 0 16 0;
 #X restore 29 114 pd global_get_update;
+#X obj 7 338 slOSCsender2;
+#X connect 0 0 2 0;
 #X connect 0 0 3 0;
-#X connect 0 0 4 0;
-#X connect 1 0 2 0;
-#X connect 3 0 1 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
 #X connect 4 0 1 0;
 #X restore 225 120 pd do_after_connect;
 #N canvas 0 0 450 300 do_after_disconnect 0;
@@ -300,7 +300,6 @@
 #X msg 57 194 disconnect;
 #X obj 158 244 outlet;
 #X obj 158 21 inlet;
-#X obj 158 219 slOSCsender2;
 #N canvas 0 0 730 575 global_unregister_update 0;
 #X obj 18 16 inlet;
 #X msg 234 68 3 /unregister_update tempo /updates/tempo;
@@ -366,12 +365,13 @@
 #X connect 16 0 17 0;
 #X restore 158 194 pd global_unregister_update;
 #X obj 170 45 s disable_monitors_current;
+#X obj 158 219 slOSCsender2;
 #X connect 1 0 0 0;
 #X connect 3 0 1 0;
+#X connect 3 0 4 0;
 #X connect 3 0 5 0;
-#X connect 3 0 6 0;
-#X connect 4 0 2 0;
-#X connect 5 0 4 0;
+#X connect 4 0 6 0;
+#X connect 6 0 2 0;
 #X restore 225 140 pd do_before_disconnect;
 #X obj 169 10 r slOSCout;
 #X connect 0 0 1 0;
@@ -406,7 +406,7 @@
 #X msg 239 42 send /loop_add 1 \$1;
 #X obj 277 103 s slOSCout;
 #X obj 156 81 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 2 256;
+-1 -1 0 256;
 #X obj 91 -11 f;
 #X obj 91 114 f;
 #X connect 0 0 8 0;
@@ -423,19 +423,19 @@
 #X restore 51 371 pd add_del_loop-\$0;
 #N canvas 21 56 498 514 global_monitors-\$0 0;
 #X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 110 256;
+8 -262144 -1 -1 0 256;
 #X obj 228 118 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 289 260 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak
-0 22 0 8 -262144 -1 -1 4.76837e-05 256;
+0 22 0 8 -262144 -1 -1 0 256;
 #X obj 108 259 nbx 3 14 0 1 0 0 empty SLwet wet 0 22 0 8 -262144 -1
--1 1 256;
+-1 0 256;
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.000938296 256;
+22 0 8 -262144 -1 -1 0.00075531 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 2 256;
+-1 -1 0 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
 #X obj 423 161 * 111;
 #X obj 424 185 - 99;
@@ -443,7 +443,7 @@
 #X obj 428 221 * 111;
 #X obj 429 245 - 99;
 #X obj 188 259 nbx 3 14 0 1e+37 0 0 empty SLinput_gain input_gain 0
-22 0 8 -262144 -1 -1 1 256;
+22 0 8 -262144 -1 -1 0 256;
 #X obj 188 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 148 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
@@ -494,7 +494,7 @@
 #X obj 200 509 s SLsync_source_message;
 #X obj 241 194 s slOSCout;
 #X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 2 256;
+-1 -1 0 256;
 #X connect 0 0 10 0;
 #X connect 1 0 4 0;
 #X connect 3 0 4 1;
@@ -546,7 +546,7 @@
 #X obj 55 51 nbx 3 14 0 1e+37 0 0 empty SLeighths_per_cycle 8th/cycle
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 45 76 tgl 15 0 empty SLsmart_eighths auto_8th 17 7 0 8 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 331 285 s slOSCout;
 #X msg 151 197 send /set smart_eighths \$1;
 #X obj 115 76 bng 15 250 50 0 empty empty empty -46 7 0 8 -258113 -1
@@ -766,7 +766,7 @@ unexpected results;
 #X obj 29 162 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 29 192 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
-0 8 -262144 -1 -1 95.1089 256;
+0 8 -262144 -1 -1 0 256;
 #X obj 279 222 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0
 -8 0 8 -262144 -1 -1 0 256;
 #X obj 279 162 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
@@ -780,11 +780,11 @@ unexpected results;
 #X obj 479 172 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 199 162 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
-0 -8 0 8 -262144 -1 -1 1 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 109 162 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
-0 -8 0 8 -262144 -1 -1 1 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 199 192 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
-0 -8 0 8 -262144 -1 -1 95.1089 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 379 162 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
 8 -262144 -1 -1 0 256;
 #X symbolatom 379 222 12 0 0 2 next_state - -;
