@@ -41,37 +41,116 @@
 #X obj 5 291 routeOSC /out_peak_meter /wet /dry /loops;
 #X obj 280 347 s SLloops;
 #X obj 280 323 unpack s s f;
-#N canvas 585 25 450 300 current_channel_interface_messages 0;
-#X obj 16 22 inlet;
-#X obj 13 274 outlet;
-#X obj 39 46 routeOSC /cycle_len /free_time /is_soloed /loop_len;
-#X obj 41 124 routeOSC /loop_pos /next_state /pitch_shift /state;
-#X obj 41 198 routeOSC /rate_output /stretch_ratio /total_time /waiting
+#N canvas 368 25 873 700 current_channel_interface_messages 0;
+#X obj 16 5 inlet;
+#X obj 463 677 outlet;
+#X obj 39 24 routeOSC /cycle_len /free_time /is_soloed /loop_len;
+#X obj 41 93 routeOSC /loop_pos /next_state /pitch_shift /state;
+#X obj 41 167 routeOSC /rate_output /stretch_ratio /total_time /waiting
 ;
-#X obj 39 70 unpack f s f;
-#X obj 39 94 s CCIcycle_len;
-#X obj 129 70 unpack f s f;
-#X obj 129 94 s CCIfree_time;
-#X obj 219 70 unpack f s f;
-#X obj 219 94 s CCIis_soloed;
-#X obj 309 70 unpack f s f;
-#X obj 309 94 s CCIloop_len;
-#X obj 39 150 unpack f s f;
-#X obj 129 150 unpack f s f;
-#X obj 219 150 unpack f s f;
-#X obj 309 150 unpack f s f;
-#X obj 39 174 s CCIloop_pos;
-#X obj 123 174 s CCInext_state;
-#X obj 219 174 s CCIpitch_shift;
-#X obj 322 174 s CCIstate;
-#X obj 39 220 unpack f s f;
-#X obj 129 220 unpack f s f;
-#X obj 219 220 unpack f s f;
-#X obj 309 220 unpack f s f;
-#X obj 39 244 s CCIrate_output;
-#X obj 140 244 s CCIstretch_ratio;
-#X obj 253 244 s CCItotal_time;
-#X obj 348 244 s CCIwaiting;
+#X obj 39 46 unpack f s f;
+#X obj 39 70 s CCIcycle_len;
+#X obj 129 46 unpack f s f;
+#X obj 129 70 s CCIfree_time;
+#X obj 219 46 unpack f s f;
+#X obj 219 70 s CCIis_soloed;
+#X obj 309 46 unpack f s f;
+#X obj 309 70 s CCIloop_len;
+#X obj 39 119 unpack f s f;
+#X obj 129 119 unpack f s f;
+#X obj 219 119 unpack f s f;
+#X obj 309 119 unpack f s f;
+#X obj 39 143 s CCIloop_pos;
+#X obj 123 143 s CCInext_state;
+#X obj 219 143 s CCIpitch_shift;
+#X obj 322 143 s CCIstate;
+#X obj 39 189 unpack f s f;
+#X obj 129 189 unpack f s f;
+#X obj 219 189 unpack f s f;
+#X obj 309 189 unpack f s f;
+#X obj 39 213 s CCIrate_output;
+#X obj 140 213 s CCIstretch_ratio;
+#X obj 253 213 s CCItotal_time;
+#X obj 348 213 s CCIwaiting;
+#X obj 39 261 unpack f s f;
+#X obj 129 261 unpack f s f;
+#X obj 219 261 unpack f s f;
+#X obj 309 261 unpack f s f;
+#X obj 39 335 unpack f s f;
+#X obj 129 335 unpack f s f;
+#X obj 219 335 unpack f s f;
+#X obj 309 335 unpack f s f;
+#X obj 123 359 s CCInext_state;
+#X obj 219 359 s CCIpitch_shift;
+#X obj 322 359 s CCIstate;
+#X obj 39 405 unpack f s f;
+#X obj 129 405 unpack f s f;
+#X obj 219 405 unpack f s f;
+#X obj 309 405 unpack f s f;
+#X obj 39 285 s CCIrec_thresh;
+#X obj 135 285 s CCIfeedback;
+#X obj 219 285 s CCIuse_feedback_play;
+#X obj 39 359 s CCIwet-3;
+#X obj 41 309 routeOSC /wet-3 /rate /scratch_pos /delay_trigger;
+#X obj 39 237 routeOSC /rec_thresh /feedback /use_feedback_play /dry-3
+;
+#X obj 358 285 s CCIdry-3;
+#X obj 41 383 routeOSC /quantize /fade_samples /round /sync;
+#X obj 39 429 s CCIquantize;
+#X obj 128 429 s CCIfade_samples;
+#X obj 241 429 s CCIround;
+#X obj 327 429 s CCIsync;
+#X obj 39 481 unpack f s f;
+#X obj 129 481 unpack f s f;
+#X obj 219 481 unpack f s f;
+#X obj 309 481 unpack f s f;
+#X obj 39 555 unpack f s f;
+#X obj 129 555 unpack f s f;
+#X obj 219 555 unpack f s f;
+#X obj 39 625 unpack f s f;
+#X obj 129 625 unpack f s f;
+#X obj 219 625 unpack f s f;
+#X obj 39 448 routeOSC /playback_sync /redo_is_tap /use_rate /tempo_stretch
+;
+#X obj 39 505 s CCIplayback_sync;
+#X obj 153 505 s CCIredo_is_tap;
+#X obj 255 505 s CCIuse_rate;
+#X obj 339 505 s CCItempo_stretch;
+#X obj 39 579 s CCIuse_common_ins;
+#X obj 159 579 s CCIuse_common_outs;
+#X obj 285 579 s CCIrelative_sync;
+#X obj 41 603 routeOSC /input_latency /output_latency /trigger_latency
+;
+#X obj 459 55 unpack f s f;
+#X obj 549 55 unpack f s f;
+#X obj 639 55 unpack f s f;
+#X obj 459 137 unpack f s f;
+#X obj 549 137 unpack f s f;
+#X obj 639 137 unpack f s f;
+#X obj 461 29 routeOSC /autoset_latency /mute_quantized /replace_quantized
+;
+#X obj 39 649 s CCIinput_latency;
+#X obj 154 649 s CCIoutput_latency;
+#X obj 275 649 s CCItrigger_latency;
+#X obj 459 79 s CCIautoset_latency;
+#X obj 585 79 s CCImute_quantized;
+#X obj 706 79 s CCIreplace_quantized;
+#X obj 461 103 routeOSC /overdub_quantized /tempo_stretch /round_integer_tempo
+;
+#X obj 459 161 s CCIoverdub_quantized;
+#X obj 598 161 s CCItempo_stretch;
+#X obj 712 161 s CCIround_integer_tempo;
+#X obj 41 529 routeOSC /use_common_ins /use_common_outs /relative_sync
+;
+#X obj 459 205 unpack f s f;
+#X obj 549 205 unpack f s f;
+#X obj 639 205 unpack f s f;
+#X obj 729 205 unpack f s f;
+#X obj 461 183 routeOSC /pan_1 /pan_2 /pan_3 /pan_4;
+#X obj 459 229 s CCIpan_1;
+#X obj 549 229 s CCIpan_2;
+#X obj 639 229 s CCIpan_3;
+#X obj 729 229 s CCIpan_4;
 #X connect 0 0 2 0;
 #X connect 2 0 5 0;
 #X connect 2 1 7 0;
@@ -87,7 +166,7 @@
 #X connect 4 1 22 0;
 #X connect 4 2 23 0;
 #X connect 4 3 24 0;
-#X connect 4 4 1 0;
+#X connect 4 4 49 0;
 #X connect 5 2 6 0;
 #X connect 7 2 8 0;
 #X connect 9 2 10 0;
@@ -100,6 +179,79 @@
 #X connect 22 2 26 0;
 #X connect 23 2 27 0;
 #X connect 24 2 28 0;
+#X connect 29 2 44 0;
+#X connect 30 2 45 0;
+#X connect 31 2 46 0;
+#X connect 32 2 50 0;
+#X connect 33 2 47 0;
+#X connect 34 2 37 0;
+#X connect 35 2 38 0;
+#X connect 36 2 39 0;
+#X connect 40 2 52 0;
+#X connect 41 2 53 0;
+#X connect 42 2 54 0;
+#X connect 43 2 55 0;
+#X connect 48 0 33 0;
+#X connect 48 1 34 0;
+#X connect 48 2 35 0;
+#X connect 48 3 36 0;
+#X connect 48 4 51 0;
+#X connect 49 0 29 0;
+#X connect 49 1 30 0;
+#X connect 49 2 31 0;
+#X connect 49 3 32 0;
+#X connect 49 4 48 0;
+#X connect 51 0 40 0;
+#X connect 51 1 41 0;
+#X connect 51 2 42 0;
+#X connect 51 3 43 0;
+#X connect 51 4 66 0;
+#X connect 56 2 67 0;
+#X connect 57 2 68 0;
+#X connect 58 2 69 0;
+#X connect 59 2 70 0;
+#X connect 60 2 71 0;
+#X connect 61 2 72 0;
+#X connect 62 2 73 0;
+#X connect 63 2 82 0;
+#X connect 64 2 83 0;
+#X connect 65 2 84 0;
+#X connect 66 0 56 0;
+#X connect 66 1 57 0;
+#X connect 66 2 58 0;
+#X connect 66 3 59 0;
+#X connect 66 4 92 0;
+#X connect 74 0 63 0;
+#X connect 74 1 64 0;
+#X connect 74 2 65 0;
+#X connect 74 3 81 0;
+#X connect 75 2 85 0;
+#X connect 76 2 86 0;
+#X connect 77 2 87 0;
+#X connect 78 2 89 0;
+#X connect 79 2 90 0;
+#X connect 80 2 91 0;
+#X connect 81 0 75 0;
+#X connect 81 1 76 0;
+#X connect 81 2 77 0;
+#X connect 81 3 88 0;
+#X connect 88 0 78 0;
+#X connect 88 1 79 0;
+#X connect 88 2 80 0;
+#X connect 88 3 97 0;
+#X connect 92 0 60 0;
+#X connect 92 1 61 0;
+#X connect 92 2 62 0;
+#X connect 92 3 74 0;
+#X connect 93 2 98 0;
+#X connect 94 2 99 0;
+#X connect 95 2 100 0;
+#X connect 96 2 101 0;
+#X connect 97 0 93 0;
+#X connect 97 1 94 0;
+#X connect 97 2 95 0;
+#X connect 97 3 96 0;
+#X connect 97 4 1 0;
 #X restore 339 120 pd current_channel_interface_messages;
 #X connect 0 0 3 0;
 #X connect 1 0 21 0;
@@ -433,7 +585,7 @@
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00100327 256;
+22 0 8 -262144 -1 -1 0.00188446 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 2 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
@@ -590,10 +742,10 @@
 #X text -9 462 emOSCulator - puredata sooperlooper interface;
 #X text -10 482 controls are in red - changing other items can have
 unexpected results;
-#N canvas 332 25 610 615 current_loop_interface 1;
-#X obj 158 124 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
+#N canvas 332 25 610 692 current_loop_interface 0;
+#X obj 158 74 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 33 7 0 8 -262144 -1 -1 0 256;
-#X obj 99 550 slOSCsender2;
+#X obj 99 627 slOSCsender2;
 #N canvas 31 40 1108 473 register_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -696,10 +848,10 @@ unexpected results;
 #X connect 27 0 1 0;
 #X connect 28 0 1 0;
 #X connect 29 0 1 0;
-#X restore 19 516 pd register_auto_update_current;
-#X obj 29 123 tgl 15 0 empty empty enable_monitors 17 7 0 8 -258113
--1 -1 1 1;
-#X obj 99 442 select 1;
+#X restore 19 593 pd register_auto_update_current;
+#X obj 29 73 tgl 15 0 empty empty enable_monitors 17 7 0 8 -258113
+-1 -1 0 1;
+#X obj 99 519 select 1;
 #N canvas 533 40 685 503 unregister_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -759,35 +911,35 @@ unexpected results;
 #X connect 13 0 1 0;
 #X connect 14 0 1 0;
 #X connect 15 0 1 0;
-#X restore 219 516 pd unregister_auto_update_current;
+#X restore 219 593 pd unregister_auto_update_current;
 #X obj 19 16 r disable_monitors_current;
 #X msg 19 36 set 0;
-#X obj 19 589 s slOSCout;
-#X obj 29 162 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
+#X obj 19 666 s slOSCout;
+#X obj 29 112 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
 0 8 -262144 -1 -1 0 256;
-#X obj 29 192 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
+#X obj 29 142 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
 0 8 -262144 -1 -1 95.1089 256;
-#X obj 279 222 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0
+#X obj 279 172 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0
 -8 0 8 -262144 -1 -1 0 256;
-#X obj 279 162 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
+#X obj 279 112 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
 0 8 -262144 -1 -1 0 256;
-#X obj 279 192 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
+#X obj 279 142 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
 0 8 -262144 -1 -1 0 256;
-#X obj 479 224 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
+#X obj 479 174 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
+0 -8 0 8 -262144 -1 -1 1 256;
+#X obj 109 142 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 109 192 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
-0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 479 172 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
+#X obj 479 122 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj 199 162 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
+#X obj 199 112 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 109 162 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
+#X obj 109 112 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 199 192 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
+#X obj 199 142 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
 0 -8 0 8 -262144 -1 -1 95.1089 256;
-#X obj 379 162 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
+#X obj 379 112 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
 8 -262144 -1 -1 0 256;
-#X symbolatom 379 222 12 0 0 2 next_state - -;
+#X symbolatom 379 172 12 0 0 2 next_state - -;
 #N canvas 0 0 488 522 parse_state 0;
 #X obj 72 26 inlet;
 #X obj 72 56 select -1 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14;
@@ -844,7 +996,7 @@ unexpected results;
 #X connect 16 0 19 0;
 #X connect 17 0 19 0;
 #X connect 18 0 19 0;
-#X restore 479 191 pd parse_state;
+#X restore 479 141 pd parse_state;
 #N canvas 0 0 488 522 parse_next_state 0;
 #X obj 72 36 inlet;
 #X obj 72 66 select -1 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14;
@@ -901,8 +1053,8 @@ unexpected results;
 #X connect 16 0 19 0;
 #X connect 17 0 19 0;
 #X connect 18 0 19 0;
-#X restore 479 243 pd parse_next_state;
-#X symbolatom 379 192 12 0 0 2 state - -;
+#X restore 479 193 pd parse_next_state;
+#X symbolatom 379 142 12 0 0 2 state - -;
 #N canvas 473 25 470 697 SLcommand_buttons 0;
 #X obj 22 20 bng 20 250 50 0 empty empty RECORD 22 10 0 10 -258113
 -1 -1;
@@ -1031,7 +1183,7 @@ unexpected results;
 #X connect 48 0 50 0;
 #X connect 49 0 50 0;
 #X coords 0 -1 1 1 450 170 2 10 10;
-#X restore 19 247 pd SLcommand_buttons;
+#X restore 19 337 pd SLcommand_buttons;
 #N canvas 91 25 765 700 register_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -1153,7 +1305,7 @@ unexpected results;
 #X connect 31 0 1 0;
 #X connect 32 0 1 0;
 #X connect 33 0 1 0;
-#X restore 29 496 pd register_update_current;
+#X restore 29 573 pd register_update_current;
 #N canvas 345 25 684 678 get_update_current 0;
 #X obj 5 69 inlet;
 #X obj -55 288 outlet;
@@ -1261,7 +1413,7 @@ unexpected results;
 #X connect 31 0 1 0;
 #X connect 32 0 1 0;
 #X connect 33 0 1 0;
-#X restore 39 476 pd get_update_current;
+#X restore 39 553 pd get_update_current;
 #N canvas 91 25 765 700 unregister_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -1384,7 +1536,7 @@ unexpected results;
 #X connect 31 0 1 0;
 #X connect 32 0 1 0;
 #X connect 33 0 1 0;
-#X restore 219 496 pd unregister_update_current;
+#X restore 219 573 pd unregister_update_current;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
