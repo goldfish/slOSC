@@ -558,7 +558,7 @@
 #X msg 239 42 send /loop_add 1 \$1;
 #X obj 277 103 s slOSCout;
 #X obj 156 81 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 2 256;
+-1 -1 0 256;
 #X obj 91 -11 f;
 #X obj 91 114 f;
 #X connect 0 0 8 0;
@@ -585,9 +585,9 @@
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00069809 256;
+22 0 8 -262144 -1 -1 0.000713348 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 2 256;
+-1 -1 0 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
 #X obj 423 161 * 111;
 #X obj 424 185 - 99;
@@ -646,7 +646,7 @@
 #X obj 200 509 s SLsync_source_message;
 #X obj 241 194 s slOSCout;
 #X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 2 256;
+-1 -1 0 256;
 #X connect 0 0 10 0;
 #X connect 1 0 4 0;
 #X connect 3 0 4 1;
@@ -1537,71 +1537,296 @@ unexpected results;
 #X connect 32 0 1 0;
 #X connect 33 0 1 0;
 #X restore 219 573 pd unregister_update_current;
-#N canvas 618 25 614 697 display_update_current 0;
-#X obj -105 29 nbx 5 14 0 1e+37 0 0 empty CCIrec_thresh rec_thresh
+#N canvas 225 25 937 697 display_update_current 0;
+#X obj -95 239 nbx 5 14 0 1e+37 0 0 empty CCIrec_thresh rec_thresh
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -105 59 nbx 5 14 0 1e+37 0 0 empty CCIfeedback feedback 0 -8
+#X obj -95 269 nbx 5 14 0 1e+37 0 0 empty CCIfeedback feedback 0 -8
 0 8 -262144 -1 -1 1 256;
-#X obj -105 89 nbx 5 14 0 1e+37 0 0 empty CCIuse_feedback_play use_feedback_play
+#X obj 155 89 nbx 5 14 0 1e+37 0 0 empty CCIuse_feedback_play use_feedback_play
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -105 119 nbx 5 14 0 1e+37 0 0 empty CCIdry-3 dry 0 -8 0 8 -262144
+#X obj 5 239 nbx 5 14 0 1e+37 0 0 empty CCIdry-3 dry 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj -105 149 nbx 5 14 0 1e+37 0 0 empty CCIwet-3 wet 0 -8 0 8 -262144
+#X obj 5 269 nbx 5 14 0 1e+37 0 0 empty CCIwet-3 wet 0 -8 0 8 -262144
 -1 -1 1 256;
-#X obj -105 179 nbx 5 14 0 1e+37 0 0 empty CCIinput_gain input_gain
-0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -105 209 nbx 5 14 0 1e+37 0 0 empty CCIrate rate 0 -8 0 8 -262144
+#X obj 5 299 nbx 5 14 0 1e+37 0 0 empty CCIinput_gain input_gain 0
+-8 0 8 -262144 -1 -1 0 256;
+#X obj 81 299 nbx 5 14 0 1e+37 0 0 empty CCIrate rate 0 -8 0 8 -262144
 -1 -1 1 256;
-#X obj -105 239 nbx 5 14 0 1e+37 0 0 empty CCIscratch_pos scratch_pos
+#X obj -95 299 nbx 5 14 0 1e+37 0 0 empty CCIscratch_pos scratch_pos
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -105 269 nbx 5 14 0 1e+37 0 0 empty CCIdelay_trigger delay_trigger
+#X obj 585 -1 nbx 5 14 0 1e+37 0 0 empty CCIdelay_trigger delay_trigger
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -105 299 nbx 5 14 0 1e+37 0 0 empty CCIquantize quantize 0 -8
+#X obj 572 488 nbx 5 14 0 1e+37 0 0 empty CCIquantize quantize 0 -8
 0 8 -262144 -1 -1 0 256;
-#X obj -105 329 nbx 5 14 0 1e+37 0 0 empty CCIfade_samples fade_samples
+#X obj 585 29 nbx 5 14 0 1e+37 0 0 empty CCIfade_samples fade_samples
 0 -8 0 8 -262144 -1 -1 64 256;
-#X obj -105 359 nbx 5 14 0 1e+37 0 0 empty CCIround round 0 -8 0 8
--262144 -1 -1 0 256;
-#X obj -105 389 nbx 5 14 0 1e+37 0 0 empty CCIsync sync 0 -8 0 8 -262144
+#X obj -105 61 nbx 5 14 0 1e+37 0 0 empty CCIround round 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj -105 419 nbx 5 14 0 1e+37 0 0 empty CCIplayback_sync playback_sync
+#X obj -105 91 nbx 5 14 0 1e+37 0 0 empty CCIsync sync 0 -8 0 8 -262144
+-1 -1 0 256;
+#X obj 35 -1 nbx 5 14 0 1e+37 0 0 empty CCIplayback_sync playback_sync
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -105 449 nbx 5 14 0 1e+37 0 0 empty CCIredo_is_tap redo_is_tap
+#X obj 35 29 nbx 5 14 0 1e+37 0 0 empty CCIredo_is_tap redo_is_tap
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -105 479 nbx 5 14 0 1e+37 0 0 empty CCIuse_rate use_rate 0 -8
-0 8 -262144 -1 -1 0 256;
-#X obj 15 29 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_ins use_common_ins
+#X obj 35 59 nbx 5 14 0 1e+37 0 0 empty CCIuse_rate use_rate 0 -8 0
+8 -262144 -1 -1 0 256;
+#X obj -105 1 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_ins use_common_ins
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 15 59 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_outs use_common_outs
+#X obj -105 31 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_outs use_common_outs
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 15 89 nbx 5 14 0 1e+37 0 0 empty CCIrelative_sync relative_sync
+#X obj 35 89 nbx 5 14 0 1e+37 0 0 empty CCIrelative_sync relative_sync
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 15 119 nbx 5 14 0 1e+37 0 0 empty CCIinput_latency input_latency
+#X obj 321 143 nbx 5 14 0 1e+37 0 0 empty CCIinput_latency input_latency
 0 -8 0 8 -262144 -1 -1 128 256;
-#X obj 15 149 nbx 5 14 0 1e+37 0 0 empty CCIoutput_latency output_latency
+#X obj 321 173 nbx 5 14 0 1e+37 0 0 empty CCIoutput_latency output_latency
 0 -8 0 8 -262144 -1 -1 256 256;
-#X obj 15 179 nbx 5 14 0 1e+37 0 0 empty CCItrigger_latency trigger_latency
+#X obj 321 203 nbx 5 14 0 1e+37 0 0 empty CCItrigger_latency trigger_latency
 0 -8 0 8 -262144 -1 -1 128 256;
-#X obj 15 209 nbx 5 14 0 1e+37 0 0 empty CCIautoset_latency autoset_latency
+#X obj 321 93 nbx 5 14 0 1e+37 0 0 empty CCIautoset_latency autoset_latency
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 15 239 nbx 5 14 0 1e+37 0 0 empty CCImute_quantized mute_quantized
+#X obj 155 -1 nbx 5 14 0 1e+37 0 0 empty CCImute_quantized mute_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 15 269 nbx 5 14 0 1e+37 0 0 empty CCIpan_1 pan_1 0 -8 0 8 -262144
+#X obj 635 246 nbx 5 14 0 1e+37 0 0 empty CCIpan_1 pan_1 0 -8 0 8 -262144
 -1 -1 0.5 256;
-#X obj 15 299 nbx 5 14 0 1e+37 0 0 empty CCIpan_2 pan_2 0 -8 0 8 -262144
+#X obj 635 276 nbx 5 14 0 1e+37 0 0 empty CCIpan_2 pan_2 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj 15 329 nbx 5 14 0 1e+37 0 0 empty CCIpan_3 pan_3 0 -8 0 8 -262144
+#X obj 635 306 nbx 5 14 0 1e+37 0 0 empty CCIpan_3 pan_3 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj 15 359 nbx 5 14 0 1e+37 0 0 empty CCIpan_4 pan_4 0 -8 0 8 -262144
+#X obj 635 336 nbx 5 14 0 1e+37 0 0 empty CCIpan_4 pan_4 0 -8 0 8 -262144
 -1 -1 0 256;
-#X obj 15 389 nbx 5 14 0 1e+37 0 0 empty CCItempo_stretch tempo_stretch
+#X obj 585 59 nbx 5 14 0 1e+37 0 0 empty CCItempo_stretch tempo_stretch
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 15 419 nbx 5 14 0 1e+37 0 0 empty CCIround_integer_tempo round_integer_tempo
+#X obj 585 89 nbx 5 14 0 1e+37 0 0 empty CCIround_integer_tempo round_integer_tempo
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 15 449 nbx 5 14 0 1e+37 0 0 empty CCIreplace_quantized replace_quantized
+#X obj 155 29 nbx 5 14 0 1e+37 0 0 empty CCIreplace_quantized replace_quantized
 0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 15 479 nbx 5 14 0 1e+37 0 0 empty CCIoverdub_quantized overdub_quantized
+#X obj 155 59 nbx 5 14 0 1e+37 0 0 empty CCIoverdub_quantized overdub_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
+#X obj -83 133 tgl 15 0 empty empty use_common_ins 17 7 0 8 -262144
+-1 -1 1 1;
+#X obj -83 153 tgl 15 0 empty empty use_common_outs 17 7 0 8 -262144
+-1 -1 1 1;
+#X obj -99 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj -99 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj -83 173 tgl 15 0 empty empty round 17 7 0 8 -262144 -1 -1 0
+1;
+#X obj -99 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 177 193 tgl 15 0 empty empty sync 17 7 0 8 -262144 -1 -1 0 1
+;
+#X obj 161 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X msg -86 451 send /sl/-3/set use_common_ins \$1;
+#X obj -86 429 bitflipper;
+#X obj -86 479 bitflipper;
+#X msg -86 501 send /sl/-3/set use_common_outs \$1;
+#X obj -86 529 bitflipper;
+#X msg -86 551 send /sl/-3/set round \$1;
+#X obj 342 579 bitflipper;
+#X msg 342 601 send /sl/-3/set sync \$1;
+#X obj 57 133 tgl 15 0 empty empty playback_sync 17 7 0 8 -262144 -1
+-1 0 1;
+#X obj 57 153 tgl 15 0 empty empty redo_is_tap 17 7 0 8 -262144 -1
+-1 0 1;
+#X obj 41 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X obj 41 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X obj 57 173 tgl 15 0 empty empty use_rate 17 7 0 8 -262144 -1 -1
+0 1;
+#X obj 41 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X obj 57 193 tgl 15 0 empty empty relative_sync 17 7 0 8 -262144 -1
+-1 0 1;
+#X obj 41 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
+-1;
+#X obj 134 429 bitflipper;
+#X obj 134 479 bitflipper;
+#X obj 134 529 bitflipper;
+#X obj 134 579 bitflipper;
+#X obj 177 133 tgl 15 0 empty empty mute_quantized 17 7 0 8 -262144
+-1 -1 0 1;
+#X obj 177 153 tgl 15 0 empty empty replace_quantized 17 7 0 8 -262144
+-1 -1 1 1;
+#X obj 161 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 161 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 177 173 tgl 15 0 empty empty overdub_quantized 17 7 0 8 -262144
+-1 -1 0 1;
+#X obj 161 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj -83 193 tgl 15 0 empty empty use_feedback_play 17 7 0 8 -262144
+-1 -1 0 1;
+#X obj -99 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 342 429 bitflipper;
+#X obj 342 479 bitflipper;
+#X obj 342 529 bitflipper;
+#X obj -99 579 bitflipper;
+#X msg 134 451 send /sl/-3/set playback_sync \$1;
+#X msg 134 501 send /sl/-3/set redo_is_tap \$1;
+#X msg 134 551 send /sl/-3/set use_rate \$1;
+#X msg 134 601 send /sl/-3/set relative_sync \$1;
+#X msg 342 451 send /sl/-3/set mute_quantized \$1;
+#X msg 342 501 send /sl/-3/set replace_quantized \$1;
+#X msg 342 551 send /sl/-3/set overdub_quantized \$1;
+#X msg -99 601 send /sl/-3/set use_feedback_play \$1;
+#X obj 337 223 tgl 15 0 empty empty autoset_latency 17 7 0 8 -262144
+-1 -1 1 1;
+#X obj 321 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 572 429 bitflipper;
+#X msg 572 451 send /sl/-3/set autoset_latency \$1;
+#N canvas 725 99 488 261 parse_quantize 0;
+#X obj 72 36 inlet;
+#X obj 254 224 outlet;
+#X obj 72 66 select 0 1 2 3;
+#X msg 72 180 set Off;
+#X msg 92 160 set Cycle;
+#X msg 112 140 set 8th;
+#X msg 132 120 set Loop;
+#X msg 153 100 set ERR;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 2 3 6 0;
+#X connect 2 4 7 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X restore 572 505 pd parse_quantize;
+#X symbolatom 178 229 10 0 0 2 quantize - -;
+#X obj 160 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#N canvas 79 366 450 300 send_set_quantize 0;
+#X obj 56 61 inlet;
+#X obj 141 61 inlet;
+#X obj 56 89 f;
+#X msg 56 147 1;
+#X obj 56 230 outlet;
+#X obj 56 118 select 0 1 2 3;
+#X msg 140 147 0;
+#X msg 84 147 2;
+#X msg 112 147 3;
+#X msg 56 207 send /sl/-3/set quantize \$1;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 5 0;
+#X connect 3 0 9 0;
+#X connect 5 0 3 0;
+#X connect 5 1 7 0;
+#X connect 5 2 8 0;
+#X connect 5 3 6 0;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;
+#X restore 572 526 pd send_set_quantize;
+#X obj 324 263 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
+-1 -1 2450 1;
+#X obj 324 276 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
+-1 -1 0 1;
+#X obj 384 263 hsl 50 10 0 1 0 0 empty CCIpan_2 pan_2 8 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 384 276 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
+-1 -1 0 1;
+#X obj 324 303 hsl 50 10 0 1 0 0 empty CCIpan_3 pan_3 8 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 324 316 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
+-1 -1 0 1;
+#X obj 384 303 hsl 50 10 0 1 0 0 empty CCIpan_4 pan_4 8 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 384 316 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
+-1 -1 0 1;
+#X msg 466 262 send /sl/-3/set pan_1 \$1;
+#X msg 466 282 send /sl/-3/set pan_2 \$1;
+#X msg 466 302 send /sl/-3/set pan_3 \$1;
+#X msg 466 322 send /sl/-3/set pan_4 \$1;
+#X obj -105 641 print test;
+#X connect 2 0 66 0;
+#X connect 9 0 84 0;
+#X connect 9 0 87 1;
+#X connect 11 0 36 0;
+#X connect 12 0 38 0;
+#X connect 13 0 48 0;
+#X connect 14 0 49 0;
+#X connect 15 0 52 0;
+#X connect 16 0 32 0;
+#X connect 17 0 33 0;
+#X connect 18 0 54 0;
+#X connect 22 0 80 0;
+#X connect 23 0 60 0;
+#X connect 30 0 61 0;
+#X connect 31 0 64 0;
+#X connect 32 0 41 1;
+#X connect 33 0 42 1;
+#X connect 34 0 41 0;
+#X connect 35 0 42 0;
+#X connect 36 0 44 1;
+#X connect 37 0 44 0;
+#X connect 38 0 46 1;
+#X connect 39 0 46 0;
+#X connect 40 0 100 0;
+#X connect 41 0 40 0;
+#X connect 42 0 43 0;
+#X connect 43 0 100 0;
+#X connect 44 0 45 0;
+#X connect 45 0 100 0;
+#X connect 46 0 47 0;
+#X connect 47 0 100 0;
+#X connect 48 0 56 1;
+#X connect 49 0 57 1;
+#X connect 50 0 56 0;
+#X connect 51 0 57 0;
+#X connect 52 0 58 1;
+#X connect 53 0 58 0;
+#X connect 54 0 59 1;
+#X connect 55 0 59 0;
+#X connect 56 0 72 0;
+#X connect 57 0 73 0;
+#X connect 58 0 74 0;
+#X connect 59 0 75 0;
+#X connect 60 0 68 1;
+#X connect 61 0 69 1;
+#X connect 62 0 68 0;
+#X connect 63 0 69 0;
+#X connect 64 0 70 1;
+#X connect 65 0 70 0;
+#X connect 66 0 71 1;
+#X connect 67 0 71 0;
+#X connect 68 0 76 0;
+#X connect 69 0 77 0;
+#X connect 70 0 78 0;
+#X connect 71 0 79 0;
+#X connect 72 0 100 0;
+#X connect 73 0 100 0;
+#X connect 74 0 100 0;
+#X connect 75 0 100 0;
+#X connect 76 0 100 0;
+#X connect 77 0 100 0;
+#X connect 78 0 100 0;
+#X connect 79 0 100 0;
+#X connect 80 0 82 1;
+#X connect 81 0 82 0;
+#X connect 82 0 83 0;
+#X connect 83 0 100 0;
+#X connect 84 0 85 0;
+#X connect 86 0 87 0;
+#X connect 87 0 100 0;
+#X connect 89 0 96 0;
+#X connect 91 0 97 0;
+#X connect 93 0 98 0;
+#X connect 95 0 99 0;
+#X connect 96 0 100 0;
+#X connect 97 0 100 0;
+#X connect 98 0 100 0;
+#X connect 99 0 100 0;
 #X restore 33 198 pd display_update_current;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
