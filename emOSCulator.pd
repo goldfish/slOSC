@@ -1,4 +1,4 @@
-#N canvas 932 25 333 560 10;
+#N canvas 932 25 333 525 10;
 #N canvas 617 71 570 325 OSCin 0;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
@@ -293,7 +293,7 @@
 #X connect 9 0 10 0;
 #X connect 9 1 8 0;
 #X coords 0 -1 1 1 125 25 2 200 20;
-#X restore 166 338 pd OSCin;
+#X restore 166 313 pd OSCin;
 #N canvas 20 286 381 270 OSCout 0;
 #X obj 131 10 inlet;
 #X obj 131 35 packOSC;
@@ -541,7 +541,7 @@
 #X connect 14 1 1 0;
 #X connect 15 0 1 0;
 #X coords 0 -1 1 1 125 90 2 40 100;
-#X restore 166 241 pd OSCout;
+#X restore 166 216 pd OSCout;
 #N canvas 719 464 461 198 add_del_loop-\$0 0;
 #X msg 229 63 send /loop_del -1;
 #X obj 28 80 bng 15 250 50 0 empty empty remove_last_loop 17 7 0 8
@@ -572,7 +572,7 @@
 #X connect 10 0 5 0;
 #X connect 11 0 7 0;
 #X coords 0 -1 1 1 200 80 2 20 20;
-#X restore 51 371 pd add_del_loop-\$0;
+#X restore 51 346 pd add_del_loop-\$0;
 #N canvas 21 56 498 514 global_monitors-\$0 0;
 #X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
 8 -262144 -1 -1 110 256;
@@ -585,7 +585,7 @@
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00080061 256;
+22 0 8 -262144 -1 -1 0.000986099 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 2 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
@@ -609,7 +609,7 @@
 #X connect 11 0 12 0;
 #X connect 12 0 10 0;
 #X coords 0 -1 1 1 300 200 2 100 100;
-#X restore -9 31 pd global_monitors-\$0;
+#X restore -9 6 pd global_monitors-\$0;
 #N canvas 221 240 415 321 sync_interface 0;
 #N canvas 704 25 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
@@ -736,11 +736,11 @@
 #X connect 17 0 12 0;
 #X connect 18 0 13 0;
 #X coords 0 -1 1 1 135 125 2 20 10;
-#X restore -9 241 pd sync_interface;
-#X obj -16 459 cnv 15 320 60 empty empty empty 20 12 0 14 -257985 -66577
+#X restore -9 216 pd sync_interface;
+#X obj -16 434 cnv 15 320 60 empty empty empty 20 12 0 14 -257985 -66577
 0;
-#X text -9 462 emOSCulator - puredata sooperlooper interface;
-#X text -10 482 controls are in red - changing other items can have
+#X text -9 437 emOSCulator - puredata sooperlooper interface;
+#X text -10 457 controls are in red - changing other items can have
 unexpected results;
 #N canvas 223 25 592 542 loop_interfaces 0;
 #N canvas 371 25 894 600 current_loop_interface 0;
@@ -1865,4 +1865,4 @@ unexpected results;
 #X connect 28 0 1 0;
 #X coords 0 -1 1 1 580 530 2 15 65;
 #X restore 5 6 pd current_loop_interface;
-#X restore -12 526 pd loop_interfaces;
+#X restore -12 501 pd loop_interfaces;
