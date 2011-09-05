@@ -1,4 +1,4 @@
-#N canvas 945 25 333 560 10;
+#N canvas 932 25 333 560 10;
 #N canvas 617 71 570 325 OSCin 0;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
@@ -575,17 +575,17 @@
 #X restore 51 371 pd add_del_loop-\$0;
 #N canvas 21 56 498 514 global_monitors-\$0 0;
 #X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 172.448 256;
+8 -262144 -1 -1 110 256;
 #X obj 228 118 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 289 260 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak
-0 22 0 8 -262144 -1 -1 0.0773163 256;
+0 22 0 8 -262144 -1 -1 0 256;
 #X obj 108 259 nbx 3 14 0 1 0 0 empty SLwet wet 0 22 0 8 -262144 -1
 -1 1 256;
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.000829697 256;
+22 0 8 -262144 -1 -1 0.00080061 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 2 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
@@ -613,7 +613,7 @@
 #N canvas 221 240 415 321 sync_interface 0;
 #N canvas 704 25 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
--8 0 8 -262144 -1 -1 1 256;
+-8 0 8 -262144 -1 -1 0 256;
 #X obj 203 63 bng 15 250 50 0 empty empty empty -46 7 0 8 -258113 -1
 -1;
 #X symbolatom 138 62 10 0 0 0 - SLsync_source_message -;
@@ -742,10 +742,11 @@
 #X text -9 462 emOSCulator - puredata sooperlooper interface;
 #X text -10 482 controls are in red - changing other items can have
 unexpected results;
-#N canvas 3 25 610 692 current_loop_interface 0;
-#X obj 158 74 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
+#N canvas 223 25 592 542 loop_interfaces 0;
+#N canvas 371 25 894 600 current_loop_interface 0;
+#X obj 153 74 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 33 7 0 8 -262144 -1 -1 0 256;
-#X obj 99 627 slOSCsender2;
+#X obj 710 527 slOSCsender2;
 #N canvas 31 40 1108 473 register_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -848,10 +849,10 @@ unexpected results;
 #X connect 27 0 1 0;
 #X connect 28 0 1 0;
 #X connect 29 0 1 0;
-#X restore 19 593 pd register_auto_update_current;
-#X obj 29 73 tgl 15 0 empty empty enable_monitors 17 7 0 8 -258113
+#X restore 630 493 pd register_auto_update_current;
+#X obj 24 73 tgl 15 0 empty empty enable_monitors 17 7 0 8 -258113
 -1 -1 0 1;
-#X obj 99 519 select 1;
+#X obj 630 335 select 1;
 #N canvas 533 40 685 503 unregister_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -911,35 +912,35 @@ unexpected results;
 #X connect 13 0 1 0;
 #X connect 14 0 1 0;
 #X connect 15 0 1 0;
-#X restore 219 593 pd unregister_auto_update_current;
-#X obj 19 16 r disable_monitors_current;
-#X msg 19 36 set 0;
-#X obj 19 666 s slOSCout;
-#X obj 29 112 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
-0 8 -262144 -1 -1 2.78345 256;
-#X obj 29 142 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
-0 8 -262144 -1 -1 95.1089 256;
-#X obj 279 172 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0
+#X restore 630 416 pd unregister_auto_update_current;
+#X obj 10 16 r disable_monitors_current;
+#X msg 10 36 set 0;
+#X obj 630 566 s slOSCout;
+#X obj 24 112 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 24 142 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 274 172 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0
 -8 0 8 -262144 -1 -1 0 256;
-#X obj 279 112 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
-0 8 -262144 -1 -1 2.78345 256;
-#X obj 279 142 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
-0 8 -262144 -1 -1 0.331134 256;
-#X obj 479 174 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
+#X obj 274 112 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 274 142 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 620 154 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 109 142 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
+#X obj 104 142 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 479 122 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
--1 -1 4 256;
-#X obj 199 112 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
-0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 109 112 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
-0 -8 0 8 -262144 -1 -1 1 256;
-#X obj 199 142 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
-0 -8 0 8 -262144 -1 -1 95.1089 256;
-#X obj 379 112 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
+#X obj 620 102 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
+-1 -1 0 256;
+#X obj 194 112 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
+0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 104 112 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
+0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 194 142 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
+0 -8 0 8 -262144 -1 -1 0 256;
+#X obj 494 92 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
 8 -262144 -1 -1 0 256;
-#X symbolatom 379 172 12 0 0 2 next_state - -;
+#X symbolatom 494 152 12 0 0 2 next_state - -;
 #N canvas 0 0 488 522 parse_state 0;
 #X obj 72 26 inlet;
 #X obj 72 56 select -1 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14;
@@ -996,7 +997,7 @@ unexpected results;
 #X connect 16 0 19 0;
 #X connect 17 0 19 0;
 #X connect 18 0 19 0;
-#X restore 479 141 pd parse_state;
+#X restore 620 121 pd parse_state;
 #N canvas 0 0 488 522 parse_next_state 0;
 #X obj 72 36 inlet;
 #X obj 72 66 select -1 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14;
@@ -1053,8 +1054,8 @@ unexpected results;
 #X connect 16 0 19 0;
 #X connect 17 0 19 0;
 #X connect 18 0 19 0;
-#X restore 479 193 pd parse_next_state;
-#X symbolatom 379 142 12 0 0 2 state - -;
+#X restore 620 173 pd parse_next_state;
+#X symbolatom 494 122 12 0 0 2 state - -;
 #N canvas 473 25 470 697 SLcommand_buttons 0;
 #X obj 22 20 bng 20 250 50 0 empty empty RECORD 22 10 0 10 -258113
 -1 -1;
@@ -1183,65 +1184,74 @@ unexpected results;
 #X connect 48 0 50 0;
 #X connect 49 0 50 0;
 #X coords 0 -1 1 1 450 170 2 10 10;
-#X restore 19 337 pd SLcommand_buttons;
-#N canvas 91 25 765 700 register_update_current 0;
+#X restore 24 420 pd SLcommand_buttons;
+#N canvas 91 25 774 700 register_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
-#X msg 283 8 3 /sl/-3/register_update rec_thresh /updates/rec_thresh
+#X msg 124 367 4 /sl/-3/register_auto_update use_common_ins 100 /updates/use_common_ins
 ;
-#X msg 273 28 3 /sl/-3/register_update feedback /updates/feedback;
-#X msg 263 48 3 /sl/-3/register_update use_feedback_play /updates/use_feedback_play
+#X msg 283 8 4 /sl/-3/register_auto_update rec_thresh 100 /updates/rec_thresh
 ;
-#X msg 254 81 3 /sl/-3/register_update dry /updates/dry-3;
-#X msg 244 101 3 /sl/-3/register_update wet /updates/wet-3;
-#X msg 234 121 3 /sl/-3/register_update input_gain /updates/input_gain
+#X msg 273 28 4 /sl/-3/register_auto_update feedback 100 /updates/feedback
 ;
-#X msg 224 141 3 /sl/-3/register_update rate /updates/rate;
-#X msg 214 161 3 /sl/-3/register_update scratch_pos /updates/scratch_pos
+#X msg 263 48 4 /sl/-3/register_auto_update use_feedback_play 100 /updates/use_feedback_play
 ;
-#X msg 204 181 3 /sl/-3/register_update delay_trigger /updates/delay_trigger
+#X msg 254 81 4 /sl/-3/register_auto_update dry 100 /updates/dry-3
 ;
-#X msg 194 214 3 /sl/-3/register_update quantize /updates/quantize
+#X msg 244 101 4 /sl/-3/register_auto_update wet 100 /updates/wet-3
 ;
-#X msg 184 234 3 /sl/-3/register_update fade_samples /updates/fade_samples
+#X msg 234 121 4 /sl/-3/register_auto_update input_gain 100 /updates/input_gain
 ;
-#X msg 174 254 3 /sl/-3/register_update round /updates/round;
-#X msg 164 274 3 /sl/-3/register_update sync /updates/sync;
-#X msg 154 294 3 /sl/-3/register_update playback_sync /updates/playback_sync
+#X msg 224 141 4 /sl/-3/register_auto_update rate 100 /updates/rate
 ;
-#X msg 144 327 3 /sl/-3/register_update redo_is_tap /updates/redo_is_tap
+#X msg 214 161 4 /sl/-3/register_auto_update scratch_pos 100 /updates/scratch_pos
 ;
-#X msg 134 347 3 /sl/-3/register_update use_rate /updates/use_rate
+#X msg 204 181 4 /sl/-3/register_auto_update delay_trigger 100 /updates/delay_trigger
 ;
-#X msg 124 367 3 /sl/-3/register_update use_common_ins /updates/use_common_ins
+#X msg 194 214 4 /sl/-3/register_auto_update quantize 100 /updates/quantize
 ;
-#X msg 114 400 3 /sl/-3/register_update use_common_outs /updates/use_common_outs
+#X msg 184 234 4 /sl/-3/register_auto_update fade_samples 100 /updates/fade_samples
 ;
-#X msg 104 433 3 /sl/-3/register_update relative_sync /updates/relative_sync
+#X msg 174 254 4 /sl/-3/register_auto_update round 100 /updates/round
 ;
-#X msg 94 466 3 /sl/-3/register_update input_latency /updates/input_latency
+#X msg 164 274 4 /sl/-3/register_auto_update sync 100 /updates/sync
 ;
-#X msg 84 499 3 /sl/-3/register_update output_latency /updates/output_latency
+#X msg 154 294 4 /sl/-3/register_auto_update playback_sync 100 /updates/playback_sync
 ;
-#X msg 74 532 3 /sl/-3/register_update trigger_latency /updates/trigger_latency
+#X msg 144 327 4 /sl/-3/register_auto_update redo_is_tap 100 /updates/redo_is_tap
 ;
-#X msg 64 565 3 /sl/-3/register_update autoset_latency /updates/autoset_latency
+#X msg 134 347 4 /sl/-3/register_auto_update use_rate 100 /updates/use_rate
 ;
-#X msg 54 598 3 /sl/-3/register_update mute_quantized /updates/mute_quantized
+#X msg 114 400 4 /sl/-3/register_auto_update use_common_outs 100 /updates/use_common_outs
 ;
-#X msg 434 458 3 /sl/-3/register_update pan_1 /updates/pan_1;
-#X msg 424 478 3 /sl/-3/register_update pan_2 /updates/pan_2;
-#X msg 414 498 3 /sl/-3/register_update pan_3 /updates/pan_3;
-#X msg 404 518 3 /sl/-3/register_update pan_4 /updates/pan_4;
-#X msg 394 538 3 /sl/-3/register_update tempo_stretch /updates/tempo_stretch
+#X msg 104 433 4 /sl/-3/register_auto_update relative_sync 100 /updates/relative_sync
 ;
-#X msg 384 571 3 /sl/-3/register_update round_integer_tempo /updates/round_integer_tempo
+#X msg 94 466 4 /sl/-3/register_auto_update input_latency 100 /updates/input_latency
 ;
-#X msg 374 604 3 /sl/-3/register_update replace_quantized /updates/replace_quantized
+#X msg 84 499 4 /sl/-3/register_auto_update output_latency 100 /updates/output_latency
 ;
-#X msg 364 637 3 /sl/-3/register_update overdub_quantized /updates/overdub_quantized
+#X msg 74 532 4 /sl/-3/register_auto_update trigger_latency 100 /updates/trigger_latency
 ;
-#X connect 0 0 2 0;
+#X msg 64 565 4 /sl/-3/register_auto_update autoset_latency 100 /updates/autoset_latency
+;
+#X msg 54 598 4 /sl/-3/register_auto_update mute_quantized 100 /updates/mute_quantized
+;
+#X msg 434 458 4 /sl/-3/register_auto_update pan_1 100 /updates/pan_1
+;
+#X msg 424 478 4 /sl/-3/register_auto_update pan_2 100 /updates/pan_2
+;
+#X msg 414 498 4 /sl/-3/register_auto_update pan_3 100 /updates/pan_3
+;
+#X msg 404 518 4 /sl/-3/register_auto_update pan_4 100 /updates/pan_4
+;
+#X msg 394 538 4 /sl/-3/register_auto_update tempo_stretch 100 /updates/tempo_stretch
+;
+#X msg 384 571 4 /sl/-3/register_auto_update round_integer_tempo 100
+/updates/round_integer_tempo;
+#X msg 374 604 4 /sl/-3/register_auto_update replace_quantized 100
+/updates/replace_quantized;
+#X msg 364 637 4 /sl/-3/register_auto_update overdub_quantized 100
+/updates/overdub_quantized;
 #X connect 0 0 3 0;
 #X connect 0 0 4 0;
 #X connect 0 0 5 0;
@@ -1258,6 +1268,7 @@ unexpected results;
 #X connect 0 0 16 0;
 #X connect 0 0 17 0;
 #X connect 0 0 18 0;
+#X connect 0 0 2 0;
 #X connect 0 0 19 0;
 #X connect 0 0 20 0;
 #X connect 0 0 21 0;
@@ -1305,7 +1316,7 @@ unexpected results;
 #X connect 31 0 1 0;
 #X connect 32 0 1 0;
 #X connect 33 0 1 0;
-#X restore 29 573 pd register_update_current;
+#X restore 640 473 pd register_update_current;
 #N canvas 594 25 684 678 get_update_current 0;
 #X obj 5 69 inlet;
 #X obj -55 288 outlet;
@@ -1413,66 +1424,70 @@ unexpected results;
 #X connect 31 0 1 0;
 #X connect 32 0 1 0;
 #X connect 33 0 1 0;
-#X restore 39 553 pd get_update_current;
+#X restore 650 453 pd get_update_current;
 #N canvas 91 25 765 700 unregister_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
-#X msg 283 8 3 /sl/-3/unregister_update rec_thresh /updates/rec_thresh
+#X msg 124 380 3 /sl/-3/unregister_auto_update use_common_ins /updates/use_common_ins
 ;
-#X msg 273 28 3 /sl/-3/unregister_update feedback /updates/feedback
+#X msg 283 8 3 /sl/-3/unregister_auto_update rec_thresh /updates/rec_thresh
 ;
-#X msg 263 48 3 /sl/-3/unregister_update use_feedback_play /updates/use_feedback_play
+#X msg 273 28 3 /sl/-3/unregister_auto_update feedback /updates/feedback
 ;
-#X msg 254 81 3 /sl/-3/unregister_update dry /updates/dry-3;
-#X msg 244 101 3 /sl/-3/unregister_update wet /updates/wet-3;
-#X msg 234 121 3 /sl/-3/unregister_update input_gain /updates/input_gain
+#X msg 263 48 3 /sl/-3/unregister_auto_update use_feedback_play /updates/use_feedback_play
 ;
-#X msg 224 141 3 /sl/-3/unregister_update rate /updates/rate;
-#X msg 214 161 3 /sl/-3/unregister_update scratch_pos /updates/scratch_pos
+#X msg 254 81 3 /sl/-3/unregister_auto_update dry /updates/dry-3;
+#X msg 244 101 3 /sl/-3/unregister_auto_update wet /updates/wet-3;
+#X msg 234 121 3 /sl/-3/unregister_auto_update input_gain /updates/input_gain
 ;
-#X msg 204 181 3 /sl/-3/unregister_update delay_trigger /updates/delay_trigger
+#X msg 224 141 3 /sl/-3/unregister_auto_update rate /updates/rate;
+#X msg 214 161 3 /sl/-3/unregister_auto_update scratch_pos /updates/scratch_pos
 ;
-#X msg 194 214 3 /sl/-3/unregister_update quantize /updates/quantize
+#X msg 204 181 3 /sl/-3/unregister_auto_update delay_trigger /updates/delay_trigger
 ;
-#X msg 184 234 3 /sl/-3/unregister_update fade_samples /updates/fade_samples
+#X msg 194 214 3 /sl/-3/unregister_auto_update quantize /updates/quantize
 ;
-#X msg 174 267 3 /sl/-3/unregister_update round /updates/round;
-#X msg 164 287 3 /sl/-3/unregister_update sync /updates/sync;
-#X msg 154 307 3 /sl/-3/unregister_update playback_sync /updates/playback_sync
+#X msg 184 234 3 /sl/-3/unregister_auto_update fade_samples /updates/fade_samples
 ;
-#X msg 144 340 3 /sl/-3/unregister_update redo_is_tap /updates/redo_is_tap
+#X msg 174 267 3 /sl/-3/unregister_auto_update round /updates/round
 ;
-#X msg 134 360 3 /sl/-3/unregister_update use_rate /updates/use_rate
+#X msg 164 287 3 /sl/-3/unregister_auto_update sync /updates/sync;
+#X msg 154 307 3 /sl/-3/unregister_auto_update playback_sync /updates/playback_sync
 ;
-#X msg 124 380 3 /sl/-3/unregister_update use_common_ins /updates/use_common_ins
+#X msg 144 340 3 /sl/-3/unregister_auto_update redo_is_tap /updates/redo_is_tap
 ;
-#X msg 114 413 3 /sl/-3/unregister_update use_common_outs /updates/use_common_outs
+#X msg 134 360 3 /sl/-3/unregister_auto_update use_rate /updates/use_rate
 ;
-#X msg 104 446 3 /sl/-3/unregister_update relative_sync /updates/relative_sync
+#X msg 114 413 3 /sl/-3/unregister_auto_update use_common_outs /updates/use_common_outs
 ;
-#X msg 94 479 3 /sl/-3/unregister_update input_latency /updates/input_latency
+#X msg 104 446 3 /sl/-3/unregister_auto_update relative_sync /updates/relative_sync
 ;
-#X msg 84 512 3 /sl/-3/unregister_update output_latency /updates/output_latency
+#X msg 94 479 3 /sl/-3/unregister_auto_update input_latency /updates/input_latency
 ;
-#X msg 74 545 3 /sl/-3/unregister_update trigger_latency /updates/trigger_latency
+#X msg 84 512 3 /sl/-3/unregister_auto_update output_latency /updates/output_latency
 ;
-#X msg 64 578 3 /sl/-3/unregister_update autoset_latency /updates/autoset_latency
+#X msg 74 545 3 /sl/-3/unregister_auto_update trigger_latency /updates/trigger_latency
 ;
-#X msg 54 611 3 /sl/-3/unregister_update mute_quantized /updates/mute_quantized
+#X msg 64 578 3 /sl/-3/unregister_auto_update autoset_latency /updates/autoset_latency
 ;
-#X msg 434 458 3 /sl/-3/unregister_update pan_1 /updates/pan_1;
-#X msg 424 478 3 /sl/-3/unregister_update pan_2 /updates/pan_2;
-#X msg 414 498 3 /sl/-3/unregister_update pan_3 /updates/pan_3;
-#X msg 404 518 3 /sl/-3/unregister_update pan_4 /updates/pan_4;
-#X msg 394 538 3 /sl/-3/unregister_update tempo_stretch /updates/tempo_stretch
+#X msg 54 611 3 /sl/-3/unregister_auto_update mute_quantized /updates/mute_quantized
 ;
-#X msg 384 571 3 /sl/-3/unregister_update round_integer_tempo /updates/round_integer_tempo
+#X msg 434 458 3 /sl/-3/unregister_auto_update pan_1 /updates/pan_1
 ;
-#X msg 374 604 3 /sl/-3/unregister_update replace_quantized /updates/replace_quantized
+#X msg 424 478 3 /sl/-3/unregister_auto_update pan_2 /updates/pan_2
 ;
-#X msg 364 637 3 /sl/-3/unregister_update overdub_quantized /updates/overdub_quantized
+#X msg 414 498 3 /sl/-3/unregister_auto_update pan_3 /updates/pan_3
 ;
-#X connect 0 0 2 0;
+#X msg 404 518 3 /sl/-3/unregister_auto_update pan_4 /updates/pan_4
+;
+#X msg 394 538 3 /sl/-3/unregister_auto_update tempo_stretch /updates/tempo_stretch
+;
+#X msg 384 571 3 /sl/-3/unregister_auto_update round_integer_tempo
+/updates/round_integer_tempo;
+#X msg 374 604 3 /sl/-3/unregister_auto_update replace_quantized /updates/replace_quantized
+;
+#X msg 364 637 3 /sl/-3/unregister_auto_update overdub_quantized /updates/overdub_quantized
+;
 #X connect 0 0 3 0;
 #X connect 0 0 4 0;
 #X connect 0 0 5 0;
@@ -1489,6 +1504,7 @@ unexpected results;
 #X connect 0 0 16 0;
 #X connect 0 0 17 0;
 #X connect 0 0 18 0;
+#X connect 0 0 2 0;
 #X connect 0 0 19 0;
 #X connect 0 0 20 0;
 #X connect 0 0 21 0;
@@ -1536,22 +1552,22 @@ unexpected results;
 #X connect 31 0 1 0;
 #X connect 32 0 1 0;
 #X connect 33 0 1 0;
-#X restore 219 573 pd unregister_update_current;
-#N canvas 225 25 937 697 display_update_current 0;
+#X restore 630 396 pd unregister_update_current;
+#N canvas 341 25 937 697 display_update_current 0;
 #X obj -95 239 nbx 5 14 0 1e+37 0 0 empty CCIrec_thresh rec_thresh
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj -95 269 nbx 5 14 0 1e+37 0 0 empty CCIfeedback feedback 0 -8
-0 8 -262144 -1 -1 1 256;
+0 8 -262144 -1 -1 0 256;
 #X obj 155 89 nbx 5 14 0 1e+37 0 0 empty CCIuse_feedback_play use_feedback_play
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 5 239 nbx 5 14 0 1e+37 0 0 empty CCIdry-3 dry 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 5 269 nbx 5 14 0 1e+37 0 0 empty CCIwet-3 wet 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 0 256;
 #X obj 5 299 nbx 5 14 0 1e+37 0 0 empty CCIinput_gain input_gain 0
 -8 0 8 -262144 -1 -1 0 256;
 #X obj 81 299 nbx 5 14 0 1e+37 0 0 empty CCIrate rate 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 0 256;
 #X obj -95 299 nbx 5 14 0 1e+37 0 0 empty CCIscratch_pos scratch_pos
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 585 -1 nbx 5 14 0 1e+37 0 0 empty CCIdelay_trigger delay_trigger
@@ -1559,7 +1575,7 @@ unexpected results;
 #X obj 572 488 nbx 5 14 0 1e+37 0 0 empty CCIquantize quantize 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 585 29 nbx 5 14 0 1e+37 0 0 empty CCIfade_samples fade_samples
-0 -8 0 8 -262144 -1 -1 64 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj -105 61 nbx 5 14 0 1e+37 0 0 empty CCIround round 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj -105 91 nbx 5 14 0 1e+37 0 0 empty CCIsync sync 0 -8 0 8 -262144
@@ -1571,23 +1587,23 @@ unexpected results;
 #X obj 35 59 nbx 5 14 0 1e+37 0 0 empty CCIuse_rate use_rate 0 -8 0
 8 -262144 -1 -1 0 256;
 #X obj -105 1 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_ins use_common_ins
-0 -8 0 8 -262144 -1 -1 1 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj -105 31 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_outs use_common_outs
-0 -8 0 8 -262144 -1 -1 1 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 35 89 nbx 5 14 0 1e+37 0 0 empty CCIrelative_sync relative_sync
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 321 143 nbx 5 14 0 1e+37 0 0 empty CCIinput_latency input_latency
-0 -8 0 8 -262144 -1 -1 128 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 321 173 nbx 5 14 0 1e+37 0 0 empty CCIoutput_latency output_latency
-0 -8 0 8 -262144 -1 -1 256 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 321 203 nbx 5 14 0 1e+37 0 0 empty CCItrigger_latency trigger_latency
-0 -8 0 8 -262144 -1 -1 128 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 321 93 nbx 5 14 0 1e+37 0 0 empty CCIautoset_latency autoset_latency
-0 -8 0 8 -262144 -1 -1 1 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 155 -1 nbx 5 14 0 1e+37 0 0 empty CCImute_quantized mute_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 635 246 nbx 5 14 0 1e+37 0 0 empty CCIpan_1 pan_1 0 -8 0 8 -262144
--1 -1 0.5 256;
+-1 -1 0 256;
 #X obj 635 276 nbx 5 14 0 1e+37 0 0 empty CCIpan_2 pan_2 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 635 306 nbx 5 14 0 1e+37 0 0 empty CCIpan_3 pan_3 0 -8 0 8 -262144
@@ -1599,13 +1615,13 @@ unexpected results;
 #X obj 585 89 nbx 5 14 0 1e+37 0 0 empty CCIround_integer_tempo round_integer_tempo
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 155 29 nbx 5 14 0 1e+37 0 0 empty CCIreplace_quantized replace_quantized
-0 -8 0 8 -262144 -1 -1 1 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 155 59 nbx 5 14 0 1e+37 0 0 empty CCIoverdub_quantized overdub_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj -83 133 tgl 15 0 empty empty use_common_ins 17 7 0 8 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj -83 153 tgl 15 0 empty empty use_common_outs 17 7 0 8 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj -99 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
 #X obj -99 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
@@ -1649,7 +1665,7 @@ unexpected results;
 #X obj 177 133 tgl 15 0 empty empty mute_quantized 17 7 0 8 -262144
 -1 -1 0 1;
 #X obj 177 153 tgl 15 0 empty empty replace_quantized 17 7 0 8 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 161 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
 #X obj 161 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
@@ -1675,7 +1691,7 @@ unexpected results;
 #X msg 342 551 send /sl/-3/set overdub_quantized \$1;
 #X msg -99 601 send /sl/-3/set use_feedback_play \$1;
 #X obj 337 223 tgl 15 0 empty empty autoset_latency 17 7 0 8 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 321 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
 #X obj 572 429 bitflipper;
@@ -1729,9 +1745,9 @@ unexpected results;
 #X connect 9 0 4 0;
 #X restore 572 526 pd send_set_quantize;
 #X obj 324 263 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
--1 -1 2450 1;
+-1 -1 0 1;
 #X obj 324 276 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
--1 -1 3100 1;
+-1 -1 0 1;
 #X obj 384 263 hsl 50 10 0 1 0 0 empty CCIpan_2 pan_2 8 -8 0 8 -262144
 -1 -1 0 1;
 #X obj 384 276 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
@@ -1827,7 +1843,8 @@ unexpected results;
 #X connect 97 0 100 0;
 #X connect 98 0 100 0;
 #X connect 99 0 100 0;
-#X restore 33 198 pd display_update_current;
+#X coords 0 -1 1 1 560 220 2 -110 120;
+#X restore 24 198 pd display_update_current;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
@@ -1846,4 +1863,6 @@ unexpected results;
 #X connect 26 0 1 0;
 #X connect 27 0 1 0;
 #X connect 28 0 1 0;
-#X restore 64 527 pd current_loop_interface;
+#X coords 0 -1 1 1 580 530 2 15 65;
+#X restore 5 6 pd current_loop_interface;
+#X restore -12 526 pd loop_interfaces;
