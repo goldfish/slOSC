@@ -1,1 +1,1 @@
-implement common channel/loop set parameters
+fix disconnect so it sends final osc messages before disconnect
