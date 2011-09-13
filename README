@@ -1,4 +1,9 @@
 # emOSCulator
 pure data interface for controlling sooperlooper via OSC messages
 written by goldfish
-see LICENSE file for copyright and license information
+see LICENSE file for full copyright and license information
+
+Contains sections which communicate with an arduino mega running
+https://github.com/goldfish/SLhwi
+
+
