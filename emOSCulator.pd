@@ -585,7 +585,7 @@
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00145912 256;
+22 0 8 -262144 -1 -1 0.0013504 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 4 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
@@ -1869,57 +1869,6 @@ unexpected results;
 #X connect 99 0 100 0;
 #X coords 0 -1 1 1 560 220 2 -110 120;
 #X restore 24 198 pd display_update_current;
-#N canvas 287 136 575 577 save_page 0;
-#X obj -72 514 slOSCsender2;
-#X msg -72 30 5 /sl/-3/save_loop loop0.wav format endian /errors/save_loop
-;
-#X obj -72 490 spigot;
-#X obj -39 471 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg -62 50 5 /sl/0/save_loop loop0.wav format endian /errors/save_loop
-;
-#X msg -52 70 5 /sl/1/save_loop loop1.wav format endian /errors/save_loop
-;
-#X msg -42 90 5 /sl/2/save_loop loop2.wav format endian /errors/save_loop
-;
-#X msg -32 110 5 /sl/3/save_loop loop3.wav format endian /errors/save_loop
-;
-#X msg -22 130 5 /sl/4/save_loop loop4.wav format endian /errors/save_loop
-;
-#X msg -12 150 5 /sl/5/save_loop loop5.wav format endian /errors/save_loop
-;
-#X msg -2 170 5 /sl/6/save_loop loop6.wav format endian /errors/save_loop
-;
-#X msg 8 190 5 /sl/7/save_loop loop7.wav format endian /errors/save_loop
-;
-#X msg 18 210 5 /sl/8/save_loop loop8.wav format endian /errors/save_loop
-;
-#X msg 28 230 5 /sl/9/save_loop loop9.wav format endian /errors/save_loop
-;
-#X msg 11 309 3 /save_session session1.sl /errors/save_session;
-#X text -14 472 set your filenames \, turn on the spigot. click on
-messages one by one to send them.;
-#X obj 19 349 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
-0;
-#X msg 24 354 3 /load_session session1.sl /errors/load_session;
-#X obj -72 538 s slOSCout;
-#X connect 0 0 18 0;
-#X connect 1 0 2 0;
-#X connect 2 0 0 0;
-#X connect 3 0 2 1;
-#X connect 4 0 2 0;
-#X connect 5 0 2 0;
-#X connect 6 0 2 0;
-#X connect 7 0 2 0;
-#X connect 8 0 2 0;
-#X connect 9 0 2 0;
-#X connect 10 0 2 0;
-#X connect 11 0 2 0;
-#X connect 12 0 2 0;
-#X connect 13 0 2 0;
-#X connect 14 0 2 0;
-#X connect 17 0 2 0;
-#X restore 363 120 pd save_page;
 #X connect 1 0 8 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
@@ -2170,3 +2119,54 @@ open ports hupcl rxerrors;
 #X coords 0 -1 1 1 320 200 2 360 10;
 #X restore 2 74 pd footControllerVisual;
 #X restore -13 500 pd clearFootControllerDisplay;
+#N canvas 287 136 575 577 save_page 0;
+#X obj -72 514 slOSCsender2;
+#X msg -72 30 5 /sl/-3/save_loop loop0.wav format endian /errors/save_loop
+;
+#X obj -72 490 spigot;
+#X obj -39 471 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg -62 50 5 /sl/0/save_loop loop0.wav format endian /errors/save_loop
+;
+#X msg -52 70 5 /sl/1/save_loop loop1.wav format endian /errors/save_loop
+;
+#X msg -42 90 5 /sl/2/save_loop loop2.wav format endian /errors/save_loop
+;
+#X msg -32 110 5 /sl/3/save_loop loop3.wav format endian /errors/save_loop
+;
+#X msg -22 130 5 /sl/4/save_loop loop4.wav format endian /errors/save_loop
+;
+#X msg -12 150 5 /sl/5/save_loop loop5.wav format endian /errors/save_loop
+;
+#X msg -2 170 5 /sl/6/save_loop loop6.wav format endian /errors/save_loop
+;
+#X msg 8 190 5 /sl/7/save_loop loop7.wav format endian /errors/save_loop
+;
+#X msg 18 210 5 /sl/8/save_loop loop8.wav format endian /errors/save_loop
+;
+#X msg 28 230 5 /sl/9/save_loop loop9.wav format endian /errors/save_loop
+;
+#X msg 11 309 3 /save_session session1.sl /errors/save_session;
+#X text -14 472 set your filenames \, turn on the spigot. click on
+messages one by one to send them.;
+#X obj 19 349 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X msg 24 354 3 /load_session session1.sl /errors/load_session;
+#X obj -72 538 s slOSCout;
+#X connect 0 0 18 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 2 0;
+#X connect 12 0 2 0;
+#X connect 13 0 2 0;
+#X connect 14 0 2 0;
+#X connect 17 0 2 0;
+#X restore 223 500 pd save_page;
