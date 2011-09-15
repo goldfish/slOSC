@@ -1,5 +1,5 @@
-#N canvas 932 25 333 525 10;
-#N canvas 617 71 570 325 OSCin 0;
+#N canvas 932 25 333 546 10;
+#N canvas 7 77 570 325 OSCin 0;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
 #X floatatom 52 84 10 0 0 1 millisecond_delay - -;
@@ -41,7 +41,7 @@
 #X obj 5 291 routeOSC /out_peak_meter /wet /dry /loops;
 #X obj 280 347 s SLloops;
 #X obj 280 323 unpack s s f;
-#N canvas 368 25 873 700 current_channel_interface_messages 0;
+#N canvas 368 25 873 690 current_channel_interface_messages 0;
 #X obj 16 5 inlet;
 #X obj 463 677 outlet;
 #X obj 39 24 routeOSC /cycle_len /free_time /is_soloed /loop_len;
@@ -575,17 +575,17 @@
 #X restore 51 346 pd add_del_loop-\$0;
 #N canvas 21 56 498 514 global_monitors-\$0 0;
 #X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 110 256;
+8 -262144 -1 -1 0 256;
 #X obj 228 118 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 289 260 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak
 0 22 0 8 -262144 -1 -1 0 256;
 #X obj 108 259 nbx 3 14 0 1 0 0 empty SLwet wet 0 22 0 8 -262144 -1
--1 1 256;
+-1 0 256;
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.000804901 256;
+22 0 8 -262144 -1 -1 0 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
@@ -595,7 +595,7 @@
 #X obj 428 221 * 111;
 #X obj 429 245 - 99;
 #X obj 188 259 nbx 3 14 0 1e+37 0 0 empty SLinput_gain input_gain 0
-22 0 8 -262144 -1 -1 1 256;
+22 0 8 -262144 -1 -1 0 256;
 #X obj 188 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 148 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
@@ -739,10 +739,10 @@
 #X restore -9 216 pd sync_interface;
 #X obj -16 434 cnv 15 320 60 empty empty empty 20 12 0 14 -257985 -66577
 0;
-#X text -9 437 emOSCulator - puredata sooperlooper interface;
-#X text -10 457 controls are in red - changing other items can have
+#X text -9 447 emOSCulator - puredata sooperlooper interface;
+#X text -10 467 controls are in red - changing other items can have
 unexpected results;
-#N canvas 223 25 592 542 loop_interfaces 0;
+#N canvas 5 25 592 542 loop_interfaces 0;
 #N canvas 371 25 894 600 current_loop_interface 0;
 #X obj 153 74 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 33 7 0 8 -262144 -1 -1 0 256;
@@ -1056,7 +1056,7 @@ unexpected results;
 #X connect 18 0 19 0;
 #X restore 620 173 pd parse_next_state;
 #X symbolatom 494 122 12 0 0 2 state - -;
-#N canvas 473 25 470 697 SLcommand_buttons 0;
+#N canvas 690 74 470 690 SLcommand_buttons 0;
 #X obj 22 20 bng 20 250 50 0 empty empty RECORD 22 10 0 10 -258113
 -1 -1;
 #X obj 22 50 bng 20 250 50 0 empty empty OVERDUB 22 10 0 10 -258113
@@ -1865,4 +1865,213 @@ unexpected results;
 #X connect 28 0 1 0;
 #X coords 0 -1 1 1 580 530 2 15 65;
 #X restore 5 6 pd current_loop_interface;
-#X restore -12 501 pd loop_interfaces;
+#X restore -13 521 pd loop_interfaces;
+#N canvas 501 297 408 286 clearFootControllerDisplay 0;
+#N canvas 264 106 931 434 footControllerSerial 0;
+#X floatatom 304 341 10 0 0 1 baud - -;
+#X floatatom 556 214 3 0 0 3 parity - -;
+#X floatatom 581 214 3 0 0 2 stop - -;
+#X floatatom 606 213 3 0 0 3 data - -;
+#X floatatom 452 341 3 0 0 1 port - -;
+#X obj 631 179 tgl 15 0 empty empty rts/cts -10 20 1 11 -24198 -258699
+-1 0 1;
+#X obj 657 195 tgl 15 0 empty empty xon/xoff -14 20 1 11 -24198 -258699
+-1 0 1;
+#X text 420 213 serial packet format:;
+#X text 572 163 handshaking:;
+#X text 378 245 flow control inputs:;
+#X obj 506 245 tgl 15 0 empty empty dsr 0 20 1 11 -24198 -258699 -1
+0 1;
+#X obj 531 245 tgl 15 0 empty empty cts 0 20 1 11 -24198 -258699 -1
+0 1;
+#X obj 403 341 tgl 15 0 empty empty open 17 7 1 11 -24198 -258699 -1
+1 1;
+#X obj 732 210 print port_list;
+#X obj 846 166 print other;
+#X obj 757 173 tgl 15 0 empty empty hupcl -6 20 1 11 -24198 -258699
+-1 1 1;
+#X floatatom 429 304 10 0 0 1 rxerrors - -;
+#X obj 481 136 route baud dsr cts parity stop data rtscts xonxoff port
+open ports hupcl rxerrors;
+#X obj 394 114 comport 4 57600;
+#X msg 408 41 close;
+#X msg 485 41 devicename /dev/ttyUSB0;
+#X obj 58 137 select 13 10 33;
+#X obj 146 200 list prepend;
+#X obj 145 168 makefilename %c;
+#X obj 239 201 t l;
+#X obj 58 169 bng 15 50 10 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 58 234 list append;
+#X symbolatom 304 304 20 0 0 0 - - -;
+#X obj 58 264 list2symbol;
+#X symbolatom 145 250 10 0 0 0 - - -;
+#X obj 64 365 symbol2list;
+#X msg 145 227 symbol;
+#X text 157 137 <-- end character end line select one!;
+#X text 246 167 // change int to ascii;
+#X text 270 201 // stores string;
+#X text 217 248 // remove unwanted spaces;
+#X text 143 368 // make list (message) out of it;
+#X obj 197 227 loadbang;
+#X msg 449 41 info;
+#X obj 581 322 bng 15 250 50 0 empty empty close -28 7 0 8 -258113
+-1 -1;
+#X obj 581 302 bng 15 250 50 0 empty empty connect -37 7 0 8 -258113
+-1 -1;
+#X obj 581 342 bng 15 250 50 0 empty empty update -34 7 0 8 -258113
+-1 -1;
+#X obj 64 386 list trim;
+#X obj 64 408 s footControllerOSCin;
+#X connect 17 0 0 0;
+#X connect 17 1 10 0;
+#X connect 17 2 11 0;
+#X connect 17 3 1 0;
+#X connect 17 4 2 0;
+#X connect 17 5 3 0;
+#X connect 17 6 5 0;
+#X connect 17 7 6 0;
+#X connect 17 8 4 0;
+#X connect 17 9 12 0;
+#X connect 17 10 13 0;
+#X connect 17 11 15 0;
+#X connect 17 12 16 0;
+#X connect 17 13 14 0;
+#X connect 18 0 21 0;
+#X connect 18 1 17 0;
+#X connect 19 0 18 0;
+#X connect 20 0 18 0;
+#X connect 21 1 25 0;
+#X connect 21 3 23 0;
+#X connect 22 0 24 0;
+#X connect 22 0 26 1;
+#X connect 23 0 22 0;
+#X connect 24 0 22 1;
+#X connect 25 0 22 1;
+#X connect 25 0 26 0;
+#X connect 26 0 28 0;
+#X connect 27 0 30 0;
+#X connect 28 0 27 0;
+#X connect 29 0 28 1;
+#X connect 30 0 42 0;
+#X connect 31 0 29 0;
+#X connect 37 0 31 0;
+#X connect 38 0 18 0;
+#X connect 39 0 19 0;
+#X connect 40 0 20 0;
+#X connect 41 0 38 0;
+#X connect 42 0 43 0;
+#X coords 0 -1 1 1 300 60 2 300 300;
+#X restore 2 12 pd footControllerSerial;
+#N canvas 29 129 1144 480 footControllerVisual 0;
+#X obj 18 46 routeOSC /AM;
+#X obj 151 75 print OTHER;
+#X obj 18 75 routeOSC /F /S;
+#X obj 18 128 routeOSC /0 /1 /2 /3 /4 /5 /6;
+#X obj 198 128 routeOSC /0 /1 /2 /3 /4;
+#X text 29 110 Foot Switches Hit;
+#X text 213 110 Slider Values;
+#X obj 18 23 r footControllerOSCin;
+#X obj 388 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 438 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 488 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 538 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 588 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 638 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 688 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 407 38 vsl 10 100 0 1023 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5913 1;
+#X obj 427 38 vsl 10 100 0 1023 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5390 1;
+#X obj 447 38 vsl 10 100 0 1023 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4877 1;
+#X obj 467 38 vsl 10 100 0 1023 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4384 1;
+#X obj 487 38 vsl 10 100 0 1023 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3910 1;
+#X obj 21 288 bng 20 250 50 0 empty empty RECORD 22 10 0 10 -258113
+-1 -1;
+#X obj 21 310 bng 20 250 50 0 empty empty OVERDUB 22 10 0 10 -258113
+-1 -1;
+#X msg 21 335 send /sl/-3/hit record;
+#X msg 21 355 send /sl/-3/hit overdub;
+#X obj 36 226 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
+0 8 -262144 -1 -1 0 256;
+#X obj 21 267 select 0;
+#X obj 284 452 print CHANGETO_send_slOSCout;
+#X obj 21 246 f;
+#X text 20 374 hit record if loop length is 0;
+#X text 20 387 otherwise hit overdub;
+#X obj 987 234 bng 20 250 50 0 empty empty UNDO 22 10 0 10 -258113
+-1 -1;
+#X msg 987 260 send /sl/-3/hit undo;
+#X text 5 197 may have to change to select rec for stop.;
+#X obj 847 234 bng 20 250 50 0 empty empty REDO 22 10 0 10 -258113
+-1 -1;
+#X msg 847 260 send /sl/-3/hit redo;
+#X obj 687 234 bng 20 250 50 0 empty empty MULTIPLY 22 10 0 10 -258113
+-1 -1;
+#X msg 687 260 send /sl/-3/hit multiply;
+#X obj 553 234 bng 20 250 50 0 empty empty MUTE 22 10 0 10 -258113
+-1 -1;
+#X msg 553 260 send /sl/-3/hit mute;
+#X obj 250 234 bng 20 250 50 0 empty empty INSERT 22 10 0 10 -258113
+-1 -1;
+#X obj 400 234 bng 20 250 50 0 empty empty REPLACE 22 10 0 10 -258113
+-1 -1;
+#X msg 250 260 send /sl/-3/hit insert;
+#X msg 400 260 send /sl/-3/hit replace;
+#X connect 0 0 2 0;
+#X connect 0 1 1 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 3 0 8 0;
+#X connect 3 1 9 0;
+#X connect 3 2 10 0;
+#X connect 3 3 11 0;
+#X connect 3 4 12 0;
+#X connect 3 5 13 0;
+#X connect 3 6 14 0;
+#X connect 4 0 15 0;
+#X connect 4 1 16 0;
+#X connect 4 2 17 0;
+#X connect 4 3 18 0;
+#X connect 4 4 19 0;
+#X connect 7 0 0 0;
+#X connect 8 0 27 0;
+#X connect 9 0 39 0;
+#X connect 10 0 40 0;
+#X connect 11 0 37 0;
+#X connect 12 0 35 0;
+#X connect 13 0 33 0;
+#X connect 14 0 30 0;
+#X connect 20 0 22 0;
+#X connect 21 0 23 0;
+#X connect 22 0 26 0;
+#X connect 23 0 26 0;
+#X connect 24 0 27 1;
+#X connect 25 0 20 0;
+#X connect 25 1 21 0;
+#X connect 27 0 25 0;
+#X connect 30 0 31 0;
+#X connect 31 0 26 0;
+#X connect 33 0 34 0;
+#X connect 34 0 26 0;
+#X connect 35 0 36 0;
+#X connect 36 0 26 0;
+#X connect 37 0 38 0;
+#X connect 38 0 26 0;
+#X connect 39 0 41 0;
+#X connect 40 0 42 0;
+#X connect 41 0 26 0;
+#X connect 42 0 26 0;
+#X coords 0 -1 1 1 380 200 2 360 10;
+#X restore 2 74 pd footControllerVisual;
+#X restore -13 500 pd clearFootControllerDisplay;
