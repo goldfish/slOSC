@@ -710,7 +710,7 @@ unexpected results;
 #N canvas 29 117 592 542 loop_interfaces 0;
 #N canvas 371 25 894 600 current_loop_interface 0;
 #X obj 153 74 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-33 7 0 8 -262144 -1 -1 7 256;
+33 7 0 8 -262144 -1 -1 9 256;
 #X obj 710 527 slOSCsender2;
 #N canvas 31 40 1108 473 register_auto_update_current 0;
 #X obj 8 69 inlet;
@@ -882,21 +882,21 @@ unexpected results;
 #X msg 10 36 set 0;
 #X obj 630 566 s slOSCout;
 #X obj 24 112 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0 -8
-0 8 -262144 -1 -1 0 256;
+0 8 -262144 -1 -1 32.2867 256;
 #X obj 24 142 nbx 5 14 0 1e+37 0 0 empty CCIfree_time free_time 0 -8
 0 8 -262144 -1 -1 190.218 256;
 #X obj 274 172 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0
 -8 0 8 -262144 -1 -1 0 256;
 #X obj 274 112 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
-0 8 -262144 -1 -1 0 256;
+0 8 -262144 -1 -1 32.2867 256;
 #X obj 274 142 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
-0 8 -262144 -1 -1 0 256;
+0 8 -262144 -1 -1 2.64633 256;
 #X obj 620 154 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
-0 -8 0 8 -262144 -1 -1 8 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 104 142 nbx 5 14 0 1e+37 0 0 empty CCIpitch_shift pitch_shift
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 620 102 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 4 256;
 #X obj 194 112 nbx 5 14 0 1e+37 0 0 empty CCIrate_output rate_output
 0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 104 112 nbx 5 14 0 1e+37 0 0 empty CCIstretch_ratio stretch_ratio
@@ -904,7 +904,7 @@ unexpected results;
 #X obj 194 142 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time
 0 -8 0 8 -262144 -1 -1 190.218 256;
 #X obj 494 92 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
-8 -262144 -1 -1 1 256;
+8 -262144 -1 -1 0 256;
 #X symbolatom 494 152 12 0 0 2 next_state - -;
 #N canvas 0 0 488 522 parse_state 0;
 #X obj 72 26 inlet;
@@ -1103,7 +1103,7 @@ unexpected results;
 #X obj 350 144 bng 20 250 50 0 empty empty PREV_LOOP 22 10 0 10 -258113
 -1 -1;
 #X obj 445 243 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-0 -8 0 8 -262144 -1 -1 7 256;
+0 -8 0 8 -262144 -1 -1 9 256;
 #X obj 508 288 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 13 256;
 #X msg 430 205 -1;
@@ -1584,7 +1584,7 @@ unexpected results;
 #X obj 321 143 nbx 5 14 0 1e+37 0 0 empty CCIinput_latency input_latency
 0 -8 0 8 -262144 -1 -1 128 256;
 #X obj 321 173 nbx 5 14 0 1e+37 0 0 empty CCIoutput_latency output_latency
-0 -8 0 8 -262144 -1 -1 0 256;
+0 -8 0 8 -262144 -1 -1 256 256;
 #X obj 321 203 nbx 5 14 0 1e+37 0 0 empty CCItrigger_latency trigger_latency
 0 -8 0 8 -262144 -1 -1 128 256;
 #X obj 321 93 nbx 5 14 0 1e+37 0 0 empty CCIautoset_latency autoset_latency
@@ -2006,7 +2006,7 @@ open ports hupcl rxerrors;
 -1 -1;
 #X obj 284 452 send slOSCout;
 #X obj 857 298 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-0 -8 0 8 -262144 -1 -1 7 256;
+0 -8 0 8 -262144 -1 -1 9 256;
 #X msg 842 260 -1;
 #X msg 947 260 1;
 #X obj 842 318 +;
@@ -2080,9 +2080,7 @@ messages one by one to send them.;
 0;
 #X obj -72 538 s slOSCout;
 #X msg 11 329 3 /sl/0/load_loop greenmilk.wav /errors/load_loop;
-#X msg -72 30 5 /sl/-3/save_loop blah.wav format endian /errors/save_loop
-;
-#X msg -62 50 5 /sl/0/save_loop blnk0.wav format endian /errors/save_loop
+#X msg -72 20 5 /sl/-3/save_loop blah.wav format endian /errors/save_loop
 ;
 #X msg -52 70 5 /sl/1/save_loop blnk1.wav format endian /errors/save_loop
 ;
@@ -2096,20 +2094,22 @@ messages one by one to send them.;
 ;
 #X msg -2 170 5 /sl/6/save_loop blnk6.wav format endian /errors/save_loop
 ;
-#X msg 8 190 5 /sl/7/save_loop blnk7.wav format endian /errors/save_loop
-;
-#X msg 18 210 5 /sl/8/save_loop blnk8.wav format endian /errors/save_loop
-;
-#X msg 28 230 5 /sl/9/save_loop blnk9.wav format endian /errors/save_loop
-;
-#X msg 38 250 5 /sl/10/save_loop blnk10.wav format endian /errors/save_loop
-;
 #X msg 48 270 5 /sl/11/save_loop blnk11.wav format endian /errors/save_loop
 ;
 #X msg 58 290 5 /sl/12/save_loop blnk12.wav format endian /errors/save_loop
 ;
 #X msg 11 348 3 /save_session blank.sl /errors/save_session;
 #X msg 24 374 3 /load_session blank.sl /errors/load_session;
+#X msg 8 190 5 /sl/7/save_loop uke2-7.wav format endian /errors/save_loop
+;
+#X msg 18 210 5 /sl/8/save_loop uke2-8.wav format endian /errors/save_loop
+;
+#X msg -62 50 5 /sl/0/save_loop uke2-0.wav format endian /errors/save_loop
+;
+#X msg 28 230 5 /sl/9/save_loop uke2-9.wav format endian /errors/save_loop
+;
+#X msg 38 250 5 /sl/10/save_loop uke2-10.wav format endian /errors/save_loop
+;
 #X connect 0 0 5 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 1;
@@ -2134,17 +2134,17 @@ messages one by one to send them.;
 #N canvas 0 0 349 236 in-out-levels 0;
 #N canvas 21 56 498 514 global_monitors-\$0 0;
 #X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 110 256;
+8 -262144 -1 -1 237.869 256;
 #X obj 228 118 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-0 -8 0 8 -262144 -1 -1 7 256;
+0 -8 0 8 -262144 -1 -1 9 256;
 #X obj 289 260 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak
-0 22 0 8 -262144 -1 -1 0 256;
+0 22 0 8 -262144 -1 -1 0.0253391 256;
 #X obj 108 259 nbx 3 14 0 1 0 0 empty SLwet wet 0 22 0 8 -262144 -1
 -1 1 256;
 #X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
 -1 0 256;
 #X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 0.00050354 256;
+22 0 8 -262144 -1 -1 0.000343323 256;
 #X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
 -1 -1 13 256;
 #X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
