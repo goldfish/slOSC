@@ -1,1 +1,2 @@
 fix disconnect so it sends final osc messages before disconnect
+process /tap_temp update. dump it or find out why it's being sent... maybe flash the tap tempo toggle like slgui.
