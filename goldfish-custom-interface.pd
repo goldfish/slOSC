@@ -1,7 +1,7 @@
 #N canvas 347 345 593 352 10;
 #N canvas 134 25 1128 687 current_loop_interface 0;
 #X obj 235 72 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-33 7 0 8 -262144 -1 -1 0 256;
+33 7 0 8 -262144 -1 -1 7 256;
 #N canvas 31 40 1108 473 register_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
@@ -172,19 +172,19 @@
 #X msg 10 36 set 0;
 #X obj -110 269 s slOSCout;
 #X obj 214 -31 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0
--8 0 8 -262144 -1 -1 0 256;
+-8 0 8 -262144 -1 -1 17.8033 256;
 #X obj 364 42 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 274 -31 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
-0 8 -262144 -1 -1 0 256;
+0 8 -262144 -1 -1 17.8033 256;
 #X obj 214 20 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
-0 8 -262144 -1 -1 0 256;
+0 8 -262144 -1 -1 15.901 256;
 #X obj 604 160 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 604 108 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 14 256;
 #X obj 274 26 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time 0
--8 0 8 -262144 -1 -1 0 256;
+-8 0 8 -262144 -1 -1 190.218 256;
 #X obj 604 75 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
 8 -262144 -1 -1 0 256;
 #X symbolatom 514 134 12 0 0 2 next_state - -;
@@ -674,11 +674,11 @@
 #X obj 92 96 hsl 105 8 0 1 0 0 empty empty total_time -66 4 0 8 -1
 -1 -1 0 1;
 #X obj 92 126 hsl 105 8 0 1 0 0 empty empty loop_pos -54 4 0 8 -262144
--1 -1 0 1;
+-1 -1 869 1;
 #X obj 92 111 hsl 105 8 0 1 0 0 empty empty loop_len -54 4 0 8 -262144
--1 -1 0 1;
+-1 -1 973 1;
 #X obj 92 141 hsl 105 8 0 1 0 0 empty empty cycle_len -60 4 0 8 -262144
--1 -1 0 1;
+-1 -1 973 1;
 #X obj 214 38 /;
 #X obj 214 -13 /;
 #X obj 274 -13 /;
@@ -744,7 +744,7 @@
 #X obj 136 69 bng 20 250 50 0 empty empty PREV_LOOP 22 10 0 10 -258113
 -1 -1;
 #X obj 1006 420 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-0 -8 0 8 -262144 -1 -1 0 256;
+0 -8 0 8 -262144 -1 -1 7 256;
 #X msg 991 382 -1;
 #X msg 1096 382 1;
 #X obj 991 440 +;
@@ -752,33 +752,33 @@
 #X obj 341 177 nbx 5 14 0 1e+37 0 0 empty CCIdry-3 dry 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 471 177 nbx 5 14 0 1e+37 0 0 empty CCIwet-3 wet 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 0.141732 256;
 #X obj 23 168 nbx 5 14 0 1e+37 0 0 empty CCIrate rate 0 -6 0 8 -262144
--1 -1 0 256;
+-1 -1 1 256;
 #X obj 25 472 nbx 5 14 0 1e+37 0 0 empty CCIquantize quantize 0 -8
-0 8 -262144 -1 -1 0 256;
+0 8 -262144 -1 -1 1 256;
 #X obj 338 -28 nbx 5 14 0 1e+37 0 0 empty CCIround round 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 386 -28 nbx 5 14 0 1e+37 0 0 empty CCIsync sync 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 1 256;
 #X obj -68 25 nbx 5 14 0 1e+37 0 0 empty CCIuse_rate use_rate 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 558 -26 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_ins use_common_ins
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 558 4 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_outs use_common_outs
-0 -8 0 8 -262144 -1 -1 0 256;
+0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 442 -26 nbx 5 14 0 1e+37 0 0 empty CCImute_quantized mute_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj -94 313 nbx 5 14 0 1e+37 0 0 empty CCIpan_1 pan_1 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 0.503937 256;
 #X obj 442 4 nbx 5 14 0 1e+37 0 0 empty CCIreplace_quantized replace_quantized
-0 -8 0 8 -262144 -1 -1 0 256;
+0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 442 34 nbx 5 14 0 1e+37 0 0 empty CCIoverdub_quantized overdub_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 357 207 tgl 15 0 empty empty use_common_ins 17 7 0 8 -262144
 -1 -1 0 1;
 #X obj 487 207 tgl 15 0 empty empty use_common_outs 17 7 0 8 -262144
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 341 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
 #X obj 471 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
@@ -787,7 +787,7 @@
 1;
 #X obj 198 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
-#X obj 214 172 tgl 15 0 empty empty sync 17 7 0 8 -262144 -1 -1 0 1
+#X obj 214 172 tgl 15 0 empty empty sync 17 7 0 8 -262144 -1 -1 1 1
 ;
 #X obj 198 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
@@ -807,7 +807,7 @@
 #X obj 224 95 tgl 15 0 empty empty mute_quantized 17 7 0 8 -262144
 -1 -1 0 1;
 #X obj 224 115 tgl 15 0 empty empty replace_quantized 17 7 0 8 -262144
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 208 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
 #X obj 208 115 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
@@ -872,7 +872,7 @@
 #X connect 9 0 4 0;
 #X restore 25 510 pd send_set_quantize;
 #X obj -158 304 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
--1 -1 0 1;
+-1 -1 2469 1;
 #X obj -158 317 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
 -1 -1 0 1;
 #X msg -161 335 send /sl/-3/set pan_1 \$1;
@@ -907,8 +907,8 @@
 ;
 #X msg 22 153 0.25;
 #X text 42 59 playback rate;
-#X obj 41 106 hsl 90 10 0.25 4 0 0 empty empty empty 8 -8 0 8 -258113
--1 -1 0 1;
+#X obj 41 106 hsl 130 10 0.25 4 0 0 empty empty empty 8 -8 0 8 -258113
+-1 -1 860 1;
 #X text 54 113 |1x;
 #X connect 1 0 5 0;
 #X connect 2 0 6 0;
@@ -921,12 +921,12 @@
 #X connect 9 0 10 0;
 #X connect 10 0 12 0;
 #X connect 12 0 0 0;
-#X coords 0 -1 1 1 110 70 2 30 60;
+#X coords 0 -1 1 1 150 70 2 30 60;
 #X restore 23 205 pd time_presets-\$0;
 #X obj 991 463 moses 7;
 #X obj 1042 486 moses 13;
 #X obj 203 247 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
--1 -1 0 1;
+-1 -1 2469 1;
 #X obj 203 260 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
 -1 -1 0 1;
 #X msg 916 222 send /sl/-3/set pan_1 \$1;
@@ -945,18 +945,18 @@
 #N canvas 347 179 593 116 cli_BigMonitor 1;
 #N canvas 176 44 1058 264 cli_BigMonitorGOP 0;
 #X obj 90 66 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8 0
-8 -262144 -1 -1 0 256;
+8 -262144 -1 -1 17.8033 256;
 #X obj 43 66 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8 0
-8 -262144 -1 -1 0 256;
+8 -262144 -1 -1 15.901 256;
 #X obj 43 97 /;
 #X obj 106 142 hsl 560 40 0 1 0 0 empty empty CURRENT_LOOP -2 -18 0
-24 -262144 -1 -1 0 1;
+24 -262144 -1 -1 49927 1;
 #X obj 361 82 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
--1 -1 0 1;
+-1 -1 2469 1;
 #X obj 361 107 hsl 64 30 0 1 0 0 empty empty PAN 16 16 0 14 -228856
--262144 -33289 0 1;
+-262144 -33289 3174 1;
 #X obj 450 16 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 14 256;
 #X obj 450 35 select 10;
 #X obj 450 107 tgl 30 0 empty empty MUTE 34 16 0 16 -228856 -262144
 -33289 0 1;
@@ -967,10 +967,10 @@
 #X msg 450 74 1;
 #X msg 501 74 0;
 #X obj 554 7 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-33 7 0 8 -262144 -1 -1 0 256;
+33 7 0 8 -262144 -1 -1 7 256;
 #X obj 554 26 ftos;
 #X msg 554 47 \; current_loop_number_display label \$1;
-#X obj 643 115 tgl 8 0 empty current_loop_number_display 0 -60 7 0
+#X obj 643 115 tgl 8 0 empty current_loop_number_display 7 -60 7 0
 24 -262144 -1 -1 0 1;
 #X text 32 5 This is a subpatch of goldfish-custom-interface to display
 in a fairly large format \, current loop info.;
