@@ -1,2 +1,3 @@
 fix disconnect so it sends final osc messages before disconnect
 process /tap_temp update. dump it or find out why it's being sent... maybe flash the tap tempo toggle like slgui.
+move processing of incoming OSC from removed internal patches into the new external patches. Not a rush, since it doesn't really do anything extra if no messages are coming in anyway.
