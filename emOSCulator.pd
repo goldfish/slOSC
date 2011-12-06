@@ -144,6 +144,9 @@
 #X obj 123 359 s CCIrate;
 #X obj 185 359 s CCIscratch_pos;
 #X obj 288 359 s CCIdelay_trigger;
+#X obj 460 256 routeOSC /input_gain;
+#X obj 460 280 unpack f s f;
+#X obj 460 304 s CCIinput_gain;
 #X connect 0 0 2 0;
 #X connect 2 0 5 0;
 #X connect 2 1 7 0;
@@ -244,7 +247,10 @@
 #X connect 94 1 91 0;
 #X connect 94 2 92 0;
 #X connect 94 3 93 0;
-#X connect 94 4 1 0;
+#X connect 94 4 102 0;
+#X connect 102 0 103 0;
+#X connect 102 1 1 0;
+#X connect 103 2 104 0;
 #X restore 339 220 pd current_channel_interface_messages;
 #X obj 5 54 routeOSC /tap_tempo;
 #N canvas 218 413 450 300 loop_zero_interface_messages 0;
@@ -551,7 +557,7 @@
 #N canvas 678 376 415 321 sync_interface 0;
 #N canvas 704 25 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
--8 0 8 -262144 -1 -1 1 256;
+-8 0 8 -262144 -1 -1 0 256;
 #X obj 203 63 bng 15 250 50 0 empty empty empty -46 7 0 8 -258113 -1
 -1;
 #X symbolatom 138 62 10 0 0 0 - SLsync_source_message -;
@@ -677,8 +683,8 @@
 #X restore -7 6 pd sync_interface;
 #X obj -14 224 cnv 15 320 60 empty empty empty 20 12 0 14 -257985 -66577
 0;
-#X text -7 237 emOSCulator - puredata sooperlooper interface;
-#X text -8 257 controls are in red - changing other items can have
+#X text -7 229 emOSCulator - puredata sooperlooper interface;
+#X text -8 249 controls are in red - changing other items can have
 unexpected results;
 #N canvas 942 410 331 286 clearFootControllerDisplay 1;
 #N canvas 264 106 931 434 footControllerSerial 0;
@@ -873,7 +879,7 @@ open ports hupcl rxerrors;
 #X msg 444 474 49 6;
 #X msg 477 474 50 6;
 #X obj 708 23 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
--1 -1 14 256;
+-1 -1 0 256;
 #N canvas 682 378 350 145 toggleRECled 0;
 #X obj 23 25 inlet;
 #X obj 128 25 inlet;
@@ -924,7 +930,7 @@ open ports hupcl rxerrors;
 ;
 #X obj 646 164 tgl 8 0 empty empty empty 17 7 0 10 -4032 -1 -1 0 1
 ;
-#X obj 659 21 tgl 8 0 empty empty empty 17 7 0 10 -4032 -1 -1 1 1;
+#X obj 659 21 tgl 8 0 empty empty empty 17 7 0 10 -4032 -1 -1 0 1;
 #X obj 553 177 bng 15 250 50 0 empty empty undo_all -15 22 0 8 -258113
 -1 -1;
 #X obj 673 234 bng 20 250 50 0 empty empty UNDO_ALL 22 10 0 10 -258113
@@ -940,7 +946,7 @@ open ports hupcl rxerrors;
 #X msg 929 596 send /AM/L/8 \$1;
 #X obj 929 617 s localOSCout;
 #X obj 557 34 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -258113 -1
--1 3;
+-1 0;
 #X obj 1044 491 * 4;
 #X obj 1044 469 + 1;
 #X text 957 512 flash 'power' led on beat intervals;
@@ -1076,7 +1082,7 @@ open ports hupcl rxerrors;
 #X restore -11 290 pd clearFootControllerDisplay;
 #N canvas 287 136 515 577 save_page 0;
 #X obj -72 510 spigot;
-#X obj -39 491 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj -39 491 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text -14 492 set your filenames \, turn on the spigot. click on
 messages one by one to send them.;
@@ -1151,9 +1157,9 @@ messages one by one to send them.;
 #X obj 651 103 bng 15 250 50 0 empty empty register -51 7 0 8 -262144
 -1 -1;
 #X obj 540 40 hsl 128 15 0 120 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 942 1;
+-1 -1 0 1;
 #X obj 105 140 hsl 560 40 0 1 0 0 empty empty LOOP_ZERO -2 -18 0 24
--262144 -1 -1 44969 1;
+-262144 -1 -1 0 1;
 #X obj 102 51 /;
 #X obj 396 335 slOSCsender2;
 #X connect 0 0 8 0;
