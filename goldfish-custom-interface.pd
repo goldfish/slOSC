@@ -2,7 +2,7 @@
 #N canvas 134 25 1128 687 current_loop_interface 0;
 #X obj 235 72 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
 33 7 0 8 -262144 -1 -1 7 256;
-#N canvas 31 40 1108 473 register_auto_update_current 0;
+#N canvas 31 40 1108 654 register_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
 #X msg 273 48 4 /sl/-3/register_auto_update next_state 100 /updates/next_state
@@ -17,9 +17,9 @@
 ;
 #X msg 204 241 4 /sl/-3/register_auto_update rate_output 100 /updates/rate_output
 ;
-#X msg 194 275 4 /sl/-3/register_auto_update in_peak_meter 100 /updates/in_peak_meter
+#X msg 374 505 4 /sl/-3/register_auto_update in_peak_meter 100 /updates/in_peak_meter
 ;
-#X msg 184 308 4 /sl/-3/register_auto_update out_peak_meter 100 /updates/out_peak_meter
+#X msg 364 538 4 /sl/-3/register_auto_update out_peak_meter 100 /updates/out_peak_meter
 ;
 #X msg 164 374 4 /sl/-3/register_auto_update stretch_ratio 100 /updates/stretch_ratio
 ;
@@ -42,8 +42,8 @@
 #X msg 754 276 3 /sl/-3/get total_time /updates/total_time;
 #X msg 744 295 3 /sl/-3/get waiting /updates/waiting;
 #X msg 734 315 3 /sl/-3/get rate_output /updates/rate_output;
-#X msg 724 335 3 /sl/-3/get in_peak_meter /updates/in_peak_meter;
-#X msg 714 355 3 /sl/-3/get out_peak_meter /updates/out_peak_meter
+#X msg 794 515 3 /sl/-3/get in_peak_meter /updates/in_peak_meter;
+#X msg 784 535 3 /sl/-3/get out_peak_meter /updates/out_peak_meter
 ;
 #X msg 704 375 3 /sl/-3/get is_soloed /updates/is_soloed;
 #X msg 694 395 3 /sl/-3/get stretch_ratio /updates/stretch_ratio;
@@ -57,8 +57,6 @@
 #X connect 0 0 13 0;
 #X connect 0 0 6 0;
 #X connect 0 0 7 0;
-#X connect 0 0 8 0;
-#X connect 0 0 9 0;
 #X connect 0 0 12 0;
 #X connect 0 0 10 0;
 #X connect 0 0 11 0;
@@ -71,8 +69,6 @@
 #X connect 0 0 22 0;
 #X connect 0 0 23 0;
 #X connect 0 0 24 0;
-#X connect 0 0 25 0;
-#X connect 0 0 26 0;
 #X connect 0 0 27 0;
 #X connect 0 0 28 0;
 #X connect 0 0 29 0;
@@ -123,9 +119,9 @@
 ;
 #X msg 204 275 3 /sl/-3/unregister_auto_update rate_output /updates/rate_output
 ;
-#X msg 194 309 3 /sl/-3/unregister_auto_update in_peak_meter /updates/in_peak_meter
+#X msg 384 309 3 /sl/-3/unregister_auto_update in_peak_meter /updates/in_peak_meter
 ;
-#X msg 184 342 3 /sl/-3/unregister_auto_update out_peak_meter /updates/out_peak_meter
+#X msg 374 342 3 /sl/-3/unregister_auto_update out_peak_meter /updates/out_peak_meter
 ;
 #X msg 164 395 3 /sl/-3/unregister_auto_update stretch_ratio /updates/stretch_ratio
 ;
@@ -148,8 +144,6 @@
 #X connect 0 0 14 0;
 #X connect 0 0 6 0;
 #X connect 0 0 7 0;
-#X connect 0 0 8 0;
-#X connect 0 0 9 0;
 #X connect 0 0 15 0;
 #X connect 0 0 10 0;
 #X connect 0 0 11 0;
@@ -172,17 +166,17 @@
 #X msg 10 36 set 0;
 #X obj -110 269 s slOSCout;
 #X obj 214 -31 nbx 5 14 0 1e+37 0 0 empty CCIcycle_len cycle_len 0
--8 0 8 -262144 -1 -1 17.8033 256;
+-8 0 8 -262144 -1 -1 0 256;
 #X obj 364 42 nbx 5 14 0 1e+37 0 0 empty CCIis_soloed is_soloed 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 274 -31 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8
-0 8 -262144 -1 -1 17.8033 256;
+0 8 -262144 -1 -1 0 256;
 #X obj 214 20 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8
-0 8 -262144 -1 -1 15.901 256;
+0 8 -262144 -1 -1 0 256;
 #X obj 604 160 nbx 5 14 0 1e+37 0 0 empty CCInext_state next_state
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 604 108 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
--1 -1 14 256;
+-1 -1 0 256;
 #X obj 274 26 nbx 5 14 0 1e+37 0 0 empty CCItotal_time total_time 0
 -8 0 8 -262144 -1 -1 190.218 256;
 #X obj 604 75 nbx 5 14 0 1e+37 0 0 empty CCIwaiting waiting 0 -8 0
@@ -674,11 +668,11 @@
 #X obj 92 96 hsl 105 8 0 1 0 0 empty empty total_time -66 4 0 8 -1
 -1 -1 0 1;
 #X obj 92 126 hsl 105 8 0 1 0 0 empty empty loop_pos -54 4 0 8 -262144
--1 -1 869 1;
+-1 -1 0 1;
 #X obj 92 111 hsl 105 8 0 1 0 0 empty empty loop_len -54 4 0 8 -262144
--1 -1 973 1;
+-1 -1 0 1;
 #X obj 92 141 hsl 105 8 0 1 0 0 empty empty cycle_len -60 4 0 8 -262144
--1 -1 973 1;
+-1 -1 0 1;
 #X obj 214 38 /;
 #X obj 214 -13 /;
 #X obj 274 -13 /;
@@ -752,7 +746,7 @@
 #X obj 341 177 nbx 5 14 0 1e+37 0 0 empty CCIdry-3 dry 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 471 177 nbx 5 14 0 1e+37 0 0 empty CCIwet-3 wet 0 -8 0 8 -262144
--1 -1 0.141732 256;
+-1 -1 0 256;
 #X obj 23 168 nbx 5 14 0 1e+37 0 0 empty CCIrate rate 0 -6 0 8 -262144
 -1 -1 1 256;
 #X obj 25 472 nbx 5 14 0 1e+37 0 0 empty CCIquantize quantize 0 -8
@@ -769,8 +763,6 @@
 0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 442 -26 nbx 5 14 0 1e+37 0 0 empty CCImute_quantized mute_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
-#X obj -94 313 nbx 5 14 0 1e+37 0 0 empty CCIpan_1 pan_1 0 -8 0 8 -262144
--1 -1 0.503937 256;
 #X obj 442 4 nbx 5 14 0 1e+37 0 0 empty CCIreplace_quantized replace_quantized
 0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 442 34 nbx 5 14 0 1e+37 0 0 empty CCIoverdub_quantized overdub_quantized
@@ -871,11 +863,6 @@
 #X connect 8 0 9 0;
 #X connect 9 0 4 0;
 #X restore 25 510 pd send_set_quantize;
-#X obj -158 304 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
--1 -1 2469 1;
-#X obj -158 317 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
--1 -1 0 1;
-#X msg -161 335 send /sl/-3/set pan_1 \$1;
 #X obj -72 597 s slOSCout;
 #X obj 344 194 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
 -1 -1 0 1;
@@ -908,7 +895,7 @@
 #X msg 22 153 0.25;
 #X text 42 59 playback rate;
 #X obj 41 106 hsl 130 10 0.25 4 0 0 empty empty empty 8 -8 0 8 -258113
--1 -1 860 1;
+-1 -1 0 1;
 #X text 54 113 |1x;
 #X connect 1 0 5 0;
 #X connect 2 0 6 0;
@@ -926,7 +913,7 @@
 #X obj 991 463 moses 7;
 #X obj 1042 486 moses 13;
 #X obj 203 247 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
--1 -1 2469 1;
+-1 -1 2450 1;
 #X obj 203 260 hsl 50 10 0 1 0 0 empty empty empty 8 -8 0 8 -258113
 -1 -1 0 1;
 #X msg 916 222 send /sl/-3/set pan_1 \$1;
@@ -945,18 +932,18 @@
 #N canvas 347 179 593 116 cli_BigMonitor 1;
 #N canvas 176 44 1058 264 cli_BigMonitorGOP 0;
 #X obj 90 66 nbx 5 14 0 1e+37 0 0 empty CCIloop_len loop_len 0 -8 0
-8 -262144 -1 -1 17.8033 256;
+8 -262144 -1 -1 0 256;
 #X obj 43 66 nbx 5 14 0 1e+37 0 0 empty CCIloop_pos loop_pos 0 -8 0
-8 -262144 -1 -1 15.901 256;
+8 -262144 -1 -1 0 256;
 #X obj 43 97 /;
 #X obj 106 142 hsl 560 40 0 1 0 0 empty empty CURRENT_LOOP -2 -18 0
-24 -262144 -1 -1 49927 1;
+24 -262144 -1 -1 0 1;
 #X obj 361 82 hsl 50 10 0 1 0 0 empty CCIpan_1 pan_1 8 -8 0 8 -262144
--1 -1 2469 1;
+-1 -1 2450 1;
 #X obj 361 107 hsl 64 30 0 1 0 0 empty empty PAN 16 16 0 14 -228856
--262144 -33289 3174 1;
+-262144 -33289 3150 1;
 #X obj 450 16 nbx 5 14 0 1e+37 0 0 empty CCIstate state 0 -8 0 8 -262144
--1 -1 14 256;
+-1 -1 0 256;
 #X obj 450 35 select 10;
 #X obj 450 107 tgl 30 0 empty empty MUTE 34 16 0 16 -228856 -262144
 -33289 0 1;
@@ -994,14 +981,14 @@ label doesn't show up either.;
 #X restore 5 -3 pd cli_BigMonitorGOP;
 #X restore 10 -36 pd cli_BigMonitor;
 #X obj -110 247 slOSCsender2;
-#X connect 1 0 154 0;
+#X connect 1 0 150 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;
 #X connect 3 0 21 0;
 #X connect 3 0 20 0;
 #X connect 3 1 4 0;
 #X connect 3 1 22 0;
-#X connect 4 0 154 0;
+#X connect 4 0 150 0;
 #X connect 5 0 6 0;
 #X connect 6 0 2 0;
 #X connect 8 0 28 0;
@@ -1015,9 +1002,9 @@ label doesn't show up either.;
 #X connect 15 0 30 0;
 #X connect 17 0 19 0;
 #X connect 18 0 16 0;
-#X connect 20 0 154 0;
-#X connect 21 0 154 0;
-#X connect 22 0 154 0;
+#X connect 20 0 150 0;
+#X connect 21 0 150 0;
+#X connect 22 0 150 0;
 #X connect 27 0 24 0;
 #X connect 28 0 26 0;
 #X connect 29 0 25 0;
@@ -1062,80 +1049,78 @@ label doesn't show up either.;
 #X connect 70 0 73 1;
 #X connect 71 0 73 0;
 #X connect 72 0 73 0;
-#X connect 73 0 138 0;
+#X connect 73 0 134 0;
 #X connect 74 0 67 0;
-#X connect 78 0 120 0;
-#X connect 78 0 123 1;
-#X connect 79 0 92 0;
-#X connect 80 0 94 0;
-#X connect 81 0 104 0;
-#X connect 82 0 88 0;
-#X connect 83 0 89 0;
-#X connect 84 0 107 0;
-#X connect 86 0 108 0;
-#X connect 87 0 111 0;
+#X connect 78 0 119 0;
+#X connect 78 0 122 1;
+#X connect 79 0 91 0;
+#X connect 80 0 93 0;
+#X connect 81 0 103 0;
+#X connect 82 0 87 0;
+#X connect 83 0 88 0;
+#X connect 84 0 106 0;
+#X connect 85 0 107 0;
+#X connect 86 0 110 0;
+#X connect 87 0 96 1;
 #X connect 88 0 97 1;
-#X connect 89 0 98 1;
+#X connect 89 0 96 0;
 #X connect 90 0 97 0;
-#X connect 91 0 98 0;
-#X connect 92 0 100 1;
-#X connect 93 0 100 0;
-#X connect 94 0 102 1;
-#X connect 95 0 102 0;
-#X connect 96 0 127 0;
-#X connect 97 0 96 0;
-#X connect 98 0 99 0;
-#X connect 99 0 127 0;
-#X connect 100 0 101 0;
-#X connect 101 0 127 0;
-#X connect 102 0 103 0;
-#X connect 103 0 127 0;
-#X connect 104 0 106 1;
-#X connect 105 0 106 0;
-#X connect 106 0 116 0;
+#X connect 91 0 99 1;
+#X connect 92 0 99 0;
+#X connect 93 0 101 1;
+#X connect 94 0 101 0;
+#X connect 95 0 123 0;
+#X connect 96 0 95 0;
+#X connect 97 0 98 0;
+#X connect 98 0 123 0;
+#X connect 99 0 100 0;
+#X connect 100 0 123 0;
+#X connect 101 0 102 0;
+#X connect 102 0 123 0;
+#X connect 103 0 105 1;
+#X connect 104 0 105 0;
+#X connect 105 0 115 0;
+#X connect 106 0 112 1;
 #X connect 107 0 113 1;
-#X connect 108 0 114 1;
+#X connect 108 0 112 0;
 #X connect 109 0 113 0;
-#X connect 110 0 114 0;
-#X connect 111 0 115 1;
-#X connect 112 0 115 0;
+#X connect 110 0 114 1;
+#X connect 111 0 114 0;
+#X connect 112 0 116 0;
 #X connect 113 0 117 0;
 #X connect 114 0 118 0;
-#X connect 115 0 119 0;
-#X connect 116 0 127 0;
-#X connect 117 0 127 0;
-#X connect 118 0 127 0;
-#X connect 119 0 127 0;
-#X connect 120 0 121 0;
+#X connect 115 0 123 0;
+#X connect 116 0 123 0;
+#X connect 117 0 123 0;
+#X connect 118 0 123 0;
+#X connect 119 0 120 0;
+#X connect 121 0 122 0;
 #X connect 122 0 123 0;
-#X connect 123 0 127 0;
-#X connect 125 0 126 0;
+#X connect 124 0 125 0;
+#X connect 125 0 123 0;
 #X connect 126 0 127 0;
-#X connect 128 0 129 0;
-#X connect 129 0 127 0;
-#X connect 130 0 131 0;
-#X connect 131 0 127 0;
-#X connect 132 0 127 0;
-#X connect 133 0 136 0;
-#X connect 134 0 67 0;
-#X connect 135 0 67 0;
-#X connect 136 0 134 0;
-#X connect 136 1 135 0;
-#X connect 137 0 132 0;
-#X connect 138 1 139 0;
-#X connect 139 0 74 0;
-#X connect 141 0 142 0;
-#X connect 142 0 67 0;
+#X connect 127 0 123 0;
+#X connect 128 0 123 0;
+#X connect 129 0 132 0;
+#X connect 130 0 67 0;
+#X connect 131 0 67 0;
+#X connect 132 0 130 0;
+#X connect 132 1 131 0;
+#X connect 133 0 128 0;
+#X connect 134 1 135 0;
+#X connect 135 0 74 0;
+#X connect 137 0 138 0;
+#X connect 138 0 67 0;
+#X connect 139 0 67 0;
+#X connect 140 0 67 0;
+#X connect 141 0 139 0;
+#X connect 142 0 140 0;
 #X connect 143 0 67 0;
 #X connect 144 0 67 0;
-#X connect 145 0 143 0;
-#X connect 146 0 144 0;
+#X connect 145 0 67 0;
+#X connect 146 0 67 0;
 #X connect 147 0 67 0;
 #X connect 148 0 67 0;
-#X connect 149 0 67 0;
-#X connect 150 0 67 0;
-#X connect 151 0 67 0;
-#X connect 152 0 67 0;
-#X connect 154 0 7 0;
+#X connect 150 0 7 0;
 #X coords 0 -1 1 1 580 340 2 15 65;
 #X restore 5 6 pd current_loop_interface;
