@@ -1,5 +1,5 @@
 #N canvas 942 25 333 335 10;
-#N canvas 627 284 408 325 OSCin 0;
+#N canvas 532 25 408 325 OSCin 1;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
 #X floatatom 52 84 10 0 0 1 millisecond_delay - -;
@@ -310,6 +310,7 @@
 #X obj 133 168 s footControllerOSCin;
 #X obj 243 51 r localOSCout;
 #X obj 243 73 packOSC;
+#X obj 204 280 print;
 #X connect 1 0 3 0;
 #X connect 1 1 2 0;
 #X connect 1 1 3 1;
@@ -343,92 +344,60 @@
 #N canvas 751 214 332 451 do_after_connect 0;
 #X obj 7 8 inlet;
 #X obj 7 361 outlet;
-#N canvas 452 34 702 583 global_register_update 0;
+#N canvas 49 98 702 583 global_register_update 0;
 #X obj 17 18 inlet;
-#X msg 233 70 3 /register_update tempo /updates/tempo;
 #X msg 243 90 3 /register_update sync_source /updates/sync_source;
 #X msg 263 143 3 /register_update tap_tempo /updates/tap_tempo;
-#X msg 273 163 3 /register_update wet /updates/wet;
-#X msg 283 183 3 /register_update dry /updates/dry;
-#X msg 293 203 3 /register_update input_gain /updates/input_gain;
-#X msg 303 223 3 /register_update auto_disable_latency /updates/auto_disable_latency
+#X msg 273 163 3 /register_update auto_disable_latency /updates/auto_disable_latency
 ;
-#X msg 313 256 3 /register_update output_midi_clock /updates/output_midi_clock
+#X msg 283 196 3 /register_update output_midi_clock /updates/output_midi_clock
 ;
-#X msg 323 289 3 /register_update use_midi_stop /updates/use_midi_stop
+#X msg 293 229 3 /register_update use_midi_stop /updates/use_midi_stop
 ;
-#X msg 333 309 3 /register_update use_midi_start /updates/use_midi_start
+#X msg 303 249 3 /register_update use_midi_start /updates/use_midi_start
 ;
-#X msg 343 329 3 /register_update send_midi_start_on_trigger /updates/send_midi_start_on_trigger
+#X msg 313 269 3 /register_update send_midi_start_on_trigger /updates/send_midi_start_on_trigger
 ;
-#X msg 353 362 3 /register_update smart_eighths /updates/smart_eighths
+#X msg 323 302 3 /register_update smart_eighths /updates/smart_eighths
 ;
 #X msg 253 110 3 /register_update eighth_per_cycle /updates/eighth_per_cycle
 ;
-#X msg 383 448 3 /register_auto_update out_peak_meter /updates/out_peak_meter
-;
-#X msg 393 481 2 /register /updates/loops;
-#X msg 373 415 4 /register_auto_update in_peak_meter 100 /updates/in_peak_meter
-;
+#X msg 333 321 2 /register /updates/loops;
 #X obj 23 538 outlet;
-#X msg 363 382 4 /register_auto_update selected_loop_num 100 /updates/selected_loop_num
-;
 #X connect 0 0 1 0;
-#X connect 0 0 2 0;
-#X connect 0 0 16 0;
-#X connect 0 0 14 0;
-#X connect 0 0 18 0;
-#X connect 0 0 15 0;
-#X connect 0 0 12 0;
-#X connect 0 0 11 0;
 #X connect 0 0 10 0;
-#X connect 0 0 9 0;
 #X connect 0 0 8 0;
 #X connect 0 0 7 0;
 #X connect 0 0 6 0;
 #X connect 0 0 5 0;
 #X connect 0 0 4 0;
 #X connect 0 0 3 0;
-#X connect 0 0 13 0;
-#X connect 1 0 17 0;
-#X connect 2 0 17 0;
-#X connect 3 0 17 0;
-#X connect 4 0 17 0;
-#X connect 5 0 17 0;
-#X connect 6 0 17 0;
-#X connect 7 0 17 0;
-#X connect 8 0 17 0;
-#X connect 9 0 17 0;
-#X connect 10 0 17 0;
-#X connect 11 0 17 0;
-#X connect 12 0 17 0;
-#X connect 13 0 17 0;
-#X connect 14 0 17 0;
-#X connect 15 0 17 0;
-#X connect 16 0 17 0;
-#X connect 18 0 17 0;
+#X connect 0 0 2 0;
+#X connect 0 0 9 0;
+#X connect 1 0 11 0;
+#X connect 2 0 11 0;
+#X connect 3 0 11 0;
+#X connect 4 0 11 0;
+#X connect 5 0 11 0;
+#X connect 6 0 11 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
 #X restore 7 90 pd global_register_update;
 #N canvas 292 44 755 577 global_get_update 0;
 #X obj 17 18 inlet;
-#X msg 373 100 3 /get tempo /updates/tempo;
 #X msg 373 120 3 /get sync_source /updates/sync_source;
 #X msg 373 140 3 /get eighth_per_cycle /updates/eighth_per_cycle;
-#X msg 373 160 3 /get wet /updates/wet;
-#X msg 373 180 3 /get dry /updates/dry;
-#X msg 373 200 3 /get input_gain /updates/input_gain;
-#X msg 373 220 3 /get auto_disable_latency /updates/auto_disable_latency
+#X msg 373 160 3 /get auto_disable_latency /updates/auto_disable_latency
 ;
-#X msg 373 240 3 /get output_midi_clock /updates/output_midi_clock
+#X msg 373 180 3 /get output_midi_clock /updates/output_midi_clock
 ;
-#X msg 373 260 3 /get use_midi_stop /updates/use_midi_stop;
-#X msg 373 280 3 /get use_midi_start /updates/use_midi_start;
-#X msg 373 300 3 /get send_midi_start_on_trigger /updates/send_midi_start_on_trigger
+#X msg 373 200 3 /get use_midi_stop /updates/use_midi_stop;
+#X msg 373 220 3 /get use_midi_start /updates/use_midi_start;
+#X msg 373 240 3 /get send_midi_start_on_trigger /updates/send_midi_start_on_trigger
 ;
-#X msg 373 333 3 /get smart_eighths /updates/smart_eighths;
-#X msg 373 353 3 /get selected_loop_num /updates/selected_loop_num
-;
-#X msg 373 373 3 /get in_peak_meter /updates/in_peak_meter;
-#X msg 373 393 3 /get out_peak_meter /updates/out_peak_meter;
+#X msg 373 273 3 /get smart_eighths /updates/smart_eighths;
 #X obj 18 538 outlet;
 #X connect 0 0 1 0;
 #X connect 0 0 2 0;
@@ -438,28 +407,14 @@
 #X connect 0 0 6 0;
 #X connect 0 0 7 0;
 #X connect 0 0 8 0;
-#X connect 0 0 9 0;
-#X connect 0 0 10 0;
-#X connect 0 0 11 0;
-#X connect 0 0 12 0;
-#X connect 0 0 13 0;
-#X connect 0 0 14 0;
-#X connect 0 0 15 0;
-#X connect 1 0 16 0;
-#X connect 2 0 16 0;
-#X connect 3 0 16 0;
-#X connect 4 0 16 0;
-#X connect 5 0 16 0;
-#X connect 6 0 16 0;
-#X connect 7 0 16 0;
-#X connect 8 0 16 0;
-#X connect 9 0 16 0;
-#X connect 10 0 16 0;
-#X connect 11 0 16 0;
-#X connect 12 0 16 0;
-#X connect 13 0 16 0;
-#X connect 14 0 16 0;
-#X connect 15 0 16 0;
+#X connect 1 0 9 0;
+#X connect 2 0 9 0;
+#X connect 3 0 9 0;
+#X connect 4 0 9 0;
+#X connect 5 0 9 0;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
 #X restore 29 114 pd global_get_update;
 #X obj 7 338 slOSCsender2;
 #X connect 0 0 2 0;
@@ -483,46 +438,27 @@
 #X msg 57 194 disconnect;
 #X obj 158 244 outlet;
 #X obj 158 21 inlet;
-#N canvas 0 0 730 575 global_unregister_update 0;
+#N canvas 538 116 730 575 global_unregister_update 0;
 #X obj 18 16 inlet;
-#X msg 234 68 3 /unregister_update tempo /updates/tempo;
 #X msg 244 88 3 /unregister_update sync_source /updates/sync_source
 ;
 #X msg 254 108 3 /unregister_update eighth_per_cycle /updates/eighth_per_cycle
 ;
 #X msg 264 141 3 /unregister_update tap_tempo /updates/tap_tempo;
-#X msg 274 161 3 /unregister_update wet /updates/wet;
-#X msg 284 181 3 /unregister_update dry /updates/dry;
-#X msg 294 201 3 /unregister_update input_gain /updates/input_gain
+#X msg 273 161 3 /unregister_update auto_disable_latency /updates/auto_disable_latency
 ;
-#X msg 304 221 3 /unregister_update auto_disable_latency /updates/auto_disable_latency
+#X msg 283 194 3 /unregister_update output_midi_clock /updates/output_midi_clock
 ;
-#X msg 314 254 3 /unregister_update output_midi_clock /updates/output_midi_clock
+#X msg 293 227 3 /unregister_update use_midi_stop /updates/use_midi_stop
 ;
-#X msg 324 287 3 /unregister_update use_midi_stop /updates/use_midi_stop
+#X msg 303 247 3 /unregister_update use_midi_start /updates/use_midi_start
 ;
-#X msg 334 307 3 /unregister_update use_midi_start /updates/use_midi_start
+#X msg 313 267 3 /unregister_update send_midi_start_on_trigger /updates/send_midi_start_on_trigger
 ;
-#X msg 344 327 3 /unregister_update send_midi_start_on_trigger /updates/send_midi_start_on_trigger
-;
-#X msg 354 360 3 /unregister_update smart_eighths /updates/smart_eighths
-;
-#X msg 364 380 3 /unregister_update selected_loop_num /updates/selected_loop_num
-;
-#X msg 374 413 3 /unregister_auto_update in_peak_meter /updates/in_peak_meter
-;
-#X msg 384 446 3 /unregister_auto_update out_peak_meter /updates/out_peak_meter
+#X msg 323 300 3 /unregister_update smart_eighths /updates/smart_eighths
 ;
 #X obj 24 536 outlet;
 #X connect 0 0 1 0;
-#X connect 0 0 2 0;
-#X connect 0 0 15 0;
-#X connect 0 0 16 0;
-#X connect 0 0 14 0;
-#X connect 0 0 13 0;
-#X connect 0 0 12 0;
-#X connect 0 0 11 0;
-#X connect 0 0 10 0;
 #X connect 0 0 9 0;
 #X connect 0 0 8 0;
 #X connect 0 0 7 0;
@@ -530,31 +466,33 @@
 #X connect 0 0 5 0;
 #X connect 0 0 4 0;
 #X connect 0 0 3 0;
-#X connect 1 0 17 0;
-#X connect 2 0 17 0;
-#X connect 3 0 17 0;
-#X connect 4 0 17 0;
-#X connect 5 0 17 0;
-#X connect 6 0 17 0;
-#X connect 7 0 17 0;
-#X connect 8 0 17 0;
-#X connect 9 0 17 0;
-#X connect 10 0 17 0;
-#X connect 11 0 17 0;
-#X connect 12 0 17 0;
-#X connect 13 0 17 0;
-#X connect 14 0 17 0;
-#X connect 15 0 17 0;
-#X connect 16 0 17 0;
+#X connect 0 0 2 0;
+#X connect 1 0 10 0;
+#X connect 2 0 10 0;
+#X connect 3 0 10 0;
+#X connect 4 0 10 0;
+#X connect 5 0 10 0;
+#X connect 6 0 10 0;
+#X connect 7 0 10 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
 #X restore 158 194 pd global_unregister_update;
 #X obj 170 45 s disable_monitors_current;
 #X obj 158 219 slOSCsender2;
+#X obj 57 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 57 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 57 135 delay 25;
 #X connect 1 0 0 0;
-#X connect 3 0 1 0;
 #X connect 3 0 4 0;
 #X connect 3 0 5 0;
+#X connect 3 0 7 0;
 #X connect 4 0 6 0;
 #X connect 6 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;
 #X restore 225 140 pd do_before_disconnect;
 #X obj 169 10 r slOSCout;
 #X connect 0 0 1 0;
@@ -604,7 +542,7 @@
 #X connect 11 0 7 0;
 #X coords 0 -1 1 1 200 80 2 20 20;
 #X restore 51 136 pd add_del_loop-\$0;
-#N canvas 221 240 415 321 sync_interface 0;
+#N canvas 678 376 415 321 sync_interface 0;
 #N canvas 704 25 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
 -8 0 8 -262144 -1 -1 1 256;
@@ -2350,45 +2288,6 @@ messages one by one to send them.;
 #X connect 21 0 0 0;
 #X connect 22 0 0 0;
 #X restore 223 290 pd save_page;
-#N canvas 0 0 349 236 in-out-levels 0;
-#N canvas 21 56 498 514 global_monitors-\$0 0;
-#X obj 108 118 nbx 5 14 0 1e+37 0 0 empty SLtempo tempo_bpm 0 -8 0
-8 -262144 -1 -1 107.845 256;
-#X obj 228 118 nbx 3 14 0 512 0 0 empty SLselected_loop_num selected_loop
-0 -8 0 8 -262144 -1 -1 7 256;
-#X obj 289 260 nbx 5 14 0 1e+37 0 0 empty SLout_peak_meter out_peak
-0 22 0 8 -262144 -1 -1 9.53674e-05 256;
-#X obj 108 259 nbx 3 14 0 1 0 0 empty SLwet wet 0 22 0 8 -262144 -1
--1 1 256;
-#X obj 148 259 nbx 3 14 0 1 0 0 empty SLdry dry 0 22 0 8 -262144 -1
--1 0 256;
-#X obj 344 260 nbx 5 14 0 1e+37 0 0 empty SLin_peak_meter in_peak 0
-22 0 8 -262144 -1 -1 9.53674e-05 256;
-#X obj 188 118 nbx 3 14 0 512 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 13 256;
-#X obj 345 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
-#X obj 423 161 * 111;
-#X obj 424 185 - 99;
-#X obj 290 132 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
-#X obj 428 221 * 111;
-#X obj 429 245 - 99;
-#X obj 188 259 nbx 3 14 0 1e+37 0 0 empty SLinput_gain input_gain 0
-22 0 8 -262144 -1 -1 1 256;
-#X obj 188 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 148 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 108 153 vsl 25 100 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X connect 2 0 11 0;
-#X connect 5 0 8 0;
-#X connect 8 0 9 0;
-#X connect 9 0 7 0;
-#X connect 11 0 12 0;
-#X connect 12 0 10 0;
-#X coords 0 -1 1 1 300 200 2 100 100;
-#X restore 8 23 pd global_monitors-\$0;
-#X restore 197 312 pd in-out-levels;
 #N canvas 347 25 580 103 loopZero-\$0 1;
 #N canvas 16 68 796 404 loopZero_display 0;
 #X floatatom 537 18 5 0 0 0 0_cycle_len Loop0cycle_len -;
