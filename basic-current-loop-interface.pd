@@ -5,49 +5,47 @@
 #N canvas 31 40 1108 473 register_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
-#X msg 273 48 4 /sl/-3/register_auto_update next_state 100 /updates/next_state
+#X msg 273 48 4 /sl/-3/register_auto_update next_state 100 /BCLI/next_state
 ;
-#X msg 263 81 4 /sl/-3/register_auto_update loop_pos 100 /updates/loop_pos
+#X msg 263 81 4 /sl/-3/register_auto_update loop_pos 100 /BCLI/loop_pos
 ;
-#X msg 244 122 4 /sl/-3/register_auto_update cycle_len 100 /updates/cycle_len
+#X msg 244 122 4 /sl/-3/register_auto_update cycle_len 100 /BCLI/cycle_len
 ;
-#X msg 234 155 4 /sl/-3/register_auto_update free_time 100 /updates/free_time
+#X msg 234 155 4 /sl/-3/register_auto_update free_time 100 /BCLI/free_time
 ;
-#X msg 214 221 4 /sl/-3/register_auto_update waiting 100 /updates/waiting
+#X msg 214 221 4 /sl/-3/register_auto_update waiting 100 /BCLI/waiting
 ;
-#X msg 204 241 4 /sl/-3/register_auto_update rate_output 100 /updates/rate_output
+#X msg 204 241 4 /sl/-3/register_auto_update rate_output 100 /BCLI/rate_output
 ;
-#X msg 194 275 4 /sl/-3/register_auto_update in_peak_meter 100 /updates/in_peak_meter
+#X msg 194 275 4 /sl/-3/register_auto_update in_peak_meter 100 /BCLI/in_peak_meter
 ;
-#X msg 184 308 4 /sl/-3/register_auto_update out_peak_meter 100 /updates/out_peak_meter
+#X msg 184 308 4 /sl/-3/register_auto_update out_peak_meter 100 /BCLI/out_peak_meter
 ;
-#X msg 164 374 4 /sl/-3/register_auto_update stretch_ratio 100 /updates/stretch_ratio
+#X msg 164 374 4 /sl/-3/register_auto_update stretch_ratio 100 /BCLI/stretch_ratio
 ;
-#X msg 154 407 4 /sl/-3/register_auto_update pitch_shift 100 /updates/pitch_shift
+#X msg 154 407 4 /sl/-3/register_auto_update pitch_shift 100 /BCLI/pitch_shift
 ;
-#X msg 174 341 4 /sl/-3/register_auto_update is_soloed 100 /updates/is_soloed
+#X msg 174 341 4 /sl/-3/register_auto_update is_soloed 100 /BCLI/is_soloed
 ;
-#X msg 224 188 4 /sl/-3/register_auto_update total_time 100 /updates/total_time
+#X msg 224 188 4 /sl/-3/register_auto_update total_time 100 /BCLI/total_time
 ;
-#X msg 254 102 4 /sl/-3/register_auto_update loop_len 100 /updates/loop_len
+#X msg 254 102 4 /sl/-3/register_auto_update loop_len 100 /BCLI/loop_len
 ;
-#X msg 283 28 4 /sl/-3/register_auto_update state 100 /updates/state
-;
-#X msg 813 158 3 /sl/-3/get state /updates/state;
-#X msg 803 178 3 /sl/-3/get next_state /updates/next_state;
-#X msg 793 197 3 /sl/-3/get loop_pos /updates/loop_pos;
-#X msg 784 218 3 /sl/-3/get loop_len /updates/loop_len;
-#X msg 774 238 3 /sl/-3/get cycle_len /updates/cycle_len;
-#X msg 764 257 3 /sl/-3/get free_time /updates/free_time;
-#X msg 754 276 3 /sl/-3/get total_time /updates/total_time;
-#X msg 744 295 3 /sl/-3/get waiting /updates/waiting;
-#X msg 734 315 3 /sl/-3/get rate_output /updates/rate_output;
-#X msg 724 335 3 /sl/-3/get in_peak_meter /updates/in_peak_meter;
-#X msg 714 355 3 /sl/-3/get out_peak_meter /updates/out_peak_meter
-;
-#X msg 704 375 3 /sl/-3/get is_soloed /updates/is_soloed;
-#X msg 694 395 3 /sl/-3/get stretch_ratio /updates/stretch_ratio;
-#X msg 684 415 3 /sl/-3/get pitch_shift /updates/pitch_shift;
+#X msg 283 28 4 /sl/-3/register_auto_update state 100 /BCLI/state;
+#X msg 813 158 3 /sl/-3/get state /BCLI/state;
+#X msg 803 178 3 /sl/-3/get next_state /BCLI/next_state;
+#X msg 793 197 3 /sl/-3/get loop_pos /BCLI/loop_pos;
+#X msg 784 218 3 /sl/-3/get loop_len /BCLI/loop_len;
+#X msg 774 238 3 /sl/-3/get cycle_len /BCLI/cycle_len;
+#X msg 764 257 3 /sl/-3/get free_time /BCLI/free_time;
+#X msg 754 276 3 /sl/-3/get total_time /BCLI/total_time;
+#X msg 744 295 3 /sl/-3/get waiting /BCLI/waiting;
+#X msg 734 315 3 /sl/-3/get rate_output /BCLI/rate_output;
+#X msg 724 335 3 /sl/-3/get in_peak_meter /BCLI/in_peak_meter;
+#X msg 714 355 3 /sl/-3/get out_peak_meter /BCLI/out_peak_meter;
+#X msg 704 375 3 /sl/-3/get is_soloed /BCLI/is_soloed;
+#X msg 694 395 3 /sl/-3/get stretch_ratio /BCLI/stretch_ratio;
+#X msg 684 415 3 /sl/-3/get pitch_shift /BCLI/pitch_shift;
 #X connect 0 0 15 0;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
@@ -111,33 +109,32 @@
 #N canvas 533 40 685 503 unregister_auto_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
-#X msg 273 108 3 /sl/-3/unregister_auto_update next_state /updates/next_state
+#X msg 273 108 3 /sl/-3/unregister_auto_update next_state /BCLI/next_state
 ;
-#X msg 263 141 3 /sl/-3/unregister_auto_update loop_pos /updates/loop_pos
+#X msg 263 141 3 /sl/-3/unregister_auto_update loop_pos /BCLI/loop_pos
 ;
-#X msg 244 182 3 /sl/-3/unregister_auto_update cycle_len /updates/cycle_len
+#X msg 244 182 3 /sl/-3/unregister_auto_update cycle_len /BCLI/cycle_len
 ;
-#X msg 234 202 3 /sl/-3/unregister_auto_update free_time /updates/free_time
+#X msg 234 202 3 /sl/-3/unregister_auto_update free_time /BCLI/free_time
 ;
-#X msg 214 255 3 /sl/-3/unregister_auto_update waiting /updates/waiting
+#X msg 214 255 3 /sl/-3/unregister_auto_update waiting /BCLI/waiting
 ;
-#X msg 204 275 3 /sl/-3/unregister_auto_update rate_output /updates/rate_output
+#X msg 204 275 3 /sl/-3/unregister_auto_update rate_output /BCLI/rate_output
 ;
-#X msg 194 309 3 /sl/-3/unregister_auto_update in_peak_meter /updates/in_peak_meter
+#X msg 194 309 3 /sl/-3/unregister_auto_update in_peak_meter /BCLI/in_peak_meter
 ;
-#X msg 184 342 3 /sl/-3/unregister_auto_update out_peak_meter /updates/out_peak_meter
+#X msg 184 342 3 /sl/-3/unregister_auto_update out_peak_meter /BCLI/out_peak_meter
 ;
-#X msg 164 395 3 /sl/-3/unregister_auto_update stretch_ratio /updates/stretch_ratio
+#X msg 164 395 3 /sl/-3/unregister_auto_update stretch_ratio /BCLI/stretch_ratio
 ;
-#X msg 154 428 3 /sl/-3/unregister_auto_update pitch_shift /updates/pitch_shift
+#X msg 154 428 3 /sl/-3/unregister_auto_update pitch_shift /BCLI/pitch_shift
 ;
-#X msg 283 88 3 /sl/-3/unregister_auto_update state /updates/state
+#X msg 283 88 3 /sl/-3/unregister_auto_update state /BCLI/state;
+#X msg 254 162 3 /sl/-3/unregister_auto_update loop_len /BCLI/loop_len
 ;
-#X msg 254 162 3 /sl/-3/unregister_auto_update loop_len /updates/loop_len
+#X msg 224 222 3 /sl/-3/unregister_auto_update total_time /BCLI/total_time
 ;
-#X msg 224 222 3 /sl/-3/unregister_auto_update total_time /updates/total_time
-;
-#X msg 174 375 3 /sl/-3/unregister_auto_update is_soloed /updates/is_soloed
+#X msg 174 375 3 /sl/-3/unregister_auto_update is_soloed /BCLI/is_soloed
 ;
 #X connect 0 0 12 0;
 #X connect 0 0 2 0;
@@ -467,70 +464,66 @@
 #N canvas 91 25 774 700 register_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
-#X msg 124 367 4 /sl/-3/register_auto_update use_common_ins 100 /updates/use_common_ins
+#X msg 124 367 4 /sl/-3/register_auto_update use_common_ins 100 /BCLI/use_common_ins
 ;
-#X msg 283 8 4 /sl/-3/register_auto_update rec_thresh 100 /updates/rec_thresh
+#X msg 283 8 4 /sl/-3/register_auto_update rec_thresh 100 /BCLI/rec_thresh
 ;
-#X msg 273 28 4 /sl/-3/register_auto_update feedback 100 /updates/feedback
+#X msg 273 28 4 /sl/-3/register_auto_update feedback 100 /BCLI/feedback
 ;
-#X msg 263 48 4 /sl/-3/register_auto_update use_feedback_play 100 /updates/use_feedback_play
+#X msg 263 48 4 /sl/-3/register_auto_update use_feedback_play 100 /BCLI/use_feedback_play
 ;
-#X msg 254 81 4 /sl/-3/register_auto_update dry 100 /updates/dry-3
+#X msg 254 81 4 /sl/-3/register_auto_update dry 100 /BCLI/dry-3;
+#X msg 244 101 4 /sl/-3/register_auto_update wet 100 /BCLI/wet-3;
+#X msg 234 121 4 /sl/-3/register_auto_update input_gain 100 /BCLI/input_gain
 ;
-#X msg 244 101 4 /sl/-3/register_auto_update wet 100 /updates/wet-3
+#X msg 224 141 4 /sl/-3/register_auto_update rate 100 /BCLI/rate;
+#X msg 214 161 4 /sl/-3/register_auto_update scratch_pos 100 /BCLI/scratch_pos
 ;
-#X msg 234 121 4 /sl/-3/register_auto_update input_gain 100 /updates/input_gain
+#X msg 204 181 4 /sl/-3/register_auto_update delay_trigger 100 /BCLI/delay_trigger
 ;
-#X msg 224 141 4 /sl/-3/register_auto_update rate 100 /updates/rate
+#X msg 194 214 4 /sl/-3/register_auto_update quantize 100 /BCLI/quantize
 ;
-#X msg 214 161 4 /sl/-3/register_auto_update scratch_pos 100 /updates/scratch_pos
+#X msg 184 234 4 /sl/-3/register_auto_update fade_samples 100 /BCLI/fade_samples
 ;
-#X msg 204 181 4 /sl/-3/register_auto_update delay_trigger 100 /updates/delay_trigger
+#X msg 174 254 4 /sl/-3/register_auto_update round 100 /BCLI/round
 ;
-#X msg 194 214 4 /sl/-3/register_auto_update quantize 100 /updates/quantize
+#X msg 164 274 4 /sl/-3/register_auto_update sync 100 /BCLI/sync;
+#X msg 154 294 4 /sl/-3/register_auto_update playback_sync 100 /BCLI/playback_sync
 ;
-#X msg 184 234 4 /sl/-3/register_auto_update fade_samples 100 /updates/fade_samples
+#X msg 144 327 4 /sl/-3/register_auto_update redo_is_tap 100 /BCLI/redo_is_tap
 ;
-#X msg 174 254 4 /sl/-3/register_auto_update round 100 /updates/round
+#X msg 134 347 4 /sl/-3/register_auto_update use_rate 100 /BCLI/use_rate
 ;
-#X msg 164 274 4 /sl/-3/register_auto_update sync 100 /updates/sync
+#X msg 114 400 4 /sl/-3/register_auto_update use_common_outs 100 /BCLI/use_common_outs
 ;
-#X msg 154 294 4 /sl/-3/register_auto_update playback_sync 100 /updates/playback_sync
+#X msg 104 433 4 /sl/-3/register_auto_update relative_sync 100 /BCLI/relative_sync
 ;
-#X msg 144 327 4 /sl/-3/register_auto_update redo_is_tap 100 /updates/redo_is_tap
+#X msg 94 466 4 /sl/-3/register_auto_update input_latency 100 /BCLI/input_latency
 ;
-#X msg 134 347 4 /sl/-3/register_auto_update use_rate 100 /updates/use_rate
+#X msg 84 499 4 /sl/-3/register_auto_update output_latency 100 /BCLI/output_latency
 ;
-#X msg 114 400 4 /sl/-3/register_auto_update use_common_outs 100 /updates/use_common_outs
+#X msg 74 532 4 /sl/-3/register_auto_update trigger_latency 100 /BCLI/trigger_latency
 ;
-#X msg 104 433 4 /sl/-3/register_auto_update relative_sync 100 /updates/relative_sync
+#X msg 64 565 4 /sl/-3/register_auto_update autoset_latency 100 /BCLI/autoset_latency
 ;
-#X msg 94 466 4 /sl/-3/register_auto_update input_latency 100 /updates/input_latency
+#X msg 54 598 4 /sl/-3/register_auto_update mute_quantized 100 /BCLI/mute_quantized
 ;
-#X msg 84 499 4 /sl/-3/register_auto_update output_latency 100 /updates/output_latency
+#X msg 434 458 4 /sl/-3/register_auto_update pan_1 100 /BCLI/pan_1
 ;
-#X msg 74 532 4 /sl/-3/register_auto_update trigger_latency 100 /updates/trigger_latency
+#X msg 424 478 4 /sl/-3/register_auto_update pan_2 100 /BCLI/pan_2
 ;
-#X msg 64 565 4 /sl/-3/register_auto_update autoset_latency 100 /updates/autoset_latency
+#X msg 414 498 4 /sl/-3/register_auto_update pan_3 100 /BCLI/pan_3
 ;
-#X msg 54 598 4 /sl/-3/register_auto_update mute_quantized 100 /updates/mute_quantized
+#X msg 404 518 4 /sl/-3/register_auto_update pan_4 100 /BCLI/pan_4
 ;
-#X msg 434 458 4 /sl/-3/register_auto_update pan_1 100 /updates/pan_1
-;
-#X msg 424 478 4 /sl/-3/register_auto_update pan_2 100 /updates/pan_2
-;
-#X msg 414 498 4 /sl/-3/register_auto_update pan_3 100 /updates/pan_3
-;
-#X msg 404 518 4 /sl/-3/register_auto_update pan_4 100 /updates/pan_4
-;
-#X msg 394 538 4 /sl/-3/register_auto_update tempo_stretch 100 /updates/tempo_stretch
+#X msg 394 538 4 /sl/-3/register_auto_update tempo_stretch 100 /BCLI/tempo_stretch
 ;
 #X msg 384 571 4 /sl/-3/register_auto_update round_integer_tempo 100
-/updates/round_integer_tempo;
+/BCLI/round_integer_tempo;
 #X msg 374 604 4 /sl/-3/register_auto_update replace_quantized 100
-/updates/replace_quantized;
+/BCLI/replace_quantized;
 #X msg 364 637 4 /sl/-3/register_auto_update overdub_quantized 100
-/updates/overdub_quantized;
+/BCLI/overdub_quantized;
 #X connect 0 0 3 0;
 #X connect 0 0 4 0;
 #X connect 0 0 5 0;
@@ -599,45 +592,41 @@
 #N canvas 594 25 684 678 get_update_current 0;
 #X obj 5 69 inlet;
 #X obj -55 288 outlet;
-#X msg 280 8 3 /sl/-3/get rec_thresh /updates/rec_thresh;
-#X msg 270 28 3 /sl/-3/get feedback /updates/feedback;
-#X msg 260 48 3 /sl/-3/get use_feedback_play /updates/use_feedback_play
+#X msg 280 8 3 /sl/-3/get rec_thresh /BCLI/rec_thresh;
+#X msg 270 28 3 /sl/-3/get feedback /BCLI/feedback;
+#X msg 260 48 3 /sl/-3/get use_feedback_play /BCLI/use_feedback_play
 ;
-#X msg 251 68 3 /sl/-3/get dry /updates/dry-3;
-#X msg 241 88 3 /sl/-3/get wet /updates/wet-3;
-#X msg 231 108 3 /sl/-3/get input_gain /updates/input_gain;
-#X msg 221 128 3 /sl/-3/get rate /updates/rate;
-#X msg 211 148 3 /sl/-3/get scratch_pos /updates/scratch_pos;
-#X msg 201 168 3 /sl/-3/get delay_trigger /updates/delay_trigger;
-#X msg 191 188 3 /sl/-3/get quantize /updates/quantize;
-#X msg 181 208 3 /sl/-3/get fade_samples /updates/fade_samples;
-#X msg 171 228 3 /sl/-3/get round /updates/round;
-#X msg 161 248 3 /sl/-3/get sync /updates/sync;
-#X msg 151 268 3 /sl/-3/get playback_sync /updates/playback_sync;
-#X msg 141 288 3 /sl/-3/get redo_is_tap /updates/redo_is_tap;
-#X msg 131 309 3 /sl/-3/get use_rate /updates/use_rate;
-#X msg 121 329 3 /sl/-3/get use_common_ins /updates/use_common_ins
+#X msg 251 68 3 /sl/-3/get dry /BCLI/dry-3;
+#X msg 241 88 3 /sl/-3/get wet /BCLI/wet-3;
+#X msg 231 108 3 /sl/-3/get input_gain /BCLI/input_gain;
+#X msg 221 128 3 /sl/-3/get rate /BCLI/rate;
+#X msg 211 148 3 /sl/-3/get scratch_pos /BCLI/scratch_pos;
+#X msg 201 168 3 /sl/-3/get delay_trigger /BCLI/delay_trigger;
+#X msg 191 188 3 /sl/-3/get quantize /BCLI/quantize;
+#X msg 181 208 3 /sl/-3/get fade_samples /BCLI/fade_samples;
+#X msg 171 228 3 /sl/-3/get round /BCLI/round;
+#X msg 161 248 3 /sl/-3/get sync /BCLI/sync;
+#X msg 151 268 3 /sl/-3/get playback_sync /BCLI/playback_sync;
+#X msg 141 288 3 /sl/-3/get redo_is_tap /BCLI/redo_is_tap;
+#X msg 131 309 3 /sl/-3/get use_rate /BCLI/use_rate;
+#X msg 121 329 3 /sl/-3/get use_common_ins /BCLI/use_common_ins;
+#X msg 111 349 3 /sl/-3/get use_common_outs /BCLI/use_common_outs;
+#X msg 101 369 3 /sl/-3/get relative_sync /BCLI/relative_sync;
+#X msg 91 389 3 /sl/-3/get input_latency /BCLI/input_latency;
+#X msg 81 409 3 /sl/-3/get output_latency /BCLI/output_latency;
+#X msg 71 429 3 /sl/-3/get trigger_latency /BCLI/trigger_latency;
+#X msg 61 449 3 /sl/-3/get autoset_latency /BCLI/autoset_latency;
+#X msg 51 469 3 /sl/-3/get mute_quantized /BCLI/mute_quantized;
+#X msg 41 488 3 /sl/-3/get pan_1 /BCLI/pan_1;
+#X msg 31 508 3 /sl/-3/get pan_2 /BCLI/pan_2;
+#X msg 21 528 3 /sl/-3/get pan_3 /BCLI/pan_3;
+#X msg 11 548 3 /sl/-3/get pan_4 /BCLI/pan_4;
+#X msg 1 568 3 /sl/-3/get tempo_stretch /BCLI/tempo_stretch;
+#X msg -9 588 3 /sl/-3/get round_integer_tempo /BCLI/round_integer_tempo
 ;
-#X msg 111 349 3 /sl/-3/get use_common_outs /updates/use_common_outs
+#X msg -19 621 3 /sl/-3/get replace_quantized /BCLI/replace_quantized
 ;
-#X msg 101 369 3 /sl/-3/get relative_sync /updates/relative_sync;
-#X msg 91 389 3 /sl/-3/get input_latency /updates/input_latency;
-#X msg 81 409 3 /sl/-3/get output_latency /updates/output_latency;
-#X msg 71 429 3 /sl/-3/get trigger_latency /updates/trigger_latency
-;
-#X msg 61 449 3 /sl/-3/get autoset_latency /updates/autoset_latency
-;
-#X msg 51 469 3 /sl/-3/get mute_quantized /updates/mute_quantized;
-#X msg 41 488 3 /sl/-3/get pan_1 /updates/pan_1;
-#X msg 31 508 3 /sl/-3/get pan_2 /updates/pan_2;
-#X msg 21 528 3 /sl/-3/get pan_3 /updates/pan_3;
-#X msg 11 548 3 /sl/-3/get pan_4 /updates/pan_4;
-#X msg 1 568 3 /sl/-3/get tempo_stretch /updates/tempo_stretch;
-#X msg -9 588 3 /sl/-3/get round_integer_tempo /updates/round_integer_tempo
-;
-#X msg -19 621 3 /sl/-3/get replace_quantized /updates/replace_quantized
-;
-#X msg -29 641 3 /sl/-3/get overdub_quantized /updates/overdub_quantized
+#X msg -29 641 3 /sl/-3/get overdub_quantized /BCLI/overdub_quantized
 ;
 #X connect 0 0 2 0;
 #X connect 0 0 3 0;
@@ -707,65 +696,60 @@
 #N canvas 91 25 765 700 unregister_update_current 0;
 #X obj 8 69 inlet;
 #X obj 8 228 outlet;
-#X msg 124 380 3 /sl/-3/unregister_auto_update use_common_ins /updates/use_common_ins
+#X msg 124 380 3 /sl/-3/unregister_auto_update use_common_ins /BCLI/use_common_ins
 ;
-#X msg 283 8 3 /sl/-3/unregister_auto_update rec_thresh /updates/rec_thresh
+#X msg 283 8 3 /sl/-3/unregister_auto_update rec_thresh /BCLI/rec_thresh
 ;
-#X msg 273 28 3 /sl/-3/unregister_auto_update feedback /updates/feedback
+#X msg 273 28 3 /sl/-3/unregister_auto_update feedback /BCLI/feedback
 ;
-#X msg 263 48 3 /sl/-3/unregister_auto_update use_feedback_play /updates/use_feedback_play
+#X msg 263 48 3 /sl/-3/unregister_auto_update use_feedback_play /BCLI/use_feedback_play
 ;
-#X msg 254 81 3 /sl/-3/unregister_auto_update dry /updates/dry-3;
-#X msg 244 101 3 /sl/-3/unregister_auto_update wet /updates/wet-3;
-#X msg 234 121 3 /sl/-3/unregister_auto_update input_gain /updates/input_gain
+#X msg 254 81 3 /sl/-3/unregister_auto_update dry /BCLI/dry-3;
+#X msg 244 101 3 /sl/-3/unregister_auto_update wet /BCLI/wet-3;
+#X msg 234 121 3 /sl/-3/unregister_auto_update input_gain /BCLI/input_gain
 ;
-#X msg 224 141 3 /sl/-3/unregister_auto_update rate /updates/rate;
-#X msg 214 161 3 /sl/-3/unregister_auto_update scratch_pos /updates/scratch_pos
+#X msg 224 141 3 /sl/-3/unregister_auto_update rate /BCLI/rate;
+#X msg 214 161 3 /sl/-3/unregister_auto_update scratch_pos /BCLI/scratch_pos
 ;
-#X msg 204 181 3 /sl/-3/unregister_auto_update delay_trigger /updates/delay_trigger
+#X msg 204 181 3 /sl/-3/unregister_auto_update delay_trigger /BCLI/delay_trigger
 ;
-#X msg 194 214 3 /sl/-3/unregister_auto_update quantize /updates/quantize
+#X msg 194 214 3 /sl/-3/unregister_auto_update quantize /BCLI/quantize
 ;
-#X msg 184 234 3 /sl/-3/unregister_auto_update fade_samples /updates/fade_samples
+#X msg 184 234 3 /sl/-3/unregister_auto_update fade_samples /BCLI/fade_samples
 ;
-#X msg 174 267 3 /sl/-3/unregister_auto_update round /updates/round
+#X msg 174 267 3 /sl/-3/unregister_auto_update round /BCLI/round;
+#X msg 164 287 3 /sl/-3/unregister_auto_update sync /BCLI/sync;
+#X msg 154 307 3 /sl/-3/unregister_auto_update playback_sync /BCLI/playback_sync
 ;
-#X msg 164 287 3 /sl/-3/unregister_auto_update sync /updates/sync;
-#X msg 154 307 3 /sl/-3/unregister_auto_update playback_sync /updates/playback_sync
+#X msg 144 340 3 /sl/-3/unregister_auto_update redo_is_tap /BCLI/redo_is_tap
 ;
-#X msg 144 340 3 /sl/-3/unregister_auto_update redo_is_tap /updates/redo_is_tap
+#X msg 134 360 3 /sl/-3/unregister_auto_update use_rate /BCLI/use_rate
 ;
-#X msg 134 360 3 /sl/-3/unregister_auto_update use_rate /updates/use_rate
+#X msg 114 413 3 /sl/-3/unregister_auto_update use_common_outs /BCLI/use_common_outs
 ;
-#X msg 114 413 3 /sl/-3/unregister_auto_update use_common_outs /updates/use_common_outs
+#X msg 104 446 3 /sl/-3/unregister_auto_update relative_sync /BCLI/relative_sync
 ;
-#X msg 104 446 3 /sl/-3/unregister_auto_update relative_sync /updates/relative_sync
+#X msg 94 479 3 /sl/-3/unregister_auto_update input_latency /BCLI/input_latency
 ;
-#X msg 94 479 3 /sl/-3/unregister_auto_update input_latency /updates/input_latency
+#X msg 84 512 3 /sl/-3/unregister_auto_update output_latency /BCLI/output_latency
 ;
-#X msg 84 512 3 /sl/-3/unregister_auto_update output_latency /updates/output_latency
+#X msg 74 545 3 /sl/-3/unregister_auto_update trigger_latency /BCLI/trigger_latency
 ;
-#X msg 74 545 3 /sl/-3/unregister_auto_update trigger_latency /updates/trigger_latency
+#X msg 64 578 3 /sl/-3/unregister_auto_update autoset_latency /BCLI/autoset_latency
 ;
-#X msg 64 578 3 /sl/-3/unregister_auto_update autoset_latency /updates/autoset_latency
+#X msg 54 611 3 /sl/-3/unregister_auto_update mute_quantized /BCLI/mute_quantized
 ;
-#X msg 54 611 3 /sl/-3/unregister_auto_update mute_quantized /updates/mute_quantized
-;
-#X msg 434 458 3 /sl/-3/unregister_auto_update pan_1 /updates/pan_1
-;
-#X msg 424 478 3 /sl/-3/unregister_auto_update pan_2 /updates/pan_2
-;
-#X msg 414 498 3 /sl/-3/unregister_auto_update pan_3 /updates/pan_3
-;
-#X msg 404 518 3 /sl/-3/unregister_auto_update pan_4 /updates/pan_4
-;
-#X msg 394 538 3 /sl/-3/unregister_auto_update tempo_stretch /updates/tempo_stretch
+#X msg 434 458 3 /sl/-3/unregister_auto_update pan_1 /BCLI/pan_1;
+#X msg 424 478 3 /sl/-3/unregister_auto_update pan_2 /BCLI/pan_2;
+#X msg 414 498 3 /sl/-3/unregister_auto_update pan_3 /BCLI/pan_3;
+#X msg 404 518 3 /sl/-3/unregister_auto_update pan_4 /BCLI/pan_4;
+#X msg 394 538 3 /sl/-3/unregister_auto_update tempo_stretch /BCLI/tempo_stretch
 ;
 #X msg 384 571 3 /sl/-3/unregister_auto_update round_integer_tempo
-/updates/round_integer_tempo;
-#X msg 374 604 3 /sl/-3/unregister_auto_update replace_quantized /updates/replace_quantized
+/BCLI/round_integer_tempo;
+#X msg 374 604 3 /sl/-3/unregister_auto_update replace_quantized /BCLI/replace_quantized
 ;
-#X msg 364 637 3 /sl/-3/unregister_auto_update overdub_quantized /updates/overdub_quantized
+#X msg 364 637 3 /sl/-3/unregister_auto_update overdub_quantized /BCLI/overdub_quantized
 ;
 #X connect 0 0 3 0;
 #X connect 0 0 4 0;
