@@ -36,10 +36,15 @@
 #X obj 243 73 packOSC;
 #X obj 94 140 s localOSCin;
 #X obj -5 109 routeOSC /updates;
+#X obj 264 25 tgl 15 0 empty empty dump 17 8 0 8 -262144 -1 -1 0 1
+;
+#X obj 219 134 spigot 0;
+#X obj 219 157 print OSC;
 #X connect 1 0 3 0;
 #X connect 1 1 2 0;
 #X connect 1 1 3 1;
 #X connect 3 0 12 0;
+#X connect 3 0 14 0;
 #X connect 4 0 1 0;
 #X connect 4 1 6 0;
 #X connect 6 0 5 0;
@@ -47,6 +52,8 @@
 #X connect 10 0 1 0;
 #X connect 12 0 8 0;
 #X connect 12 1 11 0;
+#X connect 13 0 14 1;
+#X connect 14 0 15 0;
 #X coords 0 -1 1 1 125 25 2 200 20;
 #X restore 209 107 pd OSCin;
 #N canvas 635 343 381 270 OSCout 0;
@@ -210,7 +217,7 @@ unexpected results;
 #X obj 200 509 s SLsync_source_message;
 #X obj 241 194 s slOSCout;
 #X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops SLloops 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 12 256;
 #X connect 0 0 10 0;
 #X connect 1 0 4 0;
 #X connect 3 0 4 1;
@@ -275,7 +282,7 @@ unexpected results;
 #X msg 239 42 send /loop_add 1 \$1;
 #X obj 277 103 s slOSCout;
 #X obj 156 81 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 12 256;
 #X obj 91 -11 f;
 #X obj 91 114 f;
 #X connect 0 0 8 0;
