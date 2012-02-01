@@ -175,331 +175,6 @@
 #X text 13 154 emOSCulator - puredata sooperlooper interface;
 #X text 12 174 controls are in red - changing other items can have
 unexpected results;
-#N canvas 814 405 450 300 eigths_and_sync_source 1;
-#N canvas 678 376 415 321 sync_interface 0;
-#X obj 55 51 nbx 3 14 0 1e+37 0 0 empty SLeighths_per_cycle 8th/cycle
-0 -8 0 8 -262144 -1 -1 0 256;
-#X obj 45 76 tgl 15 0 empty SLsmart_eighths auto_8th 17 7 0 8 -262144
--1 -1 1 1;
-#X obj 331 285 s slOSCout;
-#X msg 151 197 send /set smart_eighths \$1;
-#X obj 115 76 bng 15 250 50 0 empty empty empty -46 7 0 8 -258113 -1
--1;
-#X obj 151 154 + 1;
-#X obj 113 154 float;
-#X obj 151 176 mod 2;
-#X obj 91 51 nbx 3 14 0 64 0 0 empty empty empty 0 -8 0 8 -258113 -1
--1 0 256;
-#X msg 189 15 4;
-#X msg 219 15 8;
-#X msg 249 15 16;
-#X msg 279 15 32;
-#X msg 184 80 send /set eighth_per_cycle \$1;
-#X obj 33 14 bng 20 250 50 0 empty empty 4 7 11 0 8 -258113 -1 -1;
-#X obj 63 14 bng 20 250 50 0 empty empty 8 7 11 0 8 -258113 -1 -1;
-#X obj 93 14 bng 20 250 50 0 empty empty 16 4 11 0 8 -258113 -1 -1
-;
-#X obj 123 14 bng 20 250 50 0 empty empty 32 4 11 0 8 -258113 -1 -1
-;
-#X connect 3 0 2 0;
-#X connect 4 0 6 0;
-#X connect 5 0 6 1;
-#X connect 5 0 7 0;
-#X connect 6 0 5 0;
-#X connect 7 0 3 0;
-#X connect 8 0 13 0;
-#X connect 9 0 8 0;
-#X connect 10 0 8 0;
-#X connect 11 0 8 0;
-#X connect 12 0 8 0;
-#X connect 13 0 2 0;
-#X connect 14 0 9 0;
-#X connect 15 0 10 0;
-#X connect 16 0 11 0;
-#X connect 17 0 12 0;
-#X coords 0 -1 1 1 135 125 2 20 10;
-#X restore -7 6 pd sync_interface;
-#N canvas 287 136 515 577 save_page 0;
-#X obj -72 510 spigot;
-#X obj -39 491 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X text -14 492 set your filenames \, turn on the spigot. click on
-messages one by one to send them.;
-#X obj 19 389 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
-0;
-#X obj -72 558 s slOSCout;
-#X msg 11 349 3 /sl/0/load_loop greenmilk.wav /errors/load_loop;
-#X msg -72 20 5 /sl/-3/save_loop blah.wav format endian /errors/save_loop
-;
-#X msg 11 368 3 /save_session blank.sl /errors/save_session;
-#X msg 24 394 3 /load_session blank.sl /errors/load_session;
-#X msg -52 70 5 /sl/1/save_loop ses1-1.wav format endian /errors/save_loop
-;
-#X msg -42 90 5 /sl/2/save_loop ses1-2.wav format endian /errors/save_loop
-;
-#X msg -32 110 5 /sl/3/save_loop ses1-3.wav format endian /errors/save_loop
-;
-#X msg -22 130 5 /sl/4/save_loop ses1-4.wav format endian /errors/save_loop
-;
-#X msg -12 150 5 /sl/5/save_loop ses1-5.wav format endian /errors/save_loop
-;
-#X obj -72 534 slOSCsender2;
-#X msg -62 50 5 /sl/0/save_loop uke9-0.wav format endian /errors/save_loop
-;
-#X msg -2 170 5 /sl/6/save_loop uke9-6.wav format endian /errors/save_loop
-;
-#X msg 8 190 5 /sl/7/save_loop uke9-7.wav format endian /errors/save_loop
-;
-#X msg 18 210 5 /sl/8/save_loop uke9-8.wav format endian /errors/save_loop
-;
-#X msg 28 230 5 /sl/9/save_loop uke9-9.wav format endian /errors/save_loop
-;
-#X msg 38 250 5 /sl/10/save_loop uke9-10.wav format endian /errors/save_loop
-;
-#X msg 48 280 5 /sl/11/save_loop uke9-11.wav format endian /errors/save_loop
-;
-#X msg 58 310 5 /sl/12/save_loop uke9-12.wav format endian /errors/save_loop
-;
-#X connect 0 0 14 0;
-#X connect 1 0 0 1;
-#X connect 5 0 0 0;
-#X connect 6 0 0 0;
-#X connect 7 0 0 0;
-#X connect 8 0 0 0;
-#X connect 9 0 0 0;
-#X connect 10 0 0 0;
-#X connect 11 0 0 0;
-#X connect 12 0 0 0;
-#X connect 13 0 0 0;
-#X connect 14 0 4 0;
-#X connect 15 0 0 0;
-#X connect 16 0 0 0;
-#X connect 17 0 0 0;
-#X connect 18 0 0 0;
-#X connect 19 0 0 0;
-#X connect 20 0 0 0;
-#X connect 21 0 0 0;
-#X connect 22 0 0 0;
-#X restore -9 267 pd save_page;
-#N canvas 368 25 873 690 current_channel_interface_messages 0;
-#X obj 16 5 inlet;
-#X obj 463 677 outlet;
-#X obj 39 24 routeOSC /cycle_len /free_time /is_soloed /loop_len;
-#X obj 41 93 routeOSC /loop_pos /next_state /pitch_shift /state;
-#X obj 41 167 routeOSC /rate_output /stretch_ratio /total_time /waiting
-;
-#X obj 39 46 unpack f s f;
-#X obj 39 70 s CCIcycle_len;
-#X obj 129 46 unpack f s f;
-#X obj 129 70 s CCIfree_time;
-#X obj 219 46 unpack f s f;
-#X obj 219 70 s CCIis_soloed;
-#X obj 309 46 unpack f s f;
-#X obj 309 70 s CCIloop_len;
-#X obj 39 119 unpack f s f;
-#X obj 129 119 unpack f s f;
-#X obj 219 119 unpack f s f;
-#X obj 309 119 unpack f s f;
-#X obj 39 143 s CCIloop_pos;
-#X obj 123 143 s CCInext_state;
-#X obj 219 143 s CCIpitch_shift;
-#X obj 322 143 s CCIstate;
-#X obj 39 189 unpack f s f;
-#X obj 129 189 unpack f s f;
-#X obj 219 189 unpack f s f;
-#X obj 309 189 unpack f s f;
-#X obj 39 213 s CCIrate_output;
-#X obj 140 213 s CCIstretch_ratio;
-#X obj 253 213 s CCItotal_time;
-#X obj 348 213 s CCIwaiting;
-#X obj 39 261 unpack f s f;
-#X obj 129 261 unpack f s f;
-#X obj 219 261 unpack f s f;
-#X obj 309 261 unpack f s f;
-#X obj 39 335 unpack f s f;
-#X obj 129 335 unpack f s f;
-#X obj 219 335 unpack f s f;
-#X obj 309 335 unpack f s f;
-#X obj 39 405 unpack f s f;
-#X obj 129 405 unpack f s f;
-#X obj 219 405 unpack f s f;
-#X obj 309 405 unpack f s f;
-#X obj 39 285 s CCIrec_thresh;
-#X obj 135 285 s CCIfeedback;
-#X obj 219 285 s CCIuse_feedback_play;
-#X obj 39 359 s CCIwet-3;
-#X obj 41 309 routeOSC /wet-3 /rate /scratch_pos /delay_trigger;
-#X obj 39 237 routeOSC /rec_thresh /feedback /use_feedback_play /dry-3
-;
-#X obj 358 285 s CCIdry-3;
-#X obj 41 383 routeOSC /quantize /fade_samples /round /sync;
-#X obj 39 429 s CCIquantize;
-#X obj 128 429 s CCIfade_samples;
-#X obj 241 429 s CCIround;
-#X obj 327 429 s CCIsync;
-#X obj 39 481 unpack f s f;
-#X obj 129 481 unpack f s f;
-#X obj 219 481 unpack f s f;
-#X obj 309 481 unpack f s f;
-#X obj 39 555 unpack f s f;
-#X obj 129 555 unpack f s f;
-#X obj 219 555 unpack f s f;
-#X obj 39 625 unpack f s f;
-#X obj 129 625 unpack f s f;
-#X obj 219 625 unpack f s f;
-#X obj 39 448 routeOSC /playback_sync /redo_is_tap /use_rate /tempo_stretch
-;
-#X obj 39 505 s CCIplayback_sync;
-#X obj 153 505 s CCIredo_is_tap;
-#X obj 255 505 s CCIuse_rate;
-#X obj 339 505 s CCItempo_stretch;
-#X obj 39 579 s CCIuse_common_ins;
-#X obj 159 579 s CCIuse_common_outs;
-#X obj 285 579 s CCIrelative_sync;
-#X obj 41 603 routeOSC /input_latency /output_latency /trigger_latency
-;
-#X obj 459 55 unpack f s f;
-#X obj 549 55 unpack f s f;
-#X obj 639 55 unpack f s f;
-#X obj 459 137 unpack f s f;
-#X obj 549 137 unpack f s f;
-#X obj 639 137 unpack f s f;
-#X obj 461 29 routeOSC /autoset_latency /mute_quantized /replace_quantized
-;
-#X obj 39 649 s CCIinput_latency;
-#X obj 154 649 s CCIoutput_latency;
-#X obj 275 649 s CCItrigger_latency;
-#X obj 459 79 s CCIautoset_latency;
-#X obj 585 79 s CCImute_quantized;
-#X obj 706 79 s CCIreplace_quantized;
-#X obj 461 103 routeOSC /overdub_quantized /tempo_stretch /round_integer_tempo
-;
-#X obj 459 161 s CCIoverdub_quantized;
-#X obj 598 161 s CCItempo_stretch;
-#X obj 712 161 s CCIround_integer_tempo;
-#X obj 41 529 routeOSC /use_common_ins /use_common_outs /relative_sync
-;
-#X obj 459 205 unpack f s f;
-#X obj 549 205 unpack f s f;
-#X obj 639 205 unpack f s f;
-#X obj 729 205 unpack f s f;
-#X obj 461 183 routeOSC /pan_1 /pan_2 /pan_3 /pan_4;
-#X obj 459 229 s CCIpan_1;
-#X obj 549 229 s CCIpan_2;
-#X obj 639 229 s CCIpan_3;
-#X obj 729 229 s CCIpan_4;
-#X obj 123 359 s CCIrate;
-#X obj 185 359 s CCIscratch_pos;
-#X obj 288 359 s CCIdelay_trigger;
-#X obj 460 256 routeOSC /input_gain;
-#X obj 460 280 unpack f s f;
-#X obj 460 304 s CCIinput_gain;
-#X connect 0 0 2 0;
-#X connect 2 0 5 0;
-#X connect 2 1 7 0;
-#X connect 2 2 9 0;
-#X connect 2 3 11 0;
-#X connect 2 4 3 0;
-#X connect 3 0 13 0;
-#X connect 3 1 14 0;
-#X connect 3 2 15 0;
-#X connect 3 3 16 0;
-#X connect 3 4 4 0;
-#X connect 4 0 21 0;
-#X connect 4 1 22 0;
-#X connect 4 2 23 0;
-#X connect 4 3 24 0;
-#X connect 4 4 46 0;
-#X connect 5 2 6 0;
-#X connect 7 2 8 0;
-#X connect 9 2 10 0;
-#X connect 11 2 12 0;
-#X connect 13 2 17 0;
-#X connect 14 2 18 0;
-#X connect 15 2 19 0;
-#X connect 16 2 20 0;
-#X connect 21 2 25 0;
-#X connect 22 2 26 0;
-#X connect 23 2 27 0;
-#X connect 24 2 28 0;
-#X connect 29 2 41 0;
-#X connect 30 2 42 0;
-#X connect 31 2 43 0;
-#X connect 32 2 47 0;
-#X connect 33 2 44 0;
-#X connect 34 2 99 0;
-#X connect 35 2 100 0;
-#X connect 36 2 101 0;
-#X connect 37 2 49 0;
-#X connect 38 2 50 0;
-#X connect 39 2 51 0;
-#X connect 40 2 52 0;
-#X connect 45 0 33 0;
-#X connect 45 1 34 0;
-#X connect 45 2 35 0;
-#X connect 45 3 36 0;
-#X connect 45 4 48 0;
-#X connect 46 0 29 0;
-#X connect 46 1 30 0;
-#X connect 46 2 31 0;
-#X connect 46 3 32 0;
-#X connect 46 4 45 0;
-#X connect 48 0 37 0;
-#X connect 48 1 38 0;
-#X connect 48 2 39 0;
-#X connect 48 3 40 0;
-#X connect 48 4 63 0;
-#X connect 53 2 64 0;
-#X connect 54 2 65 0;
-#X connect 55 2 66 0;
-#X connect 56 2 67 0;
-#X connect 57 2 68 0;
-#X connect 58 2 69 0;
-#X connect 59 2 70 0;
-#X connect 60 2 79 0;
-#X connect 61 2 80 0;
-#X connect 62 2 81 0;
-#X connect 63 0 53 0;
-#X connect 63 1 54 0;
-#X connect 63 2 55 0;
-#X connect 63 3 56 0;
-#X connect 63 4 89 0;
-#X connect 71 0 60 0;
-#X connect 71 1 61 0;
-#X connect 71 2 62 0;
-#X connect 71 3 78 0;
-#X connect 72 2 82 0;
-#X connect 73 2 83 0;
-#X connect 74 2 84 0;
-#X connect 75 2 86 0;
-#X connect 76 2 87 0;
-#X connect 77 2 88 0;
-#X connect 78 0 72 0;
-#X connect 78 1 73 0;
-#X connect 78 2 74 0;
-#X connect 78 3 85 0;
-#X connect 85 0 75 0;
-#X connect 85 1 76 0;
-#X connect 85 2 77 0;
-#X connect 85 3 94 0;
-#X connect 89 0 57 0;
-#X connect 89 1 58 0;
-#X connect 89 2 59 0;
-#X connect 89 3 71 0;
-#X connect 90 2 95 0;
-#X connect 91 2 96 0;
-#X connect 92 2 97 0;
-#X connect 93 2 98 0;
-#X connect 94 0 90 0;
-#X connect 94 1 91 0;
-#X connect 94 2 92 0;
-#X connect 94 3 93 0;
-#X connect 94 4 102 0;
-#X connect 102 0 103 0;
-#X connect 102 1 1 0;
-#X connect 103 2 104 0;
-#X restore 166 34 pd current_channel_interface_messages;
-#X restore 87 222 pd eigths_and_sync_source;
 #N canvas 704 25 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0
 -8 0 8 -262144 -1 -1 0 256;
@@ -615,3 +290,65 @@ messages one by one to send them.;
 #X connect 11 0 7 0;
 #X coords 0 -1 1 1 200 80 2 20 20;
 #X restore -1 11 pd add_del_loop-\$0;
+#N canvas 287 136 515 577 save_page 0;
+#X obj -72 510 spigot;
+#X obj -39 491 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text -14 492 set your filenames \, turn on the spigot. click on
+messages one by one to send them.;
+#X obj 19 389 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj -72 558 s slOSCout;
+#X msg 11 349 3 /sl/0/load_loop greenmilk.wav /errors/load_loop;
+#X msg -72 20 5 /sl/-3/save_loop blah.wav format endian /errors/save_loop
+;
+#X msg 11 368 3 /save_session blank.sl /errors/save_session;
+#X msg 24 394 3 /load_session blank.sl /errors/load_session;
+#X msg -52 70 5 /sl/1/save_loop ses1-1.wav format endian /errors/save_loop
+;
+#X msg -42 90 5 /sl/2/save_loop ses1-2.wav format endian /errors/save_loop
+;
+#X msg -32 110 5 /sl/3/save_loop ses1-3.wav format endian /errors/save_loop
+;
+#X msg -22 130 5 /sl/4/save_loop ses1-4.wav format endian /errors/save_loop
+;
+#X msg -12 150 5 /sl/5/save_loop ses1-5.wav format endian /errors/save_loop
+;
+#X obj -72 534 slOSCsender2;
+#X msg -62 50 5 /sl/0/save_loop uke9-0.wav format endian /errors/save_loop
+;
+#X msg -2 170 5 /sl/6/save_loop uke9-6.wav format endian /errors/save_loop
+;
+#X msg 8 190 5 /sl/7/save_loop uke9-7.wav format endian /errors/save_loop
+;
+#X msg 18 210 5 /sl/8/save_loop uke9-8.wav format endian /errors/save_loop
+;
+#X msg 28 230 5 /sl/9/save_loop uke9-9.wav format endian /errors/save_loop
+;
+#X msg 38 250 5 /sl/10/save_loop uke9-10.wav format endian /errors/save_loop
+;
+#X msg 48 280 5 /sl/11/save_loop uke9-11.wav format endian /errors/save_loop
+;
+#X msg 58 310 5 /sl/12/save_loop uke9-12.wav format endian /errors/save_loop
+;
+#X connect 0 0 14 0;
+#X connect 1 0 0 1;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
+#X connect 14 0 4 0;
+#X connect 15 0 0 0;
+#X connect 16 0 0 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 0;
+#X connect 19 0 0 0;
+#X connect 20 0 0 0;
+#X connect 21 0 0 0;
+#X connect 22 0 0 0;
+#X restore 6 222 pd save_page;
