@@ -175,7 +175,7 @@
 #X text 13 154 emOSCulator - puredata sooperlooper interface;
 #X text 12 174 controls are in red - changing other items can have
 unexpected results;
-#N canvas 334 144 450 300 eigths_and_sync_source 1;
+#N canvas 814 405 450 300 eigths_and_sync_source 1;
 #N canvas 678 376 415 321 sync_interface 0;
 #X obj 55 51 nbx 3 14 0 1e+37 0 0 empty SLeighths_per_cycle 8th/cycle
 0 -8 0 8 -262144 -1 -1 0 256;
@@ -281,40 +281,6 @@ messages one by one to send them.;
 #X connect 21 0 0 0;
 #X connect 22 0 0 0;
 #X restore -9 267 pd save_page;
-#N canvas 137 386 597 140 loopZero-\$0 1;
-#N canvas 16 68 796 404 loopZero_display 0;
-#X floatatom 537 18 5 0 0 0 0_cycle_len Loop0cycle_len -;
-#X floatatom 137 27 5 0 0 1 0_loop_len Loop0loop_len -;
-#X floatatom 102 27 5 0 0 0 0_loop_pos Loop0loop_pos -;
-#X obj 396 357 s slOSCout;
-#X msg 466 221 4 /sl/0/register_auto_update loop_pos 100 /updates/Loop0loop_pos
-;
-#X msg 457 254 4 /sl/0/register_auto_update loop_len 100 /updates/Loop0loop_len
-;
-#X msg 447 286 4 /sl/0/register_auto_update cycle_len 100 /updates/Loop0cycle_len
-;
-#X obj 651 103 bng 15 250 50 0 empty empty register -51 7 0 8 -262144
--1 -1;
-#X obj 540 40 hsl 128 15 0 120 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj 105 140 hsl 560 40 0 1 0 0 empty empty LOOP_ZERO -2 -18 0 24
--262144 -1 -1 0 1;
-#X obj 102 51 /;
-#X obj 396 335 slOSCsender2;
-#X connect 0 0 8 0;
-#X connect 1 0 10 1;
-#X connect 2 0 10 0;
-#X connect 4 0 11 0;
-#X connect 5 0 11 0;
-#X connect 6 0 11 0;
-#X connect 7 0 4 0;
-#X connect 7 0 5 0;
-#X connect 7 0 6 0;
-#X connect 10 0 9 0;
-#X connect 11 0 3 0;
-#X coords 0 -1 1 1 570 90 2 100 100;
-#X restore 13 8 pd loopZero_display;
-#X restore -9 246 pd loopZero-\$0;
 #N canvas 368 25 873 690 current_channel_interface_messages 0;
 #X obj 16 5 inlet;
 #X obj 463 677 outlet;
@@ -533,27 +499,6 @@ messages one by one to send them.;
 #X connect 102 1 1 0;
 #X connect 103 2 104 0;
 #X restore 166 34 pd current_channel_interface_messages;
-#N canvas 218 413 450 300 loop_zero_interface_messages 1;
-#X obj 49 56 unpack f s f;
-#X obj 159 56 unpack f s f;
-#X obj 269 56 unpack f s f;
-#X obj 9 10 inlet;
-#X obj 49 34 routeOSC /Loop0cycle_len /Loop0loop_len /Loop0loop_pos
-;
-#X obj 9 246 outlet;
-#X obj 49 80 s Loop0cycle_len;
-#X obj 269 80 s Loop0loop_pos;
-#X obj 159 80 s Loop0loop_len;
-#X connect 0 2 6 0;
-#X connect 1 2 8 0;
-#X connect 2 2 7 0;
-#X connect 3 0 4 0;
-#X connect 4 0 0 0;
-#X connect 4 1 1 0;
-#X connect 4 2 2 0;
-#X connect 4 3 5 0;
-#X restore 166 62 pd loop_zero_interface_messages;
-#X connect 3 0 4 0;
 #X restore 87 222 pd eigths_and_sync_source;
 #N canvas 704 25 574 562 sync_source_interface 0;
 #X obj 111 63 nbx 2 14 -3 128 0 0 empty SLsync_source sync_source 0

@@ -1,0 +1,59 @@
+#N canvas 43 290 632 149 10;
+#N canvas 192 116 893 509 loopZero_display 0;
+#X floatatom 537 18 5 0 0 0 0_cycle_len - -;
+#X floatatom 137 27 5 0 0 1 0_loop_len - -;
+#X floatatom 102 27 5 0 0 0 0_loop_pos - -;
+#X obj 396 357 s slOSCout;
+#X obj 651 103 bng 15 250 50 0 empty empty register -51 7 0 8 -262144
+-1 -1;
+#X obj 540 40 hsl 128 15 0 120 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 105 140 hsl 560 40 0 1 0 0 empty empty LOOP_ZERO -2 -18 0 24
+-262144 -1 -1 0 1;
+#X obj 102 51 /;
+#X obj 396 335 slOSCsender2;
+#X obj 100 -8 unpack f s f;
+#X obj 210 -8 unpack f s f;
+#X obj 320 -8 unpack f s f;
+#X obj 100 -83 r localOSCin;
+#X obj 100 -57 routeOSC /Loop0;
+#X obj 100 -30 routeOSC /loop_pos /loop_len /cycle_len;
+#X msg 426 227 4 /sl/0/register_auto_update loop_pos 100 /Loop0/loop_pos
+;
+#X msg 426 247 4 /sl/0/register_auto_update loop_len 100 /Loop0/loop_len
+;
+#X msg 426 267 4 /sl/0/register_auto_update cycle_len 100 /Loop0/cycle_len
+;
+#X msg 98 227 3 /unregister_auto_update loop_pos /Loop0/loop_pos;
+#X msg 98 247 3 /unregister_auto_update loop_len /Loop0/loop_len;
+#X msg 98 267 3 /unregister_auto_update cycle_len /Loop0/cycle_len
+;
+#X obj 651 123 bng 15 250 50 0 empty empty unregister -63 7 0 8 -262144
+-1 -1;
+#X connect 0 0 5 0;
+#X connect 1 0 7 1;
+#X connect 2 0 7 0;
+#X connect 4 0 15 0;
+#X connect 4 0 16 0;
+#X connect 4 0 17 0;
+#X connect 7 0 6 0;
+#X connect 8 0 3 0;
+#X connect 9 2 2 0;
+#X connect 10 2 1 0;
+#X connect 11 2 0 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 9 0;
+#X connect 14 1 10 0;
+#X connect 14 2 11 0;
+#X connect 15 0 8 0;
+#X connect 16 0 8 0;
+#X connect 17 0 8 0;
+#X connect 18 0 8 0;
+#X connect 19 0 8 0;
+#X connect 20 0 8 0;
+#X connect 21 0 18 0;
+#X connect 21 0 19 0;
+#X connect 21 0 20 0;
+#X coords 0 -1 1 1 570 90 2 100 100;
+#X restore 23 18 pd loopZero_display;
