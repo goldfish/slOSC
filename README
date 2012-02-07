@@ -3,6 +3,8 @@ pure data interface for controlling sooperlooper via OSC messages
 written by goldfish
 see LICENSE file for full copyright and license information
 
+emOSCulator.pd is the first patch you need to load.
+
 Contains sections which communicate with an arduino mega running
 https://github.com/goldfish/SLhwi
 
