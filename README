@@ -3,7 +3,17 @@ pure data interface for controlling sooperlooper via OSC messages
 written by goldfish
 see LICENSE file for full copyright and license information
 
-emOSCulator.pd is the first patch you need to load.
+latest version always available here
+https://github.com/goldfish/slOSC
+
+Basic Instructions
+emOSCulator.pd - the first patch you need to load.
+slOSCsender2.pd - edit this patch to use your ip address
+The rest of the patches which end in -interface are different ways
+of interfacing with sooperlooper and other devices using emOSCulator
+
+Further instructions can be found in the wiki
+https://github.com/goldfish/slOSC/wiki/slOSC
 
 Contains sections which communicate with an arduino mega running
 https://github.com/goldfish/SLhwi
