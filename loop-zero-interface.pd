@@ -1,5 +1,5 @@
-#N canvas 43 290 632 149 10;
-#N canvas 192 116 893 509 loopZero_display 0;
+#N canvas 0 53 632 149 10;
+#N canvas 131 116 893 509 loopZero_display 0;
 #X floatatom 537 18 5 0 0 0 0_cycle_len - -;
 #X floatatom 137 27 5 0 0 1 0_loop_len - -;
 #X floatatom 102 27 5 0 0 0 0_loop_pos - -;
@@ -7,9 +7,9 @@
 #X obj 651 103 bng 15 250 50 0 empty empty register -51 7 0 8 -262144
 -1 -1;
 #X obj 540 40 hsl 128 15 0 120 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 375 1;
 #X obj 105 140 hsl 560 40 0 1 0 0 empty empty LOOP_ZERO -2 -18 0 24
--262144 -1 -1 0 1;
+-262144 -1 -1 24842 1;
 #X obj 102 51 /;
 #X obj 396 335 slOSCsender2;
 #X obj 100 -8 unpack f s f;
@@ -30,9 +30,15 @@
 ;
 #X obj 651 123 bng 15 250 50 0 empty empty unregister -63 7 0 8 -262144
 -1 -1;
+#X obj 271 42 s 0_loop_pos;
+#X obj 286 62 s 0_loop_len;
+#X obj 236 16 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X connect 0 0 5 0;
 #X connect 1 0 7 1;
+#X connect 1 0 23 0;
 #X connect 2 0 7 0;
+#X connect 2 0 22 0;
 #X connect 4 0 15 0;
 #X connect 4 0 16 0;
 #X connect 4 0 17 0;
@@ -55,5 +61,6 @@
 #X connect 21 0 18 0;
 #X connect 21 0 19 0;
 #X connect 21 0 20 0;
+#X connect 24 0 1 0;
 #X coords 0 -1 1 1 570 90 2 100 100;
 #X restore 23 18 pd loopZero_display;

@@ -1,5 +1,5 @@
 #N canvas 646 25 378 265 10;
-#N canvas 616 25 408 275 OSCin 0;
+#N canvas 74 410 408 275 OSCin 0;
 #X text 103 34 SERVER;
 #X obj -5 47 unpackOSC;
 #X floatatom 52 84 10 0 0 1 millisecond_delay - -;
@@ -34,28 +34,33 @@
 #X restore -5 162 pd processUpdates;
 #X obj 243 51 r localOSCout;
 #X obj 243 73 packOSC;
-#X obj 94 140 s localOSCin;
-#X obj -5 109 routeOSC /updates;
+#X obj 136 130 s localOSCin;
 #X obj 264 25 tgl 15 0 empty empty dump 17 8 0 8 -262144 -1 -1 0 1
 ;
 #X obj 219 134 spigot 0;
 #X obj 219 157 print OSC;
 #X text 2 195 Use localOSCin and localOSCout for OSC local to puredata
 ;
+#X obj -5 109 routeOSC /updates /clock;
+#X obj 14 222 udpreceive 9955;
+#X obj 160 253 midiout;
+#X obj 248 236 print;
 #X connect 1 0 3 0;
 #X connect 1 1 2 0;
 #X connect 1 1 3 1;
-#X connect 3 0 12 0;
-#X connect 3 0 14 0;
+#X connect 3 0 13 0;
+#X connect 3 0 16 0;
 #X connect 4 0 1 0;
 #X connect 4 1 6 0;
 #X connect 6 0 5 0;
 #X connect 9 0 10 0;
 #X connect 10 0 1 0;
-#X connect 12 0 8 0;
-#X connect 12 1 11 0;
-#X connect 13 0 14 1;
-#X connect 14 0 15 0;
+#X connect 12 0 13 1;
+#X connect 13 0 14 0;
+#X connect 16 0 8 0;
+#X connect 16 2 11 0;
+#X connect 17 0 18 0;
+#X connect 17 0 19 0;
 #X coords 0 -1 1 1 125 25 2 200 20;
 #X restore 209 107 pd OSCin;
 #N canvas 635 343 381 270 OSCout 0;
@@ -207,7 +212,7 @@ unexpected results;
 #X obj 200 509 s SLsync_source_message;
 #X obj 241 194 s slOSCout;
 #X obj 280 67 nbx 5 14 0 1e+37 0 0 empty SLloops SLloops 0 -8 0 8 -262144
--1 -1 6 256;
+-1 -1 10 256;
 #X msg -47 385 set Loop0;
 #X msg -31 365 set Loop1;
 #X msg -15 345 set Loop2;
@@ -284,7 +289,7 @@ unexpected results;
 #X msg 239 42 send /loop_add 1 \$1;
 #X obj 277 103 s slOSCout;
 #X obj 156 81 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
--1 -1 6 256;
+-1 -1 10 256;
 #X obj 91 -11 f;
 #X obj 91 114 f;
 #X connect 0 0 8 0;
@@ -299,32 +304,24 @@ unexpected results;
 #X connect 11 0 7 0;
 #X coords 0 -1 1 1 200 80 2 20 20;
 #X restore -1 11 pd add_del_loop-\$0;
-#N canvas 287 136 515 577 save_page 0;
-#X obj -72 510 spigot;
-#X obj -39 491 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 284 42 515 686 save_page 0;
+#X obj -72 590 spigot;
+#X obj -39 571 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text -14 492 set your filenames \, turn on the spigot. click on
+#X text -14 572 set your filenames \, turn on the spigot. click on
 messages one by one to send them.;
-#X obj 19 389 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
+#X obj 19 469 cnv 15 400 100 empty empty empty 20 12 0 14 -233017 -66577
 0;
-#X obj -72 558 s slOSCout;
+#X obj -72 638 s slOSCout;
 #X msg -72 20 5 /sl/-3/save_loop blah.wav format endian /errors/save_loop
 ;
-#X msg 11 368 3 /save_session blank.sl /errors/save_session;
-#X msg 24 394 3 /load_session blank.sl /errors/load_session;
-#X msg -52 70 5 /sl/1/save_loop ses1-1.wav format endian /errors/save_loop
-;
-#X msg -42 90 5 /sl/2/save_loop ses1-2.wav format endian /errors/save_loop
-;
-#X msg -32 110 5 /sl/3/save_loop ses1-3.wav format endian /errors/save_loop
-;
+#X msg 11 448 3 /save_session blank.sl /errors/save_session;
+#X msg 24 474 3 /load_session blank.sl /errors/load_session;
 #X msg -22 130 5 /sl/4/save_loop ses1-4.wav format endian /errors/save_loop
 ;
 #X msg -12 150 5 /sl/5/save_loop ses1-5.wav format endian /errors/save_loop
 ;
-#X obj -72 534 slOSCsender2;
-#X msg -62 50 5 /sl/0/save_loop uke9-0.wav format endian /errors/save_loop
-;
+#X obj -72 614 slOSCsender2;
 #X msg -2 170 5 /sl/6/save_loop uke9-6.wav format endian /errors/save_loop
 ;
 #X msg 8 190 5 /sl/7/save_loop uke9-7.wav format endian /errors/save_loop
@@ -339,22 +336,32 @@ messages one by one to send them.;
 ;
 #X msg 58 310 5 /sl/12/save_loop uke9-12.wav format endian /errors/save_loop
 ;
-#X msg 31 419 3 /load_session goldfish.sl /errors/load_session;
-#X msg 11 349 3 /save_session goldfishQUAD.sl /errors/save_session
+#X msg 31 499 3 /load_session goldfish.sl /errors/load_session;
+#X msg 11 429 3 /save_session goldfishQUAD.sl /errors/save_session
 ;
-#X msg 41 439 3 /load_session goldfishQUAD.sl /errors/load_session
+#X msg 41 519 3 /load_session goldfishQUAD.sl /errors/load_session
 ;
-#X connect 0 0 13 0;
+#X msg 68 350 3 /sl/0/load_loop Rock-108-1a.wav /errors/load_loop;
+#X msg 78 370 3 /sl/0/load_loop Eroc1a-120.wav /errors/load_loop;
+#X msg -62 50 5 /sl/0/save_loop md1-0.wav format endian /errors/save_loop
+;
+#X msg -52 70 5 /sl/1/save_loop md1-1.wav format endian /errors/save_loop
+;
+#X msg -42 90 5 /sl/2/save_loop md1-2.wav format endian /errors/save_loop
+;
+#X msg -32 110 5 /sl/3/save_loop md1-3.wav format endian /errors/save_loop
+;
+#X connect 0 0 10 0;
 #X connect 1 0 0 1;
 #X connect 5 0 0 0;
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
 #X connect 8 0 0 0;
 #X connect 9 0 0 0;
-#X connect 10 0 0 0;
+#X connect 10 0 4 0;
 #X connect 11 0 0 0;
 #X connect 12 0 0 0;
-#X connect 13 0 4 0;
+#X connect 13 0 0 0;
 #X connect 14 0 0 0;
 #X connect 15 0 0 0;
 #X connect 16 0 0 0;
@@ -366,4 +373,6 @@ messages one by one to send them.;
 #X connect 22 0 0 0;
 #X connect 23 0 0 0;
 #X connect 24 0 0 0;
+#X connect 25 0 0 0;
+#X connect 26 0 0 0;
 #X restore 6 222 pd save_page;
