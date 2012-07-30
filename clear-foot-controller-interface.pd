@@ -1,4 +1,4 @@
-#N canvas 0 0 439 334 10;
+#N canvas 0 352 439 334 10;
 #N canvas 57 204 931 434 footControllerSerial 0;
 #X floatatom 304 341 10 0 0 1 baud - -;
 #X floatatom 556 214 3 0 0 3 parity - -;
@@ -97,7 +97,7 @@ open ports hupcl rxerrors;
 #X connect 44 0 18 0;
 #X coords 0 -1 1 1 300 60 2 300 300;
 #X restore 62 32 pd footControllerSerial;
-#N canvas -224 56 1210 656 footControllerVisual 0;
+#N canvas -207 56 1210 656 footControllerVisual 0;
 #X obj 18 128 routeOSC /0 /1 /2 /3 /4 /5 /6;
 #X obj 198 128 routeOSC /0 /1 /2 /3 /4;
 #X text 29 110 Foot Switches Hit;
@@ -239,7 +239,7 @@ open ports hupcl rxerrors;
 ;
 #X obj 646 164 tgl 8 0 empty empty empty 17 7 0 10 -4032 -1 -1 0 1
 ;
-#X obj 659 21 tgl 8 0 empty empty empty 17 7 0 10 -4032 -1 -1 1 1;
+#X obj 659 21 tgl 8 0 empty empty empty 17 7 0 10 -4032 -1 -1 0 1;
 #X obj 553 177 bng 15 250 50 0 empty empty undo_all -15 22 0 8 -258113
 -1 -1;
 #X obj 673 234 bng 20 250 50 0 empty empty UNDO_ALL 22 10 0 10 -258113
@@ -264,7 +264,9 @@ open ports hupcl rxerrors;
 #X obj 929 429 r 0_loop_pos;
 #X obj 944 448 r 0_loop_len;
 #X obj 835 341 moses 0;
-#X obj 874 364 moses 11;
+#X obj 874 364 moses 6;
+#X obj 913 342 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
+-1 -1 6 256;
 #X connect 0 0 4 0;
 #X connect 0 1 5 0;
 #X connect 0 2 6 0;
@@ -391,5 +393,6 @@ open ports hupcl rxerrors;
 #X connect 101 0 85 1;
 #X connect 102 1 103 0;
 #X connect 103 0 26 0;
+#X connect 104 0 103 1;
 #X coords 0 -1 1 1 320 200 2 360 10;
 #X restore 52 94 pd footControllerVisual;

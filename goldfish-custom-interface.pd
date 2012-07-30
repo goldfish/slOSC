@@ -727,17 +727,17 @@
 #X obj 23 168 nbx 5 14 0 1e+37 0 0 empty CCIrate rate 0 -6 0 8 -262144
 -1 -1 1 256;
 #X obj 25 472 nbx 5 14 0 1e+37 0 0 empty CCIquantize quantize 0 -8
-0 8 -262144 -1 -1 1 256;
+0 8 -262144 -1 -1 0 256;
 #X obj 338 -28 nbx 5 14 0 1e+37 0 0 empty CCIround round 0 -8 0 8 -262144
 -1 -1 0 256;
 #X obj 386 -28 nbx 5 14 0 1e+37 0 0 empty CCIsync sync 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 0 256;
 #X obj -68 25 nbx 5 14 0 1e+37 0 0 empty CCIuse_rate use_rate 0 -8
 0 8 -262144 -1 -1 0 256;
 #X obj 558 -26 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_ins use_common_ins
 0 -8 0 8 -262144 -1 -1 1 256;
 #X obj 558 4 nbx 5 14 0 1e+37 0 0 empty CCIuse_common_outs use_common_outs
-0 -8 0 8 -262144 -1 -1 1 256;
+0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 442 -26 nbx 5 14 0 1e+37 0 0 empty CCImute_quantized mute_quantized
 0 -8 0 8 -262144 -1 -1 0 256;
 #X obj 442 4 nbx 5 14 0 1e+37 0 0 empty CCIreplace_quantized replace_quantized
@@ -747,7 +747,7 @@
 #X obj 357 207 tgl 15 0 empty empty use_common_ins 17 7 0 8 -262144
 -1 -1 1 1;
 #X obj 487 207 tgl 15 0 empty empty use_common_outs 17 7 0 8 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 341 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
 #X obj 471 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
@@ -756,7 +756,7 @@
 1;
 #X obj 198 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
-#X obj 214 172 tgl 15 0 empty empty sync 17 7 0 8 -262144 -1 -1 1 1
+#X obj 214 172 tgl 15 0 empty empty sync 17 7 0 8 -262144 -1 -1 0 1
 ;
 #X obj 198 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
@@ -1175,7 +1175,9 @@ label doesn't show up either.;
 #X msg 793 277 send /set output_midi_clock \$1;
 #X obj 793 257 tgl 15 0 empty empty output_midi_clock 17 8 0 8 -262144
 -1 -1 0 1;
-#X obj 1044 486 moses 11;
+#X obj 1044 486 moses 6;
+#X obj 1083 463 nbx 5 14 0 1e+37 0 0 empty SLloops loops 0 -8 0 8 -262144
+-1 -1 6 256;
 #X connect 1 0 142 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;
@@ -1314,5 +1316,6 @@ label doesn't show up either.;
 #X connect 146 0 65 0;
 #X connect 147 0 146 0;
 #X connect 148 0 72 0;
+#X connect 149 0 148 1;
 #X coords 0 -1 1 1 580 340 2 15 65;
 #X restore -488 -194 pd current_loop_interface;
